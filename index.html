@@ -1,0 +1,3312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="High-definition CNC plasma cutting in Hot Springs, Arkansas. Design your own sign or bracket online, or upload a DXF. Custom cut art, production contract cutting, plate parts on demand.">
+<title>Mid South Plasma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Yellowtail&display=swap">
+
+<style>
+/* ============================================================
+   MID SOUTH PLASMA — single-file marketing site
+   Palette: mill scale, raw plate, machine blue, cut-edge ember
+   ============================================================ */
+
+:root{
+  --ink:      #15181B;   /* mill scale — heavy bands, body text */
+  --ink-2:    #22272C;   /* raised dark surface */
+  --steel:    #5A6570;   /* cool grey-blue mid — secondary text */
+  --steel-2:  #8D959D;   /* muted */
+  --paper:    #F1F0EC;   /* bone — page ground */
+  --plate:    #DEDFDA;   /* raw plate — alternate band */
+  --line:     #C6C8C3;   /* hairline on light */
+  --line-d:   #363C42;   /* hairline on dark */
+  --arc:      #0E5C93;   /* machine blue — primary accent */
+  --arc-lt:   #2C86C6;
+  --ember:    #DD5F16;   /* cut edge — used sparingly */
+  --ember-lt: #F0A45C;
+  --ok:       #2E7D4F;
+
+  --wrap: 1180px;
+  --f-display: "Archivo Black", "Arial Black", Impact, sans-serif;
+  --f-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+[hidden]{ display:none !important; }
+
+html{ scroll-behavior:smooth; }
+section[id], footer[id]{ scroll-margin-top:84px; }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; }
+
+a{ color:var(--arc); }
+
+:focus-visible{
+  outline:2px solid var(--ember);
+  outline-offset:3px;
+}
+
+/* ---------- layout primitives ---------- */
+
+.wrap{
+  width:100%;
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.band{ padding:88px 0; }
+.band--dark{ background:var(--ink); color:var(--paper); }
+.band--plate{ background:var(--plate); }
+.band--tight{ padding:56px 0; }
+
+/* ---------- type ---------- */
+
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin:0;
+}
+.band--dark .eyebrow{ color:var(--steel-2); }
+
+h1,h2,h3{ text-wrap:balance; margin:0; }
+
+.h-display{
+  font-family:var(--f-display);
+  font-weight:400;
+  font-size:clamp(38px,6.2vw,68px);
+  line-height:1.02;
+  letter-spacing:-0.015em;
+  text-transform:uppercase;
+}
+
+.h-sec{
+  font-family:var(--f-display);
+  font-weight:400;
+  font-size:clamp(27px,3.6vw,40px);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  text-transform:uppercase;
+}
+
+.h-card{
+  font-family:var(--f-display);
+  font-weight:400;
+  font-size:20px;
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:.005em;
+}
+
+.lede{
+  font-size:clamp(17px,1.6vw,20px);
+  line-height:1.6;
+  color:var(--steel);
+  max-width:56ch;
+}
+.band--dark .lede{ color:#B9C0C6; }
+
+.prose{ max-width:64ch; }
+
+/* placeholder markers — details for the owner to fill in */
+.fill{
+  border-bottom:1px dotted var(--ember);
+  padding-bottom:1px;
+}
+
+/* ---------- section headers (drawing-callout treatment) ---------- */
+
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:18px;
+  padding-top:16px;
+  border-top:2px solid var(--ink);
+  position:relative;
+  margin-bottom:28px;
+}
+.band--dark .sec-head{ border-top-color:var(--paper); }
+
+.sec-head::before{
+  content:"";
+  position:absolute;
+  top:-2px; left:0;
+  width:2px; height:13px;
+  background:var(--ember);
+}
+
+.sec-num{
+  font-family:var(--f-mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  color:var(--ember);
+  flex:none;
+  padding-top:6px;
+}
+
+.sec-note{
+  font-family:var(--f-mono);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--steel);
+  margin-left:auto;
+  padding-top:8px;
+  flex:none;
+}
+.band--dark .sec-note{ color:var(--steel-2); }
+
+/* ---------- buttons ---------- */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--f-mono);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:15px 26px;
+  border:2px solid transparent;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn--primary{ background:var(--ember); color:#fff; border-color:var(--ember); }
+.btn--primary:hover{ background:#c25012; border-color:#c25012; }
+.btn--ghost{ background:transparent; color:var(--paper); border-color:#4A535B; }
+.btn--ghost:hover{ border-color:var(--paper); }
+.btn--dark{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--dark:hover{ background:var(--arc); border-color:var(--arc); }
+
+/* ---------- header ---------- */
+
+.site-head{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:var(--ink);
+  border-bottom:1px solid var(--line-d);
+}
+.head-in{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  height:66px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  color:var(--paper);
+  flex:none;
+}
+.brand-mark{ display:block; flex:none; }
+.brand-txt{
+  font-family:var(--f-display);
+  font-size:17px;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  line-height:1;
+}
+.brand-sub{
+  display:block;
+  font-family:var(--f-mono);
+  font-size:9.5px;
+  letter-spacing:.17em;
+  color:var(--steel-2);
+  margin-top:4px;
+  font-weight:400;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  margin-left:auto;
+}
+.nav a{
+  font-family:var(--f-mono);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#B9C0C6;
+  text-decoration:none;
+  padding:6px 0;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{ color:var(--paper); border-bottom-color:var(--ember); }
+.nav .btn{ padding:11px 18px; border-bottom-width:2px; }
+.nav .btn:hover{ color:#fff; border-bottom-color:#c25012; }
+
+.nav-toggle{
+  display:none;
+  margin-left:auto;
+  background:none;
+  border:1px solid var(--line-d);
+  color:var(--paper);
+  font-family:var(--f-mono);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:9px 14px;
+  cursor:pointer;
+}
+
+/* ---------- hero ---------- */
+
+.hero{
+  background:var(--ink);
+  color:var(--paper);
+  padding:76px 0 0;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:56px;
+  align-items:center;
+}
+.hero h1{ margin:20px 0 22px; }
+.hero .arc-rule{
+  width:96px; height:4px;
+  background:linear-gradient(90deg,var(--ember),#F0A45C 60%,transparent);
+  margin:0 0 20px;
+}
+.hero-cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:32px;
+}
+.hero-call{
+  font-family:var(--f-mono);
+  font-size:13px;
+  letter-spacing:.06em;
+  color:#8D959D;
+  margin:18px 0 0;
+}
+.hero-call a{ color:var(--paper); text-decoration:none; font-weight:500; }
+.hero-call a:hover{ color:var(--ember-lt); }
+
+.hero-canvas-frame{
+  position:relative;
+  background:#0D1013;
+  border:1px solid var(--line-d);
+  aspect-ratio:4/3.1;
+}
+.hero-canvas-frame canvas{ display:block; width:100%; height:100%; }
+.canvas-tag{
+  position:absolute;
+  left:12px; bottom:11px;
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#6F7A84;
+}
+
+/* trust strip */
+.strip{
+  margin-top:70px;
+  border-top:1px solid var(--line-d);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.strip-item{
+  padding:22px 22px 24px 0;
+  border-right:1px solid var(--line-d);
+}
+.strip-item:last-child{ border-right:0; }
+.strip-item:not(:first-child){ padding-left:22px; }
+.strip-k{
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ember);
+  display:block;
+  margin-bottom:7px;
+}
+.strip-v{
+  font-family:var(--f-body);
+  font-size:15px;
+  font-weight:500;
+  line-height:1.35;
+  color:#DDE1E4;
+}
+
+/* ---------- spec table ---------- */
+
+.spec-wrap{ overflow-x:auto; }
+.spec{
+  width:100%;
+  min-width:600px;
+  border-collapse:collapse;
+  font-variant-numeric:tabular-nums;
+}
+.spec th,.spec td{
+  text-align:left;
+  padding:15px 18px 15px 0;
+  border-bottom:1px solid var(--line);
+}
+.spec thead th{
+  font-family:var(--f-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--steel);
+  border-bottom:2px solid var(--ink);
+  padding-bottom:11px;
+}
+.spec tbody th{
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:16px;
+}
+.spec tbody th small{
+  display:block;
+  font-weight:400;
+  font-size:13px;
+  color:var(--steel);
+  font-family:var(--f-mono);
+  letter-spacing:.04em;
+}
+.spec td{ font-family:var(--f-mono); font-size:15px; }
+.spec .hi{ color:var(--ember); font-weight:600; }
+.spec-foot{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  line-height:1.7;
+  color:var(--steel);
+  margin-top:20px;
+}
+
+/* ---------- service cards ---------- */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.band--dark .cards{ background:var(--line-d); border-color:var(--line-d); }
+
+.card{
+  background:var(--paper);
+  padding:32px 28px 34px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.band--plate .card{ background:var(--plate); }
+.band--dark .card{ background:var(--ink); }
+
+.card-k{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ember);
+}
+.card p{ margin:0; color:var(--steel); font-size:15.5px; line-height:1.62; }
+.band--dark .card p{ color:#AEB6BD; }
+.card ul{
+  margin:2px 0 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.card li{
+  font-family:var(--f-mono);
+  font-size:11.5px;
+  letter-spacing:.04em;
+  color:var(--ink);
+  border:1px solid var(--line);
+  padding:4px 9px;
+}
+.band--plate .card li{ border-color:#C3C5BF; }
+
+/* ---------- process steps ---------- */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:34px;
+  counter-reset:step;
+}
+.step{ border-top:2px solid var(--ink); padding-top:18px; }
+.step-n{
+  font-family:var(--f-mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  color:var(--ember);
+  display:block;
+  margin-bottom:10px;
+}
+.step h3{
+  font-family:var(--f-display);
+  font-size:17px;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+.step p{ margin:0; font-size:15px; color:var(--steel); line-height:1.6; }
+
+/* ---------- work gallery ---------- */
+
+.work{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.work-item{
+  border:1px solid var(--line);
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+}
+.work-art{
+  background:var(--ink-2);
+  aspect-ratio:4/3;
+  display:block;
+  width:100%;
+}
+.work-cap{ padding:16px 18px 19px; }
+.work-cap h3{
+  font-family:var(--f-body);
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.work-cap p{
+  margin:0;
+  font-family:var(--f-mono);
+  font-size:12px;
+  letter-spacing:.05em;
+  color:var(--steel);
+}
+
+/* ---------- design tool ---------- */
+
+.dz-tabs{
+  display:flex;
+  gap:0;
+  margin-bottom:34px;
+  border-bottom:1px solid var(--line-d);
+}
+.dz-tab{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  font-weight:500;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  background:none;
+  border:0;
+  border-bottom:3px solid transparent;
+  color:#8D959D;
+  padding:13px 24px 12px;
+  margin-bottom:-1px;
+  cursor:pointer;
+  transition:color .14s ease, border-color .14s ease;
+}
+.dz-tab:hover{ color:#DDE1E4; }
+.dz-tab[aria-selected="true"]{ color:var(--paper); border-bottom-color:var(--ember); }
+
+.dz-grid{
+  display:grid;
+  grid-template-columns:352px 1fr;
+  gap:44px;
+  align-items:start;
+}
+
+/* --- control column --- */
+
+.dz-lab{
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ember);
+  display:block;
+  margin-bottom:12px;
+}
+
+.dz-picker{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:30px;
+}
+.dz-pick{
+  background:#1C2126;
+  border:1px solid var(--line-d);
+  padding:11px 6px 9px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  transition:border-color .14s ease, background .14s ease;
+}
+.dz-pick:hover{ border-color:#5A6570; }
+.dz-pick[aria-pressed="true"]{ border-color:var(--ember); background:#241C16; }
+.dz-pick svg{ display:block; }
+.dz-pick span{
+  font-family:var(--f-mono);
+  font-size:9.5px;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:#AEB6BD;
+  text-align:center;
+  line-height:1.3;
+}
+.dz-pick[aria-pressed="true"] span{ color:var(--paper); }
+
+.dz-fields{ display:flex; flex-direction:column; gap:15px; }
+.dz-f{ display:flex; flex-direction:column; gap:6px; }
+.dz-f > label{
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#8D959D;
+}
+.dz-f input,.dz-f select{
+  font-family:var(--f-body);
+  font-size:15px;
+  color:var(--paper);
+  background:#1C2126;
+  border:1px solid var(--line-d);
+  padding:10px 11px;
+  width:100%;
+  border-radius:0;
+}
+.dz-f input:focus,.dz-f select:focus{ border-color:var(--arc-lt); outline:none; }
+.dz-f2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+
+.dz-sep{
+  border:0;
+  border-top:1px solid var(--line-d);
+  margin:24px 0 20px;
+}
+
+/* --- stage column --- */
+
+.dz-stage{ display:flex; flex-direction:column; gap:20px; }
+
+.dz-frame{
+  position:relative;
+  background:#0D1013;
+  border:1px solid var(--line-d);
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+.dz-frame svg,.dz-frame canvas{ display:block; width:100%; height:100%; }
+
+.dz-empty{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:center;
+  padding:30px;
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  letter-spacing:.06em;
+  color:#6F7A84;
+  line-height:1.8;
+}
+.dz-frame.drag{ border-color:var(--ember); }
+
+.dz-readout{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line-d);
+  border:1px solid var(--line-d);
+}
+.dz-stat{ background:var(--ink); padding:15px 16px 16px; }
+.dz-stat b{
+  display:block;
+  font-family:var(--f-mono);
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#7C858D;
+  margin-bottom:6px;
+}
+.dz-stat span{
+  font-family:var(--f-mono);
+  font-size:19px;
+  font-weight:600;
+  color:var(--paper);
+  font-variant-numeric:tabular-nums;
+  line-height:1.15;
+  display:block;
+}
+.dz-stat em{
+  font-style:normal;
+  font-family:var(--f-mono);
+  font-size:10.5px;
+  color:#7C858D;
+  display:block;
+  margin-top:3px;
+}
+
+.dz-checks{ display:flex; flex-direction:column; gap:9px; }
+.dz-check{
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+  font-size:14px;
+  line-height:1.55;
+  color:#AEB6BD;
+  border-left:3px solid #4A535B;
+  padding:2px 0 2px 13px;
+}
+.dz-check.warn{ border-left-color:var(--ember); color:#DDE1E4; }
+.dz-check.stop{ border-left-color:#E1442A; color:#F3D5CE; }
+.dz-check b{
+  font-family:var(--f-mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#7C858D;
+  flex:none;
+  width:56px;
+  padding-top:3px;
+}
+.dz-check.warn b{ color:var(--ember); }
+.dz-check.stop b{ color:#E1442A; }
+
+.dz-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.dz-note{
+  font-family:var(--f-mono);
+  font-size:11.5px;
+  letter-spacing:.03em;
+  color:#7C858D;
+  max-width:40ch;
+  line-height:1.6;
+}
+
+.dz-drop{
+  border:1px dashed #4A535B;
+  background:#12161A;
+  padding:34px 26px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.dz-drop p{
+  margin:0;
+  font-size:15px;
+  color:#AEB6BD;
+  max-width:44ch;
+  line-height:1.6;
+}
+.dz-drop input[type="file"]{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  color:#AEB6BD;
+}
+.dz-filename{
+  font-family:var(--f-mono);
+  font-size:12px;
+  letter-spacing:.06em;
+  color:var(--ember);
+}
+
+/* banner shown in the quote form when a design is attached */
+.attached{
+  border:1px solid var(--ember);
+  background:#FBEDE4;
+  padding:15px 18px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.attached-txt{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  line-height:1.7;
+  color:var(--ink);
+  letter-spacing:.02em;
+}
+.attached-txt b{ color:var(--ember); letter-spacing:.1em; text-transform:uppercase; font-size:10.5px; display:block; margin-bottom:3px; }
+.attached button{
+  background:none;
+  border:0;
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--steel);
+  cursor:pointer;
+  text-decoration:underline;
+  padding:2px;
+  flex:none;
+}
+.attached button:hover{ color:var(--ink); }
+
+@media (max-width:1000px){
+  .dz-grid{ grid-template-columns:1fr; gap:30px; }
+  .dz-readout{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:720px){
+  .dz-tabs{ flex-direction:column; border-bottom:0; }
+  .dz-tab{ border:1px solid var(--line-d); border-bottom-width:1px; margin-bottom:-1px; text-align:left; }
+  .dz-tab[aria-selected="true"]{ border-color:var(--ember); }
+  .dz-picker{ grid-template-columns:repeat(2,1fr); }
+  .dz-readout{ grid-template-columns:1fr 1fr; }
+}
+
+/* ---------- quote form ---------- */
+
+.quote-grid{
+  display:grid;
+  grid-template-columns:1fr 1.55fr;
+  gap:60px;
+  align-items:start;
+}
+.quote-aside p{ color:var(--steel); font-size:16px; }
+.quote-aside .contact-line{
+  font-family:var(--f-mono);
+  font-size:14px;
+  letter-spacing:.03em;
+  line-height:2;
+  color:var(--ink);
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid #C3C5BF;
+}
+.quote-aside .contact-line a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ember); }
+
+form.quote{ display:flex; flex-direction:column; gap:22px; }
+
+.frow{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.frow--3{ grid-template-columns:1fr 1fr 1fr; }
+
+.field{ display:flex; flex-direction:column; gap:7px; }
+
+.field label,.legend{
+  font-family:var(--f-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.field label .req{ color:var(--ember); }
+
+.field input,.field select,.field textarea{
+  font-family:var(--f-body);
+  font-size:16px;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid #B9BCB6;
+  padding:12px 13px;
+  width:100%;
+  border-radius:0;
+  transition:border-color .15s ease;
+}
+.field textarea{ min-height:120px; resize:vertical; line-height:1.55; }
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--arc);
+  outline:2px solid rgba(14,92,147,.22);
+  outline-offset:0;
+}
+.field input[type="file"]{ padding:10px; font-family:var(--f-mono); font-size:13px; }
+.hint{
+  font-family:var(--f-mono);
+  font-size:11.5px;
+  color:var(--steel);
+  letter-spacing:.03em;
+}
+
+fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{ position:relative; }
+.chip input{
+  position:absolute;
+  opacity:0;
+  width:100%; height:100%;
+  left:0; top:0;
+  margin:0;
+  cursor:pointer;
+}
+.chip span{
+  display:block;
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  letter-spacing:.04em;
+  padding:10px 15px;
+  border:1px solid #B9BCB6;
+  background:var(--paper);
+  cursor:pointer;
+  transition:background .13s ease,border-color .13s ease,color .13s ease;
+}
+.chip input:checked + span{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:var(--paper);
+}
+.chip input:focus-visible + span{ outline:2px solid var(--ember); outline-offset:2px; }
+
+.form-err{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  color:#B3350D;
+  letter-spacing:.02em;
+}
+.field.invalid input,.field.invalid select,.field.invalid textarea{ border-color:#B3350D; }
+
+.form-actions{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.form-actions .hint{ max-width:34ch; }
+
+/* confirmation panel */
+.sent{
+  border:2px solid var(--ink);
+  background:var(--paper);
+  padding:30px 30px 32px;
+}
+.sent h3{ font-family:var(--f-display); font-size:23px; text-transform:uppercase; margin-bottom:12px; }
+.sent p{ color:var(--steel); font-size:15.5px; margin:0 0 18px; max-width:58ch; }
+.sent pre{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  line-height:1.75;
+  background:var(--plate);
+  border:1px solid #C3C5BF;
+  padding:16px 18px;
+  overflow-x:auto;
+  margin:0 0 18px;
+  white-space:pre-wrap;
+  color:var(--ink);
+}
+.sent-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.copied{ font-family:var(--f-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ok); }
+
+/* ---------- FAQ ---------- */
+
+.faq{ border-top:2px solid var(--ink); }
+.faq details{ border-bottom:1px solid var(--line); }
+.faq summary{
+  cursor:pointer;
+  list-style:none;
+  padding:20px 40px 20px 0;
+  font-family:var(--f-body);
+  font-weight:600;
+  font-size:17px;
+  position:relative;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"+";
+  position:absolute;
+  right:6px; top:18px;
+  font-family:var(--f-mono);
+  font-size:20px;
+  color:var(--ember);
+  line-height:1;
+}
+.faq details[open] summary::after{ content:"–"; }
+.faq details p{
+  margin:0 0 22px;
+  max-width:70ch;
+  color:var(--steel);
+  font-size:16px;
+}
+
+/* ---------- footer ---------- */
+
+.foot-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:44px;
+}
+.foot h4{
+  font-family:var(--f-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ember);
+  margin:0 0 14px;
+}
+.foot p,.foot ul{ margin:0; font-size:15px; color:#AEB6BD; line-height:1.75; }
+.foot ul{ padding:0; list-style:none; }
+.foot a{ color:#DDE1E4; text-decoration:none; }
+.foot a:hover{ color:#fff; text-decoration:underline; }
+.foot-bar{
+  margin-top:52px;
+  padding-top:22px;
+  border-top:1px solid var(--line-d);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  font-family:var(--f-mono);
+  font-size:11.5px;
+  letter-spacing:.08em;
+  color:#7C858D;
+  text-transform:uppercase;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:1000px){
+  .hero-grid{ grid-template-columns:1fr; gap:40px; }
+  .strip{ grid-template-columns:1fr 1fr; }
+  .strip-item:nth-child(2n){ border-right:0; }
+  .strip-item:nth-child(n+3){ border-top:1px solid var(--line-d); }
+  .cards{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns:1fr 1fr; gap:28px; }
+  .work{ grid-template-columns:1fr 1fr; }
+  .quote-grid{ grid-template-columns:1fr; gap:38px; }
+  .foot-grid{ grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:720px){
+  body{ font-size:16px; }
+  .band{ padding:60px 0; }
+  .wrap{ padding:0 20px; }
+  .nav{
+    display:none;
+    position:absolute;
+    top:66px; left:0; right:0;
+    background:var(--ink);
+    border-bottom:1px solid var(--line-d);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:8px 20px 20px;
+  }
+  .nav.open{ display:flex; }
+  .nav a{ padding:13px 0; border-bottom:1px solid var(--line-d); }
+  .nav .btn{ margin-top:12px; justify-content:center; }
+  .nav-toggle{ display:block; }
+  .sec-head{ flex-wrap:wrap; gap:10px; }
+  .sec-note{ margin-left:0; width:100%; padding-top:0; }
+  .frow,.frow--3{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns:1fr; }
+  .work{ grid-template-columns:1fr; }
+  .foot-grid{ grid-template-columns:1fr; gap:32px; }
+  .hero{ padding-top:52px; }
+  .strip{ margin-top:48px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+}
+</style>
+</head>
+<body>
+<!-- ===================== HEADER ===================== -->
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <rect x="1" y="1" width="28" height="28" fill="none" stroke="#5A6570" stroke-width="1.5"/>
+        <path d="M15 4 L15 17" stroke="#DD5F16" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="15" cy="19.5" r="3.2" fill="#DD5F16"/>
+        <path d="M6 25.5 L24 25.5" stroke="#F1F0EC" stroke-width="1.5"/>
+      </svg>
+      <span class="brand-txt">Mid South Plasma
+        <span class="brand-sub">Hot Springs, Arkansas</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#services">What We Cut</a>
+      <a href="#process">How It Works</a>
+      <a href="#design">Design Tool</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--primary" href="#quote">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">CNC Plasma Cutting &nbsp;/&nbsp; Garland County, AR</p>
+        <h1 class="h-display">Send us a file.<br>Pick up your parts.</h1>
+        <div class="arc-rule"></div>
+        <p class="lede">High-definition plasma cutting on a 9&nbsp;ft &times; 16&nbsp;ft Messer table, right here in Hot Springs. Mild steel, stainless and aluminum &mdash; one bracket or a thousand. Most quotes go back the same day.</p>
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="#quote">Get a Quote</a>
+          <a class="btn btn--ghost" href="#design">Lay Out Your Part</a>
+        </div>
+        <p class="hero-call">or call the shop &mdash; <a href="tel:+18885736201">888-573-6201</a></p>
+      </div>
+      <div class="hero-canvas-frame">
+        <canvas id="cutCanvas" aria-label="Animation of a plasma torch cutting nested parts from a steel plate" role="img"></canvas>
+        <span class="canvas-tag">Nest 04 &mdash; A36 plate &mdash; cutting</span>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div class="strip-item">
+        <span class="strip-k">Machine</span>
+        <span class="strip-v">Messer MMPlus8 Slagger<br>Hypertherm HPR260XD</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-k">Cutting envelope</span>
+        <span class="strip-v">9&nbsp;ft &times; 16&nbsp;ft table<br>Full 8&nbsp;ft plate, no seams</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-k">Material</span>
+        <span class="strip-v">Plate and sheet stocked<br>in our own yard</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-k">Delivery</span>
+        <span class="strip-v">Pickup in Hot Springs<br>or our truck, 100&nbsp;mi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAPABILITIES ===================== -->
+<section class="band" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="h-sec">What the table will cut</h2>
+      <span class="sec-note">9&nbsp;ft &times; 16&nbsp;ft &middot; Hypertherm 260&nbsp;A</span>
+    </div>
+
+    <div class="spec-wrap">
+      <table class="spec">
+        <thead>
+          <tr>
+            <th scope="col">Material</th>
+            <th scope="col">Clean production cut</th>
+            <th scope="col">Max pierce</th>
+            <th scope="col">Severance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Mild steel <small>A36 hot rolled</small></th>
+            <td class="hi">16&nbsp;ga &ndash; 1&frac14;&Prime;</td>
+            <td>1&frac12;&Prime;</td>
+            <td>2&frac12;&Prime;</td>
+          </tr>
+          <tr>
+            <th scope="row">Stainless <small>304 / 316</small></th>
+            <td class="hi">16&nbsp;ga &ndash; &frac34;&Prime;</td>
+            <td>1&frac14;&Prime;</td>
+            <td>2&Prime;</td>
+          </tr>
+          <tr>
+            <th scope="row">Aluminum <small>5052 / 6061</small></th>
+            <td class="hi">&#8539;&Prime; &ndash; &frac12;&Prime;</td>
+            <td>1&Prime;</td>
+            <td>2&Prime;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="spec-foot">
+      Nine feet by sixteen on the table &mdash; we take a full 8&nbsp;ft wide plate and cut parts up to 16&nbsp;ft long in one piece. No seams, nothing welded together just to make length.<br>
+      Holes, slots, interior cutouts and text all cut in the same pass.<br>
+      Cut tolerance runs about &plusmn;1/16&Prime; on typical plate work &mdash; tell us if you need tighter and we&rsquo;ll say straight out whether plasma is the right process for the part.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="band band--plate" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="h-sec">Three kinds of work</h2>
+      <span class="sec-note">One part or a thousand</span>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <span class="card-k">Custom &amp; decorative</span>
+        <h3 class="h-card">Art, signs and one-offs</h3>
+        <p>Wildlife scenes, monograms, address plaques, shop and ranch signs, fire pit panels, gate inserts. Bring a design or a picture of one and we&rsquo;ll cut it. Single pieces are welcome &mdash; a lot of our decorative work is one part.</p>
+        <ul>
+          <li>Wildlife</li><li>Monograms</li><li>Address signs</li><li>Fire pits</li><li>Gate panels</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="card-k">Production &amp; contract</span>
+        <h3 class="h-card">Repeat parts, run after run</h3>
+        <p>Contract cutting for fab shops, machine shops, trailer builders and contractors. We nest for yield, cut to your print, deslag, count and tag. Standing orders and blanket POs are no problem &mdash; send the release and we schedule it.</p>
+        <ul>
+          <li>Nested for yield</li><li>Cut to print</li><li>Batched &amp; tagged</li><li>Standing orders</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="card-k">Parts on demand</span>
+        <h3 class="h-card">Plate work, cut today</h3>
+        <p>Gussets, base plates, shims, flanges, weld-on tabs, trailer brackets, bucket wear plate, equipment repair pieces. Cut from plate already sitting in our yard, so there&rsquo;s no waiting on a mill order to get moving.</p>
+        <ul>
+          <li>Gussets</li><li>Base plates</li><li>Flanges</li><li>Weld tabs</li><li>Repair plate</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="h-sec">How a job runs</h2>
+      <span class="sec-note">File to finished parts</span>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">STEP 01</span>
+        <h3>Send it over</h3>
+        <p>A DXF or DWG is fastest. A PDF, a phone photo, a sketch on the back of a receipt, or the broken part itself all work too.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 02</span>
+        <h3>We price it</h3>
+        <p>Priced off cut time, pierce count, programming and material. You get a real number, not a range &mdash; usually the same day, always within one business day.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 03</span>
+        <h3>We cut it</h3>
+        <p>Nested on the table to keep your material cost down, cut, deslagged, and checked against your print before it leaves the shop.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 04</span>
+        <h3>Pick up or delivery</h3>
+        <p>Ready at our Hot Springs yard, or on our truck to Malvern, Benton, Bryant, Little Rock, Arkadelphia and points between.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WORK ===================== -->
+<section class="band band--plate" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="h-sec">Typical work</h2>
+      <span class="sec-note">Shop parts and cut art</span>
+    </div>
+
+    <div class="work">
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <g fill="#DD5F16" fill-opacity=".9">
+            <path d="M45 38 h110 a6 6 0 0 1 6 6 v62 a6 6 0 0 1 -6 6 h-110 a6 6 0 0 1 -6 -6 v-62 a6 6 0 0 1 6 -6 z"/>
+          </g>
+          <g fill="#22272C">
+            <circle cx="58" cy="55" r="7"/><circle cx="142" cy="55" r="7"/>
+            <circle cx="58" cy="95" r="7"/><circle cx="142" cy="95" r="7"/>
+            <rect x="88" y="63" width="24" height="24" rx="3"/>
+          </g>
+        </svg>
+        <div class="work-cap">
+          <h3>Base plates &amp; mounting plates</h3>
+          <p>&frac12;&Prime; A36 &middot; bolt holes cut in</p>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <circle cx="100" cy="75" r="52" fill="#DD5F16" fill-opacity=".9"/>
+          <circle cx="100" cy="75" r="24" fill="#22272C"/>
+          <g fill="#22272C">
+            <circle cx="100" cy="35" r="5.5"/><circle cx="128" cy="47" r="5.5"/>
+            <circle cx="140" cy="75" r="5.5"/><circle cx="128" cy="103" r="5.5"/>
+            <circle cx="100" cy="115" r="5.5"/><circle cx="72" cy="103" r="5.5"/>
+            <circle cx="60" cy="75" r="5.5"/><circle cx="72" cy="47" r="5.5"/>
+          </g>
+        </svg>
+        <div class="work-cap">
+          <h3>Flanges &amp; rings</h3>
+          <p>&frac34;&Prime; plate &middot; 8-hole bolt circle</p>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <path d="M42 120 L42 30 A18 18 0 0 1 60 12 L60 12 L158 118 A6 6 0 0 1 152 124 L48 124 A6 6 0 0 1 42 118 Z" fill="#DD5F16" fill-opacity=".9"/>
+          <circle cx="62" cy="105" r="7" fill="#22272C"/>
+        </svg>
+        <div class="work-cap">
+          <h3>Gussets &amp; brackets</h3>
+          <p>&#8540;&Prime; &ndash; &frac34;&Prime; &middot; radiused corners</p>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <rect x="26" y="46" width="148" height="58" rx="4" fill="#DD5F16" fill-opacity=".9"/>
+          <text x="100" y="86" text-anchor="middle" fill="#22272C"
+                font-family="Archivo Black, Arial Black, sans-serif" font-size="34">1420</text>
+        </svg>
+        <div class="work-cap">
+          <h3>Address &amp; ranch signs</h3>
+          <p>&#8539;&Prime; steel &middot; ready to paint or rust</p>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <circle cx="100" cy="75" r="54" fill="#DD5F16" fill-opacity=".9"/>
+          <circle cx="100" cy="75" r="46" fill="none" stroke="#22272C" stroke-width="3"/>
+          <text x="100" y="94" text-anchor="middle" fill="#22272C"
+                font-family="Archivo Black, Arial Black, sans-serif" font-size="52">M</text>
+        </svg>
+        <div class="work-cap">
+          <h3>Monograms</h3>
+          <p>&#8539;&Prime; &ndash; &frac14;&Prime; &middot; any letter or name</p>
+        </div>
+      </article>
+
+      <article class="work-item">
+        <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
+          <rect width="200" height="150" fill="#22272C"/>
+          <rect x="20" y="24" width="160" height="102" rx="3" fill="#DD5F16" fill-opacity=".9"/>
+          <g fill="#22272C">
+            <circle cx="58" cy="49" r="12"/>
+            <path d="M20 126 L20 100 L58 66 L92 100 L112 84 L142 112 L180 84 L180 126 Z"/>
+            <path d="M146 126 h7 v-18 h-7 z"/>
+            <path d="M149.5 54 l15 29 h-30 z"/>
+            <path d="M149.5 70 l19 26 h-38 z"/>
+            <path d="M149.5 86 l23 26 h-46 z"/>
+          </g>
+        </svg>
+        <div class="work-cap">
+          <h3>Scenes &amp; cut art</h3>
+          <p>&#8539;&Prime; steel &middot; from your photo or ours</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESIGN TOOL ===================== -->
+<section class="band band--dark" id="design">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="h-sec">Lay it out yourself</h2>
+      <span class="sec-note">Nothing to install</span>
+    </div>
+
+    <p class="lede" style="margin-bottom:30px;">Build your part right here and send it to the shop with the numbers already worked out &mdash; or drop in a DXF you already have and we&rsquo;ll show you what&rsquo;s in it.</p>
+
+    <div class="dz-tabs" role="tablist" aria-label="Design method">
+      <button class="dz-tab" id="tabTpl" role="tab" aria-selected="true" aria-controls="dzTemplate" type="button">Start from a template</button>
+      <button class="dz-tab" id="tabDxf" role="tab" aria-selected="false" aria-controls="dzUpload" type="button">I already have a DXF</button>
+    </div>
+
+    <!-- ---------- template designer ---------- -->
+    <div class="dz" id="dzTemplate" role="tabpanel" aria-labelledby="tabTpl">
+      <div class="dz-grid">
+        <div class="dz-controls">
+          <span class="dz-lab">Pick a shape</span>
+          <div class="dz-picker" id="tplPicker"></div>
+
+          <span class="dz-lab">Set it up</span>
+          <div class="dz-fields" id="tplFields"></div>
+
+          <hr class="dz-sep">
+
+          <span class="dz-lab">Material</span>
+          <div class="dz-fields">
+            <div class="dz-f">
+              <label for="d-mat">Material</label>
+              <select id="d-mat">
+                <option value="Mild steel (A36)">Mild steel (A36)</option>
+                <option value="Stainless (304 / 316)">Stainless (304 / 316)</option>
+                <option value="Aluminum (5052 / 6061)">Aluminum (5052 / 6061)</option>
+              </select>
+            </div>
+            <div class="dz-f2">
+              <div class="dz-f">
+                <label for="d-thk">Thickness</label>
+                <select id="d-thk">
+                  <option value="0.0598">16 ga</option>
+                  <option value="0.0747">14 ga</option>
+                  <option value="0.1196">11 ga</option>
+                  <option value="0.1345">10 ga</option>
+                  <option value="0.1875">3/16"</option>
+                  <option value="0.25" selected>1/4"</option>
+                  <option value="0.3125">5/16"</option>
+                  <option value="0.375">3/8"</option>
+                  <option value="0.5">1/2"</option>
+                  <option value="0.625">5/8"</option>
+                  <option value="0.75">3/4"</option>
+                  <option value="1">1"</option>
+                  <option value="1.25">1-1/4"</option>
+                  <option value="1.5">1-1/2"</option>
+                </select>
+              </div>
+              <div class="dz-f">
+                <label for="d-qty">Quantity</label>
+                <input id="d-qty" type="number" min="1" max="10000" step="1" value="1">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dz-stage">
+          <div class="dz-frame">
+            <svg id="tplPreview" aria-label="Preview of the part you are designing" role="img"></svg>
+          </div>
+
+          <div class="dz-readout" id="tplReadout"></div>
+          <div class="dz-checks" id="tplChecks"></div>
+
+          <div class="dz-actions">
+            <button class="btn btn--primary" type="button" id="tplSend">Send this to the shop</button>
+            <span class="dz-note">Goes onto the quote form below with the size, material and cut count filled in.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- DXF reader ---------- -->
+    <div class="dz" id="dzUpload" role="tabpanel" aria-labelledby="tabDxf" hidden>
+      <div class="dz-grid">
+        <div class="dz-controls">
+          <span class="dz-lab">Your file</span>
+          <div class="dz-drop" id="dxfDrop">
+            <p>Drop a DXF here, or choose one. It&rsquo;s read in your browser &mdash; nothing is uploaded until you send the quote request.</p>
+            <input id="dxfFile" type="file" accept=".dxf,.DXF">
+            <span class="dz-filename" id="dxfName"></span>
+          </div>
+
+          <hr class="dz-sep">
+
+          <span class="dz-lab">Material</span>
+          <div class="dz-fields">
+            <div class="dz-f">
+              <label for="u-mat">Material</label>
+              <select id="u-mat">
+                <option value="Mild steel (A36)">Mild steel (A36)</option>
+                <option value="Stainless (304 / 316)">Stainless (304 / 316)</option>
+                <option value="Aluminum (5052 / 6061)">Aluminum (5052 / 6061)</option>
+              </select>
+            </div>
+            <div class="dz-f2">
+              <div class="dz-f">
+                <label for="u-thk">Thickness</label>
+                <select id="u-thk">
+                  <option value="0.0598">16 ga</option>
+                  <option value="0.0747">14 ga</option>
+                  <option value="0.1196">11 ga</option>
+                  <option value="0.1345">10 ga</option>
+                  <option value="0.1875">3/16"</option>
+                  <option value="0.25" selected>1/4"</option>
+                  <option value="0.3125">5/16"</option>
+                  <option value="0.375">3/8"</option>
+                  <option value="0.5">1/2"</option>
+                  <option value="0.625">5/8"</option>
+                  <option value="0.75">3/4"</option>
+                  <option value="1">1"</option>
+                  <option value="1.25">1-1/4"</option>
+                  <option value="1.5">1-1/2"</option>
+                </select>
+              </div>
+              <div class="dz-f">
+                <label for="u-qty">Quantity</label>
+                <input id="u-qty" type="number" min="1" max="10000" step="1" value="1">
+              </div>
+            </div>
+            <div class="dz-f">
+              <label for="u-units">File units</label>
+              <select id="u-units">
+                <option value="auto">Read from the file</option>
+                <option value="1">Inches</option>
+                <option value="25.4">Millimetres</option>
+                <option value="2.54">Centimetres</option>
+                <option value="0.0833333">Feet</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="dz-stage">
+          <div class="dz-frame" id="dxfFrame">
+            <canvas id="dxfCanvas"></canvas>
+            <div class="dz-empty" id="dxfEmpty">
+              No file yet.<br>Drop a DXF on this panel and we&rsquo;ll draw it.
+            </div>
+          </div>
+
+          <div class="dz-readout" id="dxfReadout"></div>
+          <div class="dz-checks" id="dxfChecks"></div>
+
+          <div class="dz-actions">
+            <button class="btn btn--primary" type="button" id="dxfSend" disabled>Send this to the shop</button>
+            <span class="dz-note">Your file rides along with the quote request.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUOTE ===================== -->
+<section class="band" id="quote">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="h-sec">Get a quote</h2>
+      <span class="sec-note">Answer within one business day</span>
+    </div>
+
+    <div class="quote-grid">
+      <aside class="quote-aside">
+        <p>Fill in what you know. If you don&rsquo;t have a drawing yet, skip the file and describe the part &mdash; we&rsquo;ll come back with questions and get you a number either way.</p>
+        <p>In a hurry? Call the shop. We can usually price a simple part over the phone while you&rsquo;re standing there.</p>
+        <div class="contact-line">
+          <a href="tel:+18885736201">888-573-6201</a><br>
+          <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a><br>
+          <span class="fill">Mon&ndash;Fri 7:00&ndash;4:30 &middot; Sat by appt.</span>
+        </div>
+      </aside>
+
+      <div>
+        <form class="quote" id="quoteForm" novalidate>
+          <div class="attached" id="attachedBox" hidden>
+            <span class="attached-txt" id="attachedTxt"><b>Design attached</b></span>
+            <button type="button" id="attachedClear">Remove</button>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="q-name">Name <span class="req">*</span></label>
+              <input id="q-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="q-company">Company</label>
+              <input id="q-company" name="company" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="q-phone">Phone <span class="req">*</span></label>
+              <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div class="field">
+              <label for="q-email">Email <span class="req">*</span></label>
+              <input id="q-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="legend">What kind of job is it?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="jobtype" value="Custom / decorative" checked><span>Custom / decorative</span></label>
+              <label class="chip"><input type="radio" name="jobtype" value="Production run"><span>Production run</span></label>
+              <label class="chip"><input type="radio" name="jobtype" value="One-off part"><span>One-off part</span></label>
+              <label class="chip"><input type="radio" name="jobtype" value="Not sure yet"><span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+
+          <div class="frow frow--3">
+            <div class="field">
+              <label for="q-material">Material</label>
+              <select id="q-material" name="material">
+                <option>Mild steel (A36)</option>
+                <option>Stainless (304 / 316)</option>
+                <option>Aluminum (5052 / 6061)</option>
+                <option>You tell me what&rsquo;s best</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="q-thickness">Thickness</label>
+              <select id="q-thickness" name="thickness">
+                <option>Not sure</option>
+                <option>16 ga</option><option>14 ga</option><option>11 ga</option><option>10 ga</option>
+                <option>3/16"</option><option>1/4"</option><option>5/16"</option><option>3/8"</option>
+                <option>1/2"</option><option>5/8"</option><option>3/4"</option><option>1"</option>
+                <option>1-1/4"</option><option>1-1/2"</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="q-qty">Quantity</label>
+              <input id="q-qty" name="qty" type="text" inputmode="numeric" placeholder="e.g. 1, 25, 500">
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="q-size">Overall size of the part</label>
+              <input id="q-size" name="size" type="text" placeholder='e.g. 24" x 36"'>
+            </div>
+            <div class="field">
+              <label for="q-needed">Need it by</label>
+              <input id="q-needed" name="needed" type="date">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="q-file">Drawing or photo</label>
+            <input id="q-file" name="file" type="file" accept=".dxf,.dwg,.pdf,.svg,.ai,.eps,.png,.jpg,.jpeg,.heic" multiple>
+            <span class="hint">DXF or DWG cuts fastest. PDF, photo or sketch is fine &mdash; up to 25&nbsp;MB.</span>
+          </div>
+
+          <div class="field">
+            <label for="q-notes">Tell us about the job</label>
+            <textarea id="q-notes" name="notes" placeholder="What is it, what does it bolt to, any holes or text, finish you want, anything we should know."></textarea>
+          </div>
+
+          <fieldset>
+            <legend class="legend">Pickup or delivery?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="fulfil" value="Pickup in Hot Springs" checked><span>I&rsquo;ll pick up</span></label>
+              <label class="chip"><input type="radio" name="fulfil" value="Delivery"><span>Deliver to me</span></label>
+              <label class="chip"><input type="radio" name="fulfil" value="Ship"><span>Ship it</span></label>
+            </div>
+          </fieldset>
+
+          <p class="form-err" id="formErr" hidden></p>
+
+          <div class="form-actions">
+            <button class="btn btn--primary" type="submit">Send Quote Request</button>
+            <span class="hint">We only use your details to price and deliver this job.</span>
+          </div>
+        </form>
+
+        <div class="sent" id="sentPanel" hidden>
+          <h3>Your request is ready</h3>
+          <p id="sentMsg"></p>
+          <pre id="sentSummary"></pre>
+          <div class="sent-actions">
+            <button class="btn btn--dark" type="button" id="copyBtn">Copy details</button>
+            <a class="btn btn--primary" href="mailto:sales@rebarandsteel.com">Email the shop</a>
+            <span class="copied" id="copiedNote" hidden>Copied</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="band band--plate" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="h-sec">Questions we get</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Do I have to have a DXF file?</summary>
+        <p>No. A DXF or DWG is the fastest route to a price because the cut length is already in the file. But a PDF, a photo, a dimensioned sketch or the old part itself works fine. If we have to draw it up from scratch we&rsquo;ll tell you what that adds before we start &mdash; no surprise line items.</p>
+      </details>
+      <details>
+        <summary>Is there a minimum order?</summary>
+        <p>No minimum quantity &mdash; one bracket is a job, and we cut plenty of them. There is a <strong>$175 minimum charge</strong> on plasma work, which covers programming, setup and getting plate on the table. Past that it&rsquo;s priced on cut time and material. You see the number before we start, every time.</p>
+      </details>
+      <details>
+        <summary>How fast can I get parts?</summary>
+        <p>Quotes go out the same day in most cases, and within one business day always. Simple cuts off material we stock usually run two to three business days. Production runs get scheduled and we give you a firm date up front.</p>
+      </details>
+      <details>
+        <summary>Do you supply the steel, or do I bring it?</summary>
+        <p>Either. We&rsquo;re part of Mid South Steel &amp; Rebar on Stanage Drive, so plate, sheet, structural, tubing, bar and rebar all come off our own yard &mdash; usually cheaper than sourcing it yourself and hauling it here, and there&rsquo;s no waiting on a mill order. If you have your own material, bring it and we&rsquo;ll cut it.</p>
+      </details>
+      <details>
+        <summary>How close together can I put holes?</summary>
+        <p>Leave at least one hole diameter of steel between holes, measured edge to edge &mdash; a &frac12;&Prime; hole wants a &frac12;&Prime; web to the next one. Any tighter and the strip between them takes heat from both sides at once and tears out instead of cutting clean, and what you get back is a ragged slot where you wanted two holes. Same idea applies close to an edge. The design tool checks this while you work; if you&rsquo;re sending us a file, it&rsquo;s worth a look before you do.</p>
+      </details>
+      <details>
+        <summary>How clean is a plasma edge?</summary>
+        <p>High-definition plasma leaves a near dross-free edge on mild steel through about 1&frac14;&Prime;, square enough to weld or paint straight off the table. Figure roughly &plusmn;1/16&Prime; on cut dimensions. If your print calls for tighter than that, say so &mdash; we&rsquo;d rather tell you plasma is the wrong process than hand you a part that won&rsquo;t fit.</p>
+      </details>
+      <details>
+        <summary>Can you weld, bend or finish the parts too?</summary>
+        <p>Ask us. We handle straightforward fabrication in-house and we have shops we trust nearby for forming, machining, powder coat and galvanizing. It&rsquo;s usually simpler to let us coordinate it than to chase three vendors yourself.</p>
+      </details>
+      <details>
+        <summary>How far do you deliver?</summary>
+        <p>Roughly 100 miles out of Hot Springs on our own truck &mdash; Malvern, Benton, Bryant, Little Rock, Arkadelphia, Mount Ida, Glenwood, Sheridan, Russellville and everything between. Farther than that, we can ship it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer class="band band--dark foot" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 class="h-sec">Come by the yard</h2>
+      <span class="sec-note">Hot Springs, Arkansas</span>
+    </div>
+
+    <div class="foot-grid">
+      <div>
+        <h4>The shop</h4>
+        <p>
+          <strong style="color:#F1F0EC;">Mid South Plasma</strong><br>
+          A division of Mid South Steel &amp; Rebar, LLC<br><br>
+          172 Stanage Drive<br>
+          Hot Springs, AR 71901<br><br>
+          <a href="tel:+18885736201">888-573-6201</a><br>
+          <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a>
+        </p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p class="fill" style="display:inline-block;">
+          Monday&ndash;Friday &nbsp;7:00&ndash;4:30<br>
+          Saturday &nbsp;by appointment<br>
+          Sunday &nbsp;closed
+        </p>
+        <h4 style="margin-top:26px;">Also from the yard</h4>
+        <ul>
+          <li>Rebar &mdash; straight, cut, bent, fabricated</li>
+          <li>Structural steel, beams &amp; channel</li>
+          <li>Plate, sheet, tubing, pipe &amp; bar</li>
+          <li>Grating, expanded metal &amp; mesh</li>
+          <li>Aluminum &amp; stainless</li>
+          <li><a href="https://rebarandsteel.com">rebarandsteel.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>We cut for</h4>
+        <ul>
+          <li>Hot Springs &amp; Hot Springs Village</li>
+          <li>Malvern &middot; Benton &middot; Bryant</li>
+          <li>Little Rock &amp; North Little Rock</li>
+          <li>Arkadelphia &middot; Sheridan</li>
+          <li>Mount Ida &middot; Glenwood &middot; Amity</li>
+          <li>Russellville &middot; Morrilton</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <span>&copy; <span id="yr">2026</span> Mid South Plasma &mdash; Mid South Steel &amp; Rebar</span>
+      <span><a href="#quote">Get a quote</a> &nbsp;&middot;&nbsp; <a href="#top">Back to top</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     QUOTE ENDPOINT
+     Leave empty and the form falls back to a copy-and-send summary.
+     Once the site is on a real domain, paste a form endpoint here
+     (Web3Forms, Formspree, Basin, or your own handler) and the form
+     will POST the fields and the uploaded file straight to your inbox.
+     ------------------------------------------------------------------ */
+  var QUOTE_ENDPOINT = "";
+
+  /* ---------- year ---------- */
+  var yr = document.getElementById("yr");
+  if (yr) { yr.textContent = String(new Date().getFullYear()); }
+
+  /* ---------- mobile nav ---------- */
+  var toggle = document.getElementById("navToggle");
+  var nav = document.getElementById("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Close" : "Menu";
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Menu";
+      }
+    });
+  }
+
+  /* ==================================================================
+     HERO: plasma torch tracking a nest of parts
+     Paths are generated, not hand-authored, and drawn on canvas.
+     ================================================================== */
+  (function heroCut() {
+    var canvas = document.getElementById("cutCanvas");
+    if (!canvas || !canvas.getContext) { return; }
+    var ctx = canvas.getContext("2d");
+
+    var W = 0, H = 0, S = 1;              // logical size + scale factor
+    var BASE_W = 400, BASE_H = 310;       // design space
+
+    function circle(cx, cy, r, n) {
+      var pts = [], i;
+      n = n || 46;
+      for (i = 0; i <= n; i++) {
+        var a = (i / n) * Math.PI * 2 - Math.PI / 2;
+        pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
+      }
+      return pts;
+    }
+    function roundRect(x, y, w, h, r) {
+      var pts = [], k;
+      var corners = [
+        [x + w - r, y + r, -Math.PI / 2, 0],
+        [x + w - r, y + h - r, 0, Math.PI / 2],
+        [x + r, y + h - r, Math.PI / 2, Math.PI],
+        [x + r, y + r, Math.PI, Math.PI * 1.5]
+      ];
+      pts.push([x + r, y]);
+      for (k = 0; k < corners.length; k++) {
+        var c = corners[k], i;
+        for (i = 0; i <= 8; i++) {
+          var a = c[2] + (c[3] - c[2]) * (i / 8);
+          pts.push([c[0] + Math.cos(a) * r, c[1] + Math.sin(a) * r]);
+        }
+      }
+      pts.push([x + r, y]);
+      return pts;
+    }
+    function poly(points) { return points.concat([points[0]]); }
+
+    /* the nest — cut order matters: holes before outlines, like real code */
+    var paths = [
+      circle(96, 74, 7, 20),
+      circle(184, 74, 7, 20),
+      circle(96, 132, 7, 20),
+      circle(184, 132, 7, 20),
+      roundRect(74, 52, 132, 102, 9),
+      circle(300, 92, 15, 26),
+      circle(300, 92, 52, 60),
+      poly([[64, 196], [64, 256], [176, 256], [64, 196]]),
+      circle(96, 240, 6, 18),
+      poly([[236, 268], [252, 196], [268, 268]]),
+      poly([[262, 268], [284, 178], [306, 268]]),
+      poly([[300, 268], [318, 214], [336, 268]]),
+      roundRect(226, 274, 122, 16, 4)
+    ];
+
+    var totalPts = 0, p;
+    for (p = 0; p < paths.length; p++) { totalPts += paths[p].length; }
+
+    var pi = 0, si = 0, t = 0, holdFrames = 0, sparks = [];
+    var SPEED = 1.85;                     // design-space units per frame
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function resize() {
+      var rect = canvas.getBoundingClientRect();
+      if (!rect.width) { return; }
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = rect.width; H = rect.height;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      S = Math.min(W / BASE_W, H / BASE_H);
+      draw();
+    }
+
+    function X(v) { return (W - BASE_W * S) / 2 + v * S; }
+    function Y(v) { return (H - BASE_H * S) / 2 + v * S; }
+
+    function strokePath(pts, upto, hotFrom) {
+      var i, n = (upto === undefined) ? pts.length - 1 : upto;
+      for (i = 0; i < n; i++) {
+        var a = pts[i], b = pts[i + 1];
+        var age = hotFrom === undefined ? 999 : (hotFrom - i);
+        var col;
+        if (age < 3)       { col = "#FFE9BE"; }
+        else if (age < 9)  { col = "#FFB35C"; }
+        else if (age < 20) { col = "#E06A1C"; }
+        else if (age < 38) { col = "#8A3F14"; }
+        else               { col = "#4B4F54"; }
+        ctx.strokeStyle = col;
+        ctx.lineWidth = age < 9 ? 2.4 : 1.7;
+        ctx.beginPath();
+        ctx.moveTo(X(a[0]), Y(a[1]));
+        ctx.lineTo(X(b[0]), Y(b[1]));
+        ctx.stroke();
+      }
+    }
+
+    function drawPlate() {
+      ctx.fillStyle = "#0D1013";
+      ctx.fillRect(0, 0, W, H);
+      /* plate edge */
+      ctx.strokeStyle = "#252B31";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(X(28) + .5, Y(24) + .5, 344 * S, 282 * S);
+      /* slat grid, like the table below the plate */
+      ctx.strokeStyle = "#171C21";
+      var g;
+      for (g = 1; g < 12; g++) {
+        ctx.beginPath();
+        ctx.moveTo(X(28), Y(24 + g * 23.5));
+        ctx.lineTo(X(372), Y(24 + g * 23.5));
+        ctx.stroke();
+      }
+    }
+
+    function draw() {
+      if (!W) { return; }
+      drawPlate();
+      var i;
+      for (i = 0; i < paths.length; i++) {
+        if (i < pi) { strokePath(paths[i]); }
+        else if (i === pi) { strokePath(paths[i], si, si); }
+      }
+      if (reduce) {
+        for (i = 0; i < paths.length; i++) { strokePath(paths[i]); }
+        return;
+      }
+      /* torch head */
+      if (pi < paths.length) {
+        var seg = paths[pi];
+        var a = seg[Math.min(si, seg.length - 1)];
+        var b = seg[Math.min(si + 1, seg.length - 1)];
+        var hx = a[0] + (b[0] - a[0]) * t;
+        var hy = a[1] + (b[1] - a[1]) * t;
+        var px = X(hx), py = Y(hy);
+
+        var grd = ctx.createRadialGradient(px, py, 0, px, py, 15 * S);
+        grd.addColorStop(0, "rgba(255,247,224,.95)");
+        grd.addColorStop(.32, "rgba(255,178,84,.55)");
+        grd.addColorStop(1, "rgba(255,140,40,0)");
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(px, py, 15 * S, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#FFFDF6";
+        ctx.beginPath();
+        ctx.arc(px, py, 2.1 * S, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (sparks.length < 90 && Math.random() < .85) {
+          var k;
+          for (k = 0; k < 2; k++) {
+            sparks.push({
+              x: hx, y: hy,
+              vx: (Math.random() - .5) * 2.6,
+              vy: Math.random() * 2.1 + .5,
+              life: 16 + Math.random() * 16
+            });
+          }
+        }
+      }
+
+      /* sparks */
+      for (i = sparks.length - 1; i >= 0; i--) {
+        var s = sparks[i];
+        s.x += s.vx; s.y += s.vy; s.vy += .11; s.life -= 1;
+        if (s.life <= 0) { sparks.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(0, s.life / 30);
+        ctx.fillStyle = s.life > 18 ? "#FFE7B4" : "#E8791F";
+        ctx.fillRect(X(s.x), Y(s.y), 1.5 * S, 1.5 * S);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function step() {
+      if (holdFrames > 0) {
+        holdFrames -= 1;
+        if (holdFrames === 0) { pi = 0; si = 0; t = 0; sparks = []; }
+      } else if (pi < paths.length) {
+        var seg = paths[pi];
+        var a = seg[Math.min(si, seg.length - 1)];
+        var b = seg[Math.min(si + 1, seg.length - 1)];
+        var len = Math.hypot(b[0] - a[0], b[1] - a[1]) || .0001;
+        t += SPEED / len;
+        while (t >= 1) {
+          t -= 1; si += 1;
+          if (si >= seg.length - 1) { si = 0; t = 0; pi += 1; break; }
+        }
+        if (pi >= paths.length) { holdFrames = 150; }
+      }
+      draw();
+      requestAnimationFrame(step);
+    }
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(resize).observe(canvas);
+    } else {
+      window.addEventListener("resize", resize);
+    }
+    resize();
+    if (reduce) { pi = paths.length; draw(); }
+    else { requestAnimationFrame(step); }
+  })();
+
+  /* ==================================================================
+     DESIGN TOOL
+     Two ways in: build from a parametric template, or read a DXF.
+     Both produce a DESIGN object that the quote form picks up.
+     ================================================================== */
+
+  /* Table envelope, in inches — 9 ft x 16 ft. Update these together with
+     the "cutting envelope" figure in the hero strip. */
+  var TABLE_W = 108, TABLE_H = 192;
+  var TABLE_SAY = "9 ft by 16 ft";
+
+  /* Machine limits by material, in inches (HPR260XD production pierce). */
+  var PIERCE_MAX = {
+    "Mild steel (A36)": 1.5,
+    "Stainless (304 / 316)": 1.25,
+    "Aluminum (5052 / 6061)": 1.0
+  };
+
+  var DESIGN = null;
+
+  (function designTool() {
+    var picker = document.getElementById("tplPicker");
+    if (!picker) { return; }
+
+    /* ---------------- number formatting ---------------- */
+
+    function frac(v) {
+      var neg = v < 0; v = Math.abs(v);
+      var whole = Math.floor(v + 1e-9);
+      var n = Math.round((v - whole) * 16), d = 16;
+      if (n >= 16) { whole += 1; n = 0; }
+      while (n && n % 2 === 0) { n /= 2; d /= 2; }
+      var s = "";
+      if (whole || !n) { s += whole; }
+      if (n) { s += (whole ? "-" : "") + n + "/" + d; }
+      return (neg ? "-" : "") + s;
+    }
+    function inches(v) { return frac(v) + '"'; }
+
+    /* ---------------- geometry ---------------- */
+
+    function pRoundRect(x, y, w, h, r) {
+      r = Math.max(0, Math.min(r, Math.min(w, h) / 2));
+      var d;
+      if (r <= 0.0001) {
+        d = "M" + x + " " + y + "h" + w + "v" + h + "h" + (-w) + "Z";
+      } else {
+        d = "M" + (x + r) + " " + y +
+            "h" + (w - 2 * r) + "a" + r + " " + r + " 0 0 1 " + r + " " + r +
+            "v" + (h - 2 * r) + "a" + r + " " + r + " 0 0 1 " + (-r) + " " + r +
+            "h" + (-(w - 2 * r)) + "a" + r + " " + r + " 0 0 1 " + (-r) + " " + (-r) +
+            "v" + (-(h - 2 * r)) + "a" + r + " " + r + " 0 0 1 " + r + " " + (-r) + "Z";
+      }
+      return { d: d, perim: 2 * (w - 2 * r) + 2 * (h - 2 * r) + 2 * Math.PI * r };
+    }
+
+    /* rounded polygon — used for gussets and brackets */
+    function pRoundPoly(pts, r) {
+      var n = pts.length, out = "", perim = 0, i;
+      for (i = 0; i < n; i++) {
+        var P = pts[(i - 1 + n) % n], V = pts[i], N = pts[(i + 1) % n];
+        var v1x = P[0] - V[0], v1y = P[1] - V[1];
+        var v2x = N[0] - V[0], v2y = N[1] - V[1];
+        var l1 = Math.hypot(v1x, v1y) || 1e-6, l2 = Math.hypot(v2x, v2y) || 1e-6;
+        var u1x = v1x / l1, u1y = v1y / l1, u2x = v2x / l2, u2y = v2y / l2;
+        var ang = Math.acos(Math.max(-1, Math.min(1, u1x * u2x + u1y * u2y)));
+        var t = (ang > 0.001 && ang < Math.PI - 0.001) ? r / Math.tan(ang / 2) : 0;
+        t = Math.min(t, l1 / 2, l2 / 2);
+        var rr = t * Math.tan(ang / 2);
+        var Ax = V[0] + u1x * t, Ay = V[1] + u1y * t;
+        var Bx = V[0] + u2x * t, By = V[1] + u2y * t;
+        var cross = u1x * u2y - u1y * u2x;
+        var sweep = cross > 0 ? 1 : 0;
+        out += (i === 0 ? "M" + Ax + " " + Ay : "L" + Ax + " " + Ay);
+        if (rr > 0.0005) { out += "A" + rr + " " + rr + " 0 0 " + sweep + " " + Bx + " " + By; }
+        else { out += "L" + Bx + " " + By; }
+        perim += rr * (Math.PI - ang);
+        var Nx = N[0] - u2x * 0, Ny = N[1];
+        var nextT = 0;
+        (function () {
+          var P2 = V, V2 = N, N2 = pts[(i + 2) % n];
+          var a1x = P2[0] - V2[0], a1y = P2[1] - V2[1];
+          var a2x = N2[0] - V2[0], a2y = N2[1] - V2[1];
+          var m1 = Math.hypot(a1x, a1y) || 1e-6, m2 = Math.hypot(a2x, a2y) || 1e-6;
+          var an = Math.acos(Math.max(-1, Math.min(1,
+            (a1x / m1) * (a2x / m2) + (a1y / m1) * (a2y / m2))));
+          var tt = (an > 0.001 && an < Math.PI - 0.001) ? r / Math.tan(an / 2) : 0;
+          nextT = Math.min(tt, m1 / 2, m2 / 2);
+        })();
+        perim += Math.max(0, l2 - t - nextT);
+        void Nx; void Ny;
+      }
+      return { d: out + "Z", perim: perim };
+    }
+
+    function circPerim(r) { return 2 * Math.PI * r; }
+
+    /* Shop rule: leave at least one hole diameter of steel between any two
+       holes, measured edge to edge. Where two holes differ in size the
+       requirement is read off the smaller one, so a standard flange bore
+       doesn't fail against its own bolt circle.
+       Returns the worst offending pair, or null. */
+    function holeSpacingIssue(holes) {
+      if (!holes || holes.length < 2) { return null; }
+      var worst = null, n = Math.min(holes.length, 600), i, j;
+      for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+          var a = holes[i], b = holes[j];
+          if (!(a.d > 0) || !(b.d > 0)) { continue; }
+          var cc = Math.hypot(a.x - b.x, a.y - b.y);
+          var clear = cc - (a.d + b.d) / 2;
+          var need = Math.min(a.d, b.d);
+          var short = need - clear;
+          if (short > 0.0005 && (!worst || short > worst.short)) {
+            worst = { clear: Math.max(0, clear), need: need, short: short };
+          }
+        }
+      }
+      return worst;
+    }
+
+    /* ---------------- text ---------------- */
+
+    var STYLES = {
+      block:  { fam: '"Archivo Black", "Arial Black", sans-serif', k: 1.30, stroke: 0.17, connected: false, label: "Block" },
+      slab:   { fam: '"Alfa Slab One", Georgia, serif',            k: 1.70, stroke: 0.16, connected: false, label: "Slab serif" },
+      script: { fam: '"Yellowtail", cursive',                      k: 1.55, stroke: 0.09, connected: true,  label: "Script" }
+    };
+
+    var COUNTERS = {
+      "0":1,"4":1,"6":1,"8":2,"9":1,
+      "A":1,"B":2,"D":1,"O":1,"P":1,"Q":1,"R":1,
+      "a":1,"b":1,"d":1,"e":1,"g":1,"o":1,"p":1,"q":1,
+      "&":1,"@":1,"#":2,"%":2
+    };
+
+    var mctx = document.createElement("canvas").getContext("2d");
+
+    function ink(str, px, fam) {
+      mctx.font = px + "px " + fam;
+      var m = mctx.measureText(str);
+      var asc = m.actualBoundingBoxAscent, desc = m.actualBoundingBoxDescent;
+      if (typeof asc !== "number" || !isFinite(asc)) { asc = px * 0.72; }
+      if (typeof desc !== "number" || !isFinite(desc)) { desc = px * 0.05; }
+      return { w: m.width, asc: asc, desc: desc, h: asc + desc };
+    }
+
+    function textMetrics(str, px, styleKey) {
+      var st = STYLES[styleKey] || STYLES.block;
+      var chars = str.split(""), perim = 0, counters = 0, outlines = 0, i;
+      for (i = 0; i < chars.length; i++) {
+        var c = chars[i];
+        if (c === " ") { continue; }
+        var g = ink(c, px, st.fam);
+        perim += 2 * (g.w + g.h) * st.k;
+        counters += COUNTERS[c] || 0;
+        outlines += 1;
+      }
+      if (st.connected) { outlines = str.trim() ? 1 : 0; }
+      var full = ink(str, px, st.fam);
+      return {
+        w: full.w, h: full.h, asc: full.asc, desc: full.desc,
+        perim: perim, counters: counters, outlines: outlines,
+        pierces: outlines + counters, strokeRatio: st.stroke, fam: st.fam
+      };
+    }
+
+    /* largest size that fits the text in the given box */
+    function fitText(str, maxW, maxH, styleKey) {
+      var px = maxH, m = textMetrics(str, px, styleKey), guard = 0;
+      while (m.w > maxW && px > 0.05 && guard < 60) {
+        px *= Math.min(0.96, maxW / m.w);
+        m = textMetrics(str, px, styleKey);
+        guard++;
+      }
+      return { px: px, m: m };
+    }
+
+    /* ---------------- templates ---------------- */
+
+    var THICK_OPTS = null; /* filled from the DOM select */
+
+    function T(k, label, fields, icon, build) {
+      return { key: k, label: label, fields: fields, icon: icon, build: build };
+    }
+    function fNum(k, label, val, min, max, step) {
+      return { k: k, label: label, type: "num", val: val, min: min, max: max, step: step };
+    }
+    function fTxt(k, label, val, max) { return { k: k, label: label, type: "text", val: val, max: max }; }
+    function fSel(k, label, val, opts) { return { k: k, label: label, type: "sel", val: val, opts: opts }; }
+
+    var STYLE_OPTS = [["block", "Block"], ["slab", "Slab serif"], ["script", "Script"]];
+
+    var TEMPLATES = [
+
+      T("address", "Address plate",
+        [
+          fTxt("text", "Numbers", "1420", 8),
+          fNum("w", "Width (in)", 24, 4, 240, 0.5),
+          fNum("h", "Height (in)", 8, 2, 144, 0.5),
+          fNum("r", "Corner radius (in)", 0.75, 0, 8, 0.125),
+          fSel("style", "Cut style", "block", STYLE_OPTS),
+          fSel("border", "Border line", "single", [["none", "None"], ["single", "Inset line"]]),
+          fSel("holes", "Mounting holes", "4", [["0", "None"], ["2", "2 — top"], ["4", "4 — corners"]]),
+          fNum("hd", "Hole diameter (in)", 0.375, 0.125, 1.5, 0.0625)
+        ],
+        '<rect x="2" y="9" width="32" height="18" rx="3" fill="#DD5F16"/><text x="18" y="23" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="11" fill="#1C2126">12</text>',
+        function (p) {
+          var w = p.w, h = p.h, r = p.r, body = [], cuts = [], texts = [], holes = [];
+          var per = pRoundRect(0, 0, w, h, r);
+          body.push({ d: per.d });
+          var cut = per.perim, pierces = 1, notes = [];
+
+          var m = Math.max(0.6, Math.min(w, h) * 0.09);
+          if (p.border === "single") {
+            var b = pRoundRect(m, m, w - 2 * m, h - 2 * m, Math.max(0, r - m));
+            cuts.push({ d: b.d, line: true });
+            cut += b.perim; pierces += 1;
+            m += Math.max(0.5, m * 0.6);
+          }
+
+          var hd = p.hd, nh = parseInt(p.holes, 10);
+          var he = Math.max(r * 0.85, hd * 1.4, 0.6);
+          if (nh > 0) {
+            var hy = [he, h - he], hx = [he, w - he], ix, iy;
+            var rows = nh === 2 ? [he] : hy;
+            for (iy = 0; iy < rows.length; iy++) {
+              for (ix = 0; ix < 2; ix++) {
+                cuts.push({ c: [hx[ix], rows[iy], hd / 2] });
+                holes.push({ x: hx[ix], y: rows[iy], d: hd });
+                cut += circPerim(hd / 2); pierces += 1;
+              }
+            }
+            m = Math.max(m, he + hd * 0.9);
+          }
+
+          var avW = Math.max(0.5, w - 2 * m), avH = Math.max(0.4, h - 2 * m);
+          var ft = fitText(p.text || " ", avW, avH * 0.94, p.style);
+          texts.push({ str: p.text, px: ft.px, fam: ft.m.fam, x: w / 2, y: h / 2 + ft.m.asc / 2 - ft.m.desc / 2 });
+          cut += ft.m.perim; pierces += ft.m.pierces;
+
+          if (ft.m.counters > 0) {
+            notes.push(["note", "The middles of characters like 0, 4, 8 and 6 drop out as separate slugs. We tie them in when we program it if you want them held."]);
+          }
+          return { w: w, h: h, body: body, cuts: cuts, texts: texts, holes: holes,
+                   cut: cut, pierces: pierces, notes: notes, minHole: hd,
+                   strokeIn: ft.px * ft.m.strokeRatio };
+        }),
+
+      T("monogram", "Monogram disc",
+        [
+          fTxt("text", "Letter or initials", "M", 3),
+          fNum("dia", "Diameter (in)", 18, 3, 144, 0.5),
+          fSel("style", "Cut style", "block", STYLE_OPTS),
+          fSel("ring", "Ring", "thin", [["none", "None"], ["thin", "Thin"], ["wide", "Wide"]]),
+          fSel("hang", "Hanging hole", "1", [["0", "None"], ["1", "One, top"]])
+        ],
+        '<circle cx="18" cy="18" r="14" fill="#DD5F16"/><circle cx="18" cy="18" r="11.5" fill="none" stroke="#1C2126" stroke-width="1.2"/><text x="18" y="24" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="15" fill="#1C2126">M</text>',
+        function (p) {
+          var d = p.dia, R = d / 2, body = [], cuts = [], texts = [], notes = [], holes = [];
+          body.push({ c: [R, R, R], fill: true });
+          var cut = circPerim(R), pierces = 1;
+          var inset = 0;
+          if (p.ring !== "none") {
+            inset = p.ring === "wide" ? d * 0.10 : d * 0.055;
+            cuts.push({ c: [R, R, R - inset], line: true });
+            cut += circPerim(R - inset); pierces += 1;
+          }
+          if (p.hang === "1") {
+            var hd = Math.max(0.3125, d * 0.022);
+            var hy = Math.max(hd * 1.6, inset * 0.5 + hd);
+            cuts.push({ c: [R, hy, hd / 2] });
+            holes.push({ x: R, y: hy, d: hd });
+            cut += circPerim(hd / 2); pierces += 1;
+          }
+          var box = (R - inset) * 2 * 0.66;
+          var ft = fitText(p.text || " ", box, box, p.style);
+          texts.push({ str: p.text, px: ft.px, fam: ft.m.fam, x: R, y: R + ft.m.asc / 2 - ft.m.desc / 2 });
+          cut += ft.m.perim; pierces += ft.m.pierces;
+
+          if (p.ring === "none" && ft.m.counters > 0) {
+            notes.push(["warn", "With no ring, the middle of a letter like O or A is a loose slug. Add a ring, or we'll put tie bars in when we program it."]);
+          }
+          return { w: d, h: d, body: body, cuts: cuts, texts: texts,
+                   cut: cut, pierces: pierces, notes: notes,
+                   strokeIn: ft.px * ft.m.strokeRatio };
+        }),
+
+      T("namesign", "Name / ranch sign",
+        [
+          fTxt("text", "Text", "ROCKING R", 20),
+          fNum("w", "Width (in)", 36, 6, 240, 1),
+          fNum("h", "Height (in)", 12, 3, 144, 0.5),
+          fSel("style", "Cut style", "script", STYLE_OPTS),
+          fSel("shape", "Shape", "arch", [["rect", "Rectangle"], ["arch", "Arched top"]]),
+          fSel("holes", "Mounting holes", "2", [["0", "None"], ["2", "2 — top"], ["4", "4 — corners"]]),
+          fNum("hd", "Hole diameter (in)", 0.375, 0.125, 1.5, 0.0625)
+        ],
+        '<path d="M3 27 L3 16 A15 9 0 0 1 33 16 L33 27 Z" fill="#DD5F16"/><text x="18" y="24" text-anchor="middle" font-family="Yellowtail,cursive" font-size="11" fill="#1C2126">Rr</text>',
+        function (p) {
+          var w = p.w, h = p.h, body = [], cuts = [], texts = [], notes = [], holes = [];
+          var cut, pierces = 1, topPad;
+          if (p.shape === "arch") {
+            var rise = Math.min(h * 0.38, w * 0.22);
+            var d = "M0 " + h + "L0 " + rise +
+                    "A" + (w / 2) + " " + rise + " 0 0 1 " + w + " " + rise +
+                    "L" + w + " " + h + "Z";
+            body.push({ d: d });
+            var a = w / 2, bq = rise;
+            var ellipseHalf = Math.PI * (3 * (a + bq) - Math.sqrt((3 * a + bq) * (a + 3 * bq))) / 2;
+            cut = 2 * (h - rise) + w + ellipseHalf;
+            topPad = rise + h * 0.06;
+          } else {
+            var pr = pRoundRect(0, 0, w, h, Math.min(0.5, h * 0.06));
+            body.push({ d: pr.d });
+            cut = pr.perim;
+            topPad = h * 0.14;
+          }
+
+          var hd = p.hd, nh = parseInt(p.holes, 10);
+          var he = Math.max(hd * 1.5, 0.6);
+          if (nh > 0) {
+            var xs = [he + (p.shape === "arch" ? w * 0.08 : 0), w - he - (p.shape === "arch" ? w * 0.08 : 0)];
+            var ys = nh === 2 ? [Math.max(topPad * 0.55, he)] : [Math.max(topPad * 0.55, he), h - he];
+            var i, j;
+            for (i = 0; i < ys.length; i++) {
+              for (j = 0; j < 2; j++) {
+                cuts.push({ c: [xs[j], ys[i], hd / 2] });
+                holes.push({ x: xs[j], y: ys[i], d: hd });
+                cut += circPerim(hd / 2); pierces += 1;
+              }
+            }
+          }
+
+          var side = Math.max(0.6, w * 0.06);
+          var avW = w - 2 * side;
+          var avH = (h - topPad - h * 0.12);
+          var ft = fitText(p.text || " ", avW, Math.max(0.5, avH), p.style);
+          var cy = topPad + (h - topPad) / 2;
+          texts.push({ str: p.text, px: ft.px, fam: ft.m.fam, x: w / 2, y: cy + ft.m.asc / 2 - ft.m.desc / 2 });
+          cut += ft.m.perim; pierces += ft.m.pierces;
+
+          if (p.style === "script") {
+            notes.push(["note", "Script letters run together, so the word cuts as one connected piece — no loose letters."]);
+          }
+          if (ft.m.counters > 0) {
+            notes.push(["note", "Enclosed letters (A, O, R, e) leave a loose slug in the middle. We tie those in unless you want them open."]);
+          }
+          return { w: w, h: h, body: body, cuts: cuts, texts: texts, holes: holes,
+                   cut: cut, pierces: pierces, notes: notes, minHole: nh > 0 ? hd : 0,
+                   strokeIn: ft.px * ft.m.strokeRatio };
+        }),
+
+      T("baseplate", "Base plate",
+        [
+          fNum("w", "Width (in)", 8, 1, 240, 0.25),
+          fNum("h", "Height (in)", 8, 1, 144, 0.25),
+          fNum("r", "Corner radius (in)", 0.5, 0, 8, 0.125),
+          fNum("hd", "Bolt hole dia (in)", 0.5625, 0.125, 3, 0.0625),
+          fNum("edge", "Hole from edge (in)", 1, 0.25, 12, 0.125),
+          fNum("center", "Centre hole dia (in)", 0, 0, 24, 0.125)
+        ],
+        '<rect x="4" y="7" width="28" height="22" rx="2.5" fill="#DD5F16"/><g fill="#1C2126"><circle cx="9" cy="12" r="2"/><circle cx="27" cy="12" r="2"/><circle cx="9" cy="24" r="2"/><circle cx="27" cy="24" r="2"/></g>',
+        function (p) {
+          var w = p.w, h = p.h, body = [], cuts = [], notes = [], holes = [];
+          var pr = pRoundRect(0, 0, w, h, p.r);
+          body.push({ d: pr.d });
+          var cut = pr.perim, pierces = 1;
+          var e = Math.min(p.edge, Math.min(w, h) / 2 - p.hd / 2 - 0.05);
+          var xs = [e, w - e], ys = [e, h - e], i, j;
+          for (i = 0; i < 2; i++) {
+            for (j = 0; j < 2; j++) {
+              cuts.push({ c: [xs[j], ys[i], p.hd / 2] });
+              holes.push({ x: xs[j], y: ys[i], d: p.hd });
+              cut += circPerim(p.hd / 2); pierces += 1;
+            }
+          }
+          if (p.center > 0.01) {
+            var cr = Math.min(p.center / 2, Math.min(w, h) / 2 - e - p.hd);
+            if (cr > 0.05) {
+              cuts.push({ c: [w / 2, h / 2, cr] });
+              holes.push({ x: w / 2, y: h / 2, d: cr * 2 });
+              cut += circPerim(cr); pierces += 1;
+            }
+          }
+          if (e < p.hd) {
+            notes.push(["warn", "Those holes are closer to the edge than one hole diameter. It'll cut, but the edge can pull in — move them in a bit if the plate takes load."]);
+          }
+          return { w: w, h: h, body: body, cuts: cuts, texts: [], holes: holes,
+                   cut: cut, pierces: pierces, notes: notes, minHole: p.hd };
+        }),
+
+      T("gusset", "Gusset / bracket",
+        [
+          fNum("a", "Vertical leg (in)", 8, 1, 144, 0.25),
+          fNum("b", "Horizontal leg (in)", 8, 1, 144, 0.25),
+          fNum("r", "Corner radius (in)", 0.75, 0, 6, 0.125),
+          fNum("hd", "Hole dia (in) — 0 for none", 0.5625, 0, 3, 0.0625)
+        ],
+        '<path d="M6 5 L6 29 L31 29 Z" fill="#DD5F16"/><circle cx="11" cy="24" r="2" fill="#1C2126"/>',
+        function (p) {
+          var a = p.a, b = p.b, notes = [];
+          var pts = [[0, 0], [0, a], [b, a]];
+          var rp = pRoundPoly(pts, p.r);
+          var body = [{ d: rp.d }], cuts = [], holes = [];
+          var cut = rp.perim, pierces = 1;
+          if (p.hd > 0.01) {
+            var off = Math.max(p.hd * 1.6, p.r + p.hd * 0.8);
+            cuts.push({ c: [off, a - off, p.hd / 2] });
+            holes.push({ x: off, y: a - off, d: p.hd });
+            cut += circPerim(p.hd / 2); pierces += 1;
+          }
+          return { w: b, h: a, body: body, cuts: cuts, texts: [], holes: holes,
+                   cut: cut, pierces: pierces, notes: notes,
+                   minHole: p.hd > 0.01 ? p.hd : 0 };
+        }),
+
+      T("flange", "Flange ring",
+        [
+          fNum("od", "Outside dia (in)", 10, 1, 144, 0.25),
+          fNum("id", "Inside dia (in)", 4, 0, 58, 0.25),
+          fNum("bc", "Bolt circle dia (in)", 7.5, 0, 58, 0.125),
+          fNum("n", "Bolt holes", 8, 0, 48, 1),
+          fNum("bd", "Bolt hole dia (in)", 0.5625, 0.125, 3, 0.0625)
+        ],
+        '<circle cx="18" cy="18" r="14" fill="#DD5F16"/><g fill="#1C2126"><circle cx="18" cy="18" r="5.5"/><circle cx="18" cy="8" r="1.9"/><circle cx="25" cy="11" r="1.9"/><circle cx="28" cy="18" r="1.9"/><circle cx="25" cy="25" r="1.9"/><circle cx="18" cy="28" r="1.9"/><circle cx="11" cy="25" r="1.9"/><circle cx="8" cy="18" r="1.9"/><circle cx="11" cy="11" r="1.9"/></g>',
+        function (p) {
+          var R = p.od / 2, notes = [], holes = [];
+          var body = [{ c: [R, R, R], fill: true }], cuts = [];
+          var cut = circPerim(R), pierces = 1;
+          if (p.id > 0.01) {
+            var ir = Math.min(p.id / 2, R - 0.05);
+            cuts.push({ c: [R, R, ir] });
+            holes.push({ x: R, y: R, d: ir * 2 });
+            cut += circPerim(ir); pierces += 1;
+          }
+          var n = Math.round(p.n);
+          if (n > 0 && p.bc > 0.01) {
+            var bcr = Math.min(p.bc / 2, R - p.bd / 2 - 0.03), i;
+            for (i = 0; i < n; i++) {
+              var ang = (i / n) * Math.PI * 2 - Math.PI / 2;
+              var bx = R + Math.cos(ang) * bcr, by = R + Math.sin(ang) * bcr;
+              cuts.push({ c: [bx, by, p.bd / 2] });
+              holes.push({ x: bx, y: by, d: p.bd });
+              cut += circPerim(p.bd / 2); pierces += 1;
+            }
+          }
+          return { w: p.od, h: p.od, body: body, cuts: cuts, texts: [], holes: holes,
+                   cut: cut, pierces: pierces, notes: notes, minHole: p.bd };
+        })
+    ];
+
+    /* ---------------- state ---------------- */
+
+    var current = TEMPLATES[0];
+    var params = {};
+
+    function resetParams(t) {
+      params = {};
+      t.fields.forEach(function (f) { params[f.k] = f.val; });
+    }
+    resetParams(current);
+
+    /* ---------------- control rendering ---------------- */
+
+    function buildPicker() {
+      picker.innerHTML = TEMPLATES.map(function (t) {
+        return '<button class="dz-pick" type="button" data-k="' + t.key + '" ' +
+               'aria-pressed="' + (t === current ? "true" : "false") + '">' +
+               '<svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">' + t.icon + '</svg>' +
+               '<span>' + t.label + '</span></button>';
+      }).join("");
+    }
+
+    var fieldsEl = document.getElementById("tplFields");
+
+    function buildFields() {
+      var html = "", pending = null;
+      current.fields.forEach(function (f) {
+        var id = "tf-" + f.k, inner;
+        if (f.type === "sel") {
+          inner = '<select id="' + id + '" data-k="' + f.k + '">' +
+            f.opts.map(function (o) {
+              return '<option value="' + o[0] + '"' + (String(params[f.k]) === o[0] ? " selected" : "") + '>' + o[1] + '</option>';
+            }).join("") + '</select>';
+        } else if (f.type === "text") {
+          inner = '<input id="' + id + '" data-k="' + f.k + '" type="text" maxlength="' + f.max + '" value="' + String(params[f.k]).replace(/"/g, "&quot;") + '">';
+        } else {
+          inner = '<input id="' + id + '" data-k="' + f.k + '" type="number" min="' + f.min + '" max="' + f.max + '" step="' + f.step + '" value="' + params[f.k] + '">';
+        }
+        var block = '<div class="dz-f"><label for="' + id + '">' + f.label + '</label>' + inner + '</div>';
+        /* pair short numeric fields two-up */
+        if (f.type === "num" && f.label.indexOf("(in)") > -1) {
+          if (pending) { html += '<div class="dz-f2">' + pending + block + '</div>'; pending = null; }
+          else { pending = block; }
+        } else {
+          if (pending) { html += pending; pending = null; }
+          html += block;
+        }
+      });
+      if (pending) { html += pending; }
+      fieldsEl.innerHTML = html;
+    }
+
+    /* ---------------- preview ---------------- */
+
+    var svgEl = document.getElementById("tplPreview");
+    var PART = "#DD5F16", VOID = "#0D1013", DIM = "#6F7A84";
+
+    function buildSVG(part, forExport) {
+      var w = part.w, h = part.h;
+      var pad = Math.max(w, h) * 0.16 + 0.5;
+      var sw = Math.max(w, h) * 0.005;
+      var cw = Math.max(w, h) * 0.005;
+      var fs = Math.max(w, h) * 0.042;
+      var s = "";
+
+      s += '<g>';
+      part.body.forEach(function (b) {
+        if (b.d) { s += '<path d="' + b.d + '" fill="' + PART + '"/>'; }
+        else if (b.c) { s += '<circle cx="' + b.c[0] + '" cy="' + b.c[1] + '" r="' + b.c[2] + '" fill="' + PART + '"/>'; }
+      });
+      part.cuts.forEach(function (c) {
+        if (c.d) {
+          s += '<path d="' + c.d + '" fill="none" stroke="' + VOID + '" stroke-width="' + cw + '"/>';
+        } else if (c.c) {
+          s += '<circle cx="' + c.c[0] + '" cy="' + c.c[1] + '" r="' + c.c[2] + '" fill="' + VOID + '"' +
+               (c.line ? ' fill-opacity="0"' : '') + '/>';
+          if (c.line) {
+            s += '<circle cx="' + c.c[0] + '" cy="' + c.c[1] + '" r="' + c.c[2] + '" fill="none" stroke="' + VOID + '" stroke-width="' + cw + '"/>';
+          }
+        }
+      });
+      part.texts.forEach(function (t) {
+        s += '<text x="' + t.x + '" y="' + t.y + '" text-anchor="middle" fill="' + VOID + '" ' +
+             'font-family=\'' + t.fam.replace(/'/g, "") + '\' font-size="' + t.px + '">' +
+             String(t.str).replace(/&/g, "&amp;").replace(/</g, "&lt;") + '</text>';
+      });
+      s += '</g>';
+
+      if (!forExport) {
+        var dy = h + pad * 0.5, dx = -pad * 0.5;
+        s += '<g stroke="' + DIM + '" stroke-width="' + sw + '" fill="none">' +
+             '<path d="M0 ' + dy + 'H' + w + 'M0 ' + (dy - fs * 0.35) + 'v' + (fs * 0.7) + 'M' + w + ' ' + (dy - fs * 0.35) + 'v' + (fs * 0.7) + '"/>' +
+             '<path d="M' + dx + ' 0V' + h + 'M' + (dx - fs * 0.35) + ' 0h' + (fs * 0.7) + 'M' + (dx - fs * 0.35) + ' ' + h + 'h' + (fs * 0.7) + '"/>' +
+             '</g>' +
+             '<g fill="' + DIM + '" font-family="IBM Plex Mono, monospace" font-size="' + fs + '">' +
+             '<text x="' + (w / 2) + '" y="' + (dy + fs * 1.25) + '" text-anchor="middle">' + inches(w) + '</text>' +
+             '<text x="' + (dx - fs * 0.75) + '" y="' + (h / 2 + fs * 0.35) + '" text-anchor="end">' + inches(h) + '</text>' +
+             '</g>';
+      }
+
+      var vb = forExport
+        ? [-sw * 3, -sw * 3, w + sw * 6, h + sw * 6]
+        : [-pad * 1.3, -pad * 0.55, w + pad * 2.25, h + pad * 1.65];
+
+      return { inner: s, vb: vb.join(" "), w: w, h: h };
+    }
+
+    function svgDoc(part) {
+      var b = buildSVG(part, true);
+      return '<?xml version="1.0" encoding="UTF-8"?>\n' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="' + part.w + 'in" height="' + part.h + 'in" ' +
+        'viewBox="' + b.vb + '">\n' +
+        '<!-- Mid South Plasma — customer design. Units: inches. -->\n' +
+        b.inner + '\n</svg>\n';
+    }
+
+    /* ---------------- checks ---------------- */
+
+    function materialChecks(part, mat, thk) {
+      var out = [], maxT = PIERCE_MAX[mat] || 1.5;
+
+      if (part.w > TABLE_W && part.h > TABLE_W) {
+        out.push(["stop", "That's past our table in both directions — ours is " + TABLE_SAY +
+          ". A part that size has to be cut in sections and welded. Call us and we'll work it out."]);
+      } else if (Math.max(part.w, part.h) > TABLE_H || Math.min(part.w, part.h) > TABLE_W) {
+        out.push(["stop", "Bigger than our table, which is " + TABLE_SAY +
+          ". Give us a call — sectioning a part that size is usually straightforward."]);
+      }
+
+      var tooThick = thk > maxT;
+      if (tooThick) {
+        out.push(["stop", "We can't pierce " + mat.split(" (")[0].toLowerCase() + " that thick. Max is " +
+          frac(maxT) + '" on this machine.']);
+      }
+
+      var minFeature = thk * 1.5;
+      if (tooThick) {
+        (part.notes || []).forEach(function (n) { out.push(n); });
+        return out;
+      }
+      if (part.strokeIn && part.strokeIn < minFeature) {
+        out.push(["warn", "At " + frac(thk) + '" material the letter strokes are about ' + frac(part.strokeIn) +
+          '" wide — thinner than we\'d normally cut. Go bigger on the text, or thinner on the material, or expect some rounding on the corners.']);
+      }
+      var mh = part.minHole || 0;
+      if (mh > 0.01 && mh < thk * 1.5) {
+        out.push(["warn", 'A ' + frac(mh) + '" hole in ' + frac(thk) +
+          '" plate is below what plasma pierces cleanly. We can drill those instead — it just adds a step.']);
+      }
+
+      var hs = holeSpacingIssue(part.holes);
+      if (hs) {
+        out.push(["stop", hs.clear < 0.0625
+          ? 'There is barely any steel left between those holes &mdash; they would come off the table as one ragged slot. ' +
+            'We keep at least one hole diameter between holes, which is ' + inches(hs.need) +
+            ' here. Fewer holes, a smaller hole, or more room between them.'
+          : 'Those holes are too close together. We leave at least one hole diameter of steel between holes &mdash; ' +
+            'yours leaves about ' + inches(hs.clear) + ' where it needs ' + inches(hs.need) +
+            '. A web thinner than that heats up and tears out instead of cutting clean. ' +
+            'Spread them out, or drop to a smaller hole.']);
+      }
+
+      (part.notes || []).forEach(function (n) { out.push(n); });
+
+      if (!out.length) {
+        out.push(["ok", "Nothing here gives us trouble. Send it over and we'll price it."]);
+      }
+      return sortChecks(out);
+    }
+
+    /* blocking problems first, then cautions, then notes */
+    function sortChecks(list) {
+      var rank = { stop: 0, warn: 1, note: 2, ok: 3 };
+      return list.slice().sort(function (a, b) {
+        return (rank[a[0]] === undefined ? 2 : rank[a[0]]) -
+               (rank[b[0]] === undefined ? 2 : rank[b[0]]);
+      });
+    }
+
+    function renderChecks(el, checks) {
+      el.innerHTML = checks.map(function (c) {
+        var cls = c[0] === "stop" ? "stop" : (c[0] === "warn" ? "warn" : "");
+        var lab = c[0] === "stop" ? "Problem" : (c[0] === "warn" ? "Heads up" : (c[0] === "ok" ? "Good" : "Note"));
+        return '<div class="dz-check ' + cls + '"><b>' + lab + '</b><span>' + c[1] + '</span></div>';
+      }).join("");
+    }
+
+    function stat(label, value, sub) {
+      return '<div class="dz-stat"><b>' + label + '</b><span>' + value + '</span>' +
+             (sub ? '<em>' + sub + '</em>' : '') + '</div>';
+    }
+
+    /* ---------------- draw ---------------- */
+
+    var matEl = document.getElementById("d-mat");
+    var thkEl = document.getElementById("d-thk");
+    var qtyEl = document.getElementById("d-qty");
+    var readEl = document.getElementById("tplReadout");
+    var checkEl = document.getElementById("tplChecks");
+    var lastPart = null;
+
+    function thkLabel(sel) { return sel.options[sel.selectedIndex].textContent; }
+
+    function draw() {
+      var p = {}, ok = true;
+      current.fields.forEach(function (f) {
+        var v = params[f.k];
+        if (f.type === "num") {
+          v = parseFloat(v);
+          if (!isFinite(v)) { v = f.val; }
+          v = Math.max(f.min, Math.min(f.max, v));
+        }
+        p[f.k] = v;
+      });
+      if (!ok) { return; }
+
+      var part;
+      try { part = current.build(p); }
+      catch (err) { return; }
+      lastPart = part;
+      lastPart.params = p;
+
+      var b = buildSVG(part, false);
+      svgEl.setAttribute("viewBox", b.vb);
+      svgEl.setAttribute("preserveAspectRatio", "xMidYMid meet");
+      svgEl.innerHTML = b.inner;
+
+      var thk = parseFloat(thkEl.value);
+      var qty = Math.max(1, parseInt(qtyEl.value, 10) || 1);
+      var cutFt = part.cut / 12;
+
+      readEl.innerHTML =
+        stat("Part size", inches(part.w) + " × " + inches(part.h)) +
+        stat("Cut length", (cutFt < 10 ? cutFt.toFixed(2) : cutFt.toFixed(1)) + " ft", "≈ per part") +
+        stat("Pierces", String(part.pierces), qty > 1 ? (part.pierces * qty) + " total" : "starts per part") +
+        stat("Quantity", String(qty), thkLabel(thkEl) + " " + matEl.value.split(" (")[0].toLowerCase());
+
+      renderChecks(checkEl, materialChecks(part, matEl.value, thk));
+    }
+
+    /* ---------------- events ---------------- */
+
+    picker.addEventListener("click", function (e) {
+      var btn = e.target.closest(".dz-pick");
+      if (!btn) { return; }
+      var t = TEMPLATES.filter(function (x) { return x.key === btn.dataset.k; })[0];
+      if (!t || t === current) { return; }
+      current = t;
+      resetParams(t);
+      buildPicker(); buildFields(); draw();
+    });
+
+    fieldsEl.addEventListener("input", function (e) {
+      var k = e.target.dataset && e.target.dataset.k;
+      if (!k) { return; }
+      params[k] = e.target.value;
+      draw();
+    });
+    fieldsEl.addEventListener("change", function (e) {
+      var k = e.target.dataset && e.target.dataset.k;
+      if (!k) { return; }
+      params[k] = e.target.value;
+      draw();
+    });
+    [matEl, thkEl, qtyEl].forEach(function (el) {
+      el.addEventListener("change", draw);
+      el.addEventListener("input", draw);
+    });
+
+    buildPicker(); buildFields(); draw();
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(draw); }
+
+    /* ---------------- send template to the quote form ---------------- */
+
+    document.getElementById("tplSend").addEventListener("click", function () {
+      if (!lastPart) { return; }
+      var p = lastPart.params, lines = [], i;
+      lines.push("DESIGNED ON THE SITE — " + current.label);
+      current.fields.forEach(function (f) {
+        var v = p[f.k];
+        if (f.type === "sel") {
+          var o = f.opts.filter(function (x) { return x[0] === String(v); })[0];
+          v = o ? o[1] : v;
+        } else if (f.type === "num") {
+          v = f.label.indexOf("(in)") > -1 ? inches(v) : v;
+        }
+        lines.push("  " + f.label.replace(" (in)", "") + ": " + v);
+      });
+      lines.push("  Overall: " + inches(lastPart.w) + " x " + inches(lastPart.h));
+      lines.push("  Cut length: ~" + (lastPart.cut / 12).toFixed(2) + " ft per part");
+      lines.push("  Pierces: " + lastPart.pierces + " per part");
+      void i;
+
+      var blob = new Blob([svgDoc(lastPart)], { type: "image/svg+xml" });
+      var fname = "design-" + current.key + "-" + Date.now() + ".svg";
+
+      setDesign({
+        kind: "template",
+        label: current.label,
+        spec: lines.join("\n"),
+        w: lastPart.w, h: lastPart.h,
+        mat: matEl.value,
+        thkLabel: thkLabel(thkEl),
+        qty: Math.max(1, parseInt(qtyEl.value, 10) || 1),
+        file: new File([blob], fname, { type: "image/svg+xml" }),
+        fileNote: "drawing generated from the design tool"
+      });
+    });
+
+    /* ==================================================================
+       DXF READER
+       ================================================================== */
+
+    var dxfCanvas = document.getElementById("dxfCanvas");
+    var dxfCtx = dxfCanvas.getContext("2d");
+    var dxfFrame = document.getElementById("dxfFrame");
+    var dxfEmpty = document.getElementById("dxfEmpty");
+    var dxfRead = document.getElementById("dxfReadout");
+    var dxfCheck = document.getElementById("dxfChecks");
+    var dxfSendBtn = document.getElementById("dxfSend");
+    var uMat = document.getElementById("u-mat");
+    var uThk = document.getElementById("u-thk");
+    var uQty = document.getElementById("u-qty");
+    var uUnits = document.getElementById("u-units");
+    var dxfState = null, dxfFileRef = null;
+
+    var UNIT_SCALE = { 1: 1, 2: 12, 4: 1 / 25.4, 5: 1 / 2.54, 6: 1000 / 25.4, 8: 1 / 25400, 9: 1 / 25.4 / 1000, 10: 36, 11: 1 / 25.4e7 };
+    var UNIT_NAME = { 1: "inches", 2: "feet", 4: "millimetres", 5: "centimetres", 6: "metres" };
+
+    function pairsOf(text) {
+      var raw = text.split(/\r\n|\r|\n/), out = [], i = 0;
+      while (i + 1 < raw.length) {
+        var c = parseInt(raw[i].trim(), 10);
+        if (isNaN(c)) { i += 1; continue; }
+        out.push([c, raw[i + 1].trim()]);
+        i += 2;
+      }
+      return out;
+    }
+
+    function arcPts(cx, cy, r, a0, a1, closed) {
+      var pts = [], span = a1 - a0;
+      while (span <= 0) { span += 360; }
+      if (closed) { span = 360; a0 = 0; }
+      var n = Math.max(8, Math.min(180, Math.ceil(span / 4))), i;
+      for (i = 0; i <= n; i++) {
+        var a = (a0 + span * (i / n)) * Math.PI / 180;
+        pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]);
+      }
+      return pts;
+    }
+
+    function parseDXF(text) {
+      var pairs = pairsOf(text);
+      var section = "", ents = [], cur = null, insunits = 0, pv = "";
+      var counts = { TEXT: 0, INSERT: 0, SPLINE: 0, other: 0 };
+      var i;
+
+      for (i = 0; i < pairs.length; i++) {
+        var c = pairs[i][0], v = pairs[i][1];
+        if (c === 0) {
+          if (cur) { ents.push(cur); cur = null; }
+          if (v === "SECTION") { section = "?"; continue; }
+          if (v === "ENDSEC" || v === "EOF") { section = ""; continue; }
+          if (section === "ENTITIES") {
+            if (v === "TEXT" || v === "MTEXT" || v === "ATTDEF") { counts.TEXT++; continue; }
+            if (v === "INSERT") { counts.INSERT++; continue; }
+            if (v === "SPLINE") { counts.SPLINE++; }
+            cur = { t: v, x: [], y: [], n: {}, bulge: [] };
+          }
+          continue;
+        }
+        if (c === 2 && section === "?") { section = v; continue; }
+        if (section === "HEADER") {
+          if (c === 9) { pv = v; continue; }
+          if (pv === "$INSUNITS" && c === 70) { insunits = parseInt(v, 10) || 0; pv = ""; }
+          continue;
+        }
+        if (!cur) { continue; }
+        if (c === 10) { cur.x.push(parseFloat(v)); }
+        else if (c === 20) { cur.y.push(parseFloat(v)); }
+        else if (c === 11) { cur.x2 = parseFloat(v); }
+        else if (c === 21) { cur.y2 = parseFloat(v); }
+        else if (c === 42) { cur.bulge.push(parseFloat(v)); cur.n[42] = parseFloat(v); }
+        else if (c === 40 || c === 41 || c === 50 || c === 51 || c === 70 || c === 90) {
+          cur.n[c] = parseFloat(v);
+        }
+      }
+      if (cur) { ents.push(cur); }
+
+      /* stitch POLYLINE + VERTEX runs */
+      var merged = [], j;
+      for (j = 0; j < ents.length; j++) {
+        var e = ents[j];
+        if (e.t === "POLYLINE") {
+          var poly = { t: "POLYLINE", x: [], y: [], n: e.n, bulge: [] };
+          j++;
+          while (j < ents.length && ents[j].t === "VERTEX") {
+            if (ents[j].x.length) { poly.x.push(ents[j].x[0]); poly.y.push(ents[j].y[0]); }
+            j++;
+          }
+          merged.push(poly);
+          if (j < ents.length && ents[j].t === "SEQEND") { continue; }
+          j--;
+        } else if (e.t !== "VERTEX" && e.t !== "SEQEND") {
+          merged.push(e);
+        }
+      }
+
+      /* to polylines */
+      var polys = [], circles = [], k, closedCount = 0, openCount = 0;
+      for (k = 0; k < merged.length; k++) {
+        var m = merged[k], pts = null, closed = false;
+        if (m.t === "LINE" && m.x.length && isFinite(m.x2)) {
+          pts = [[m.x[0], m.y[0]], [m.x2, m.y2]];
+        } else if (m.t === "CIRCLE" && m.n[40] > 0) {
+          pts = arcPts(m.x[0], m.y[0], m.n[40], 0, 360, true); closed = true;
+          if (circles.length < 600) { circles.push({ x: m.x[0], y: m.y[0], d: m.n[40] * 2 }); }
+        } else if (m.t === "ARC" && m.n[40] > 0) {
+          pts = arcPts(m.x[0], m.y[0], m.n[40], m.n[50] || 0, m.n[51] || 0);
+        } else if (m.t === "ELLIPSE" && m.x.length) {
+          var ax = m.x2 || 0, ay = m.y2 || 0;
+          var maj = Math.hypot(ax, ay), rot = Math.atan2(ay, ax), rat = m.n[40] || 1;
+          var st = m.n[41] || 0, en = (typeof m.n[42] === "number" ? m.n[42] : Math.PI * 2);
+          if (maj > 0) {
+            pts = []; closed = Math.abs((en - st) - Math.PI * 2) < 0.01;
+            var steps = 96, q;
+            for (q = 0; q <= steps; q++) {
+              var tt = st + (en - st) * (q / steps);
+              var ex = Math.cos(tt) * maj, ey = Math.sin(tt) * maj * rat;
+              pts.push([m.x[0] + ex * Math.cos(rot) - ey * Math.sin(rot),
+                        m.y[0] + ex * Math.sin(rot) + ey * Math.cos(rot)]);
+            }
+          }
+        } else if ((m.t === "LWPOLYLINE" || m.t === "POLYLINE" || m.t === "SPLINE") && m.x.length > 1) {
+          pts = [];
+          var q2;
+          for (q2 = 0; q2 < m.x.length; q2++) {
+            if (isFinite(m.x[q2]) && isFinite(m.y[q2])) { pts.push([m.x[q2], m.y[q2]]); }
+          }
+          closed = !!(m.n[70] && (m.n[70] & 1));
+          if (closed && pts.length > 1) { pts = pts.concat([pts[0]]); }
+        } else if (m.t !== "POINT" && m.t !== "DIMENSION" && m.t !== "SOLID" && m.t !== "HATCH") {
+          counts.other++;
+        }
+        if (pts && pts.length > 1) {
+          polys.push(pts);
+          if (closed) { closedCount++; } else { openCount++; }
+        }
+      }
+
+      /* bbox + length */
+      var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity, len = 0, a, b;
+      for (k = 0; k < polys.length; k++) {
+        for (a = 0; a < polys[k].length; a++) {
+          var pt = polys[k][a];
+          if (pt[0] < minX) { minX = pt[0]; } if (pt[0] > maxX) { maxX = pt[0]; }
+          if (pt[1] < minY) { minY = pt[1]; } if (pt[1] > maxY) { maxY = pt[1]; }
+          if (a) { b = polys[k][a - 1]; len += Math.hypot(pt[0] - b[0], pt[1] - b[1]); }
+        }
+      }
+
+      return {
+        polys: polys, circles: circles, len: len, closed: closedCount, open: openCount,
+        counts: counts, insunits: insunits,
+        bbox: polys.length ? [minX, minY, maxX, maxY] : null
+      };
+    }
+
+    function unitScale(st) {
+      if (uUnits.value !== "auto") { return { s: 1 / parseFloat(uUnits.value), name: uUnits.options[uUnits.selectedIndex].textContent.toLowerCase(), guessed: false }; }
+      if (st.insunits && UNIT_SCALE[st.insunits]) {
+        return { s: UNIT_SCALE[st.insunits], name: UNIT_NAME[st.insunits] || "file units", guessed: false };
+      }
+      var span = st.bbox ? Math.max(st.bbox[2] - st.bbox[0], st.bbox[3] - st.bbox[1]) : 0;
+      if (span > 200) { return { s: 1 / 25.4, name: "millimetres", guessed: true }; }
+      return { s: 1, name: "inches", guessed: true };
+    }
+
+    function drawDXF() {
+      if (!dxfState || !dxfState.bbox) { return; }
+      var rect = dxfCanvas.getBoundingClientRect();
+      if (!rect.width) { return; }
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dxfCanvas.width = Math.round(rect.width * dpr);
+      dxfCanvas.height = Math.round(rect.height * dpr);
+      dxfCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      dxfCtx.fillStyle = "#0D1013";
+      dxfCtx.fillRect(0, 0, rect.width, rect.height);
+
+      var bb = dxfState.bbox;
+      var bw = Math.max(bb[2] - bb[0], 1e-6), bh = Math.max(bb[3] - bb[1], 1e-6);
+      var pad = 34;
+      var s = Math.min((rect.width - pad * 2) / bw, (rect.height - pad * 2) / bh);
+      var ox = (rect.width - bw * s) / 2 - bb[0] * s;
+      var oy = (rect.height + bh * s) / 2 + bb[1] * s;
+
+      dxfCtx.strokeStyle = "#DD5F16";
+      dxfCtx.lineWidth = 1.4;
+      dxfCtx.lineJoin = "round";
+      var i, j, drawn = 0;
+      for (i = 0; i < dxfState.polys.length && drawn < 120000; i++) {
+        var p = dxfState.polys[i];
+        dxfCtx.beginPath();
+        for (j = 0; j < p.length; j++) {
+          var X = ox + p[j][0] * s, Y = oy - p[j][1] * s;
+          if (j === 0) { dxfCtx.moveTo(X, Y); } else { dxfCtx.lineTo(X, Y); }
+          drawn++;
+        }
+        dxfCtx.stroke();
+      }
+
+      /* extents box */
+      dxfCtx.strokeStyle = "#232A31";
+      dxfCtx.lineWidth = 1;
+      dxfCtx.setLineDash([5, 5]);
+      dxfCtx.strokeRect(ox + bb[0] * s - 11, oy - bb[3] * s - 11, bw * s + 22, bh * s + 22);
+      dxfCtx.setLineDash([]);
+    }
+
+    function showDXF(st, name) {
+      dxfState = st;
+      var u = unitScale(st);
+      var checks = [];
+
+      if (!st.bbox || !st.polys.length) {
+        dxfEmpty.hidden = false;
+        dxfEmpty.innerHTML = "Nothing cuttable in that file.<br>Send it to us anyway and we&rsquo;ll have a look.";
+        dxfRead.innerHTML = "";
+        renderChecks(dxfCheck, [["warn", "We couldn't find any lines, arcs or polylines in that file. It may be saved in a format we need to open in CAD — attach it to the quote and we'll check it."]]);
+        dxfSendBtn.disabled = false;
+        return;
+      }
+
+      dxfEmpty.hidden = true;
+      var w = (st.bbox[2] - st.bbox[0]) * u.s;
+      var h = (st.bbox[3] - st.bbox[1]) * u.s;
+      var len = st.len * u.s;
+      var qty = Math.max(1, parseInt(uQty.value, 10) || 1);
+      st.inW = w; st.inH = h; st.inLen = len; st.unitName = u.name;
+
+      dxfRead.innerHTML =
+        stat("Part size", inches(w) + " × " + inches(h), "read as " + u.name) +
+        stat("Cut length", (len / 12 < 10 ? (len / 12).toFixed(2) : (len / 12).toFixed(1)) + " ft", st.polys.length + " contours") +
+        stat("Closed shapes", String(st.closed), st.open ? st.open + " open paths" : "all closed") +
+        stat("Quantity", String(qty), thkLabel(uThk) + " " + uMat.value.split(" (")[0].toLowerCase());
+
+      if (u.guessed) {
+        checks.push(["warn", "The file doesn't say what units it's in, so we read it as " + u.name +
+          " — that makes the part " + inches(w) + " × " + inches(h) + ". If that's wrong, set the units on the left."]);
+      }
+      if (st.open > 0) {
+        checks.push(["warn", st.open + " path" + (st.open === 1 ? " is" : "s are") +
+          " left open. Plasma needs closed profiles, so we'll close them up when we program it — worth a look on your end if the shape matters."]);
+      }
+      if (st.counts.TEXT > 0) {
+        checks.push(["warn", "There's live text in the file. Text isn't cuttable geometry — it has to be converted to outlines. We can do that, just say what font."]);
+      }
+      if (st.counts.INSERT > 0) {
+        checks.push(["note", "The file uses blocks. We'll expand them when we open it — everything inside still gets cut."]);
+      }
+      if (st.counts.SPLINE > 0) {
+        checks.push(["note", "There are splines in here. We approximate them for the length figure; the actual cut follows the true curve."]);
+      }
+
+      var scaled = (st.circles || []).map(function (c) {
+        return { x: c.x * u.s, y: c.y * u.s, d: c.d * u.s };
+      });
+      var hs = holeSpacingIssue(scaled);
+      if (hs) {
+        checks.push(["warn", "Two holes in this file sit closer than our spacing rule allows — about " +
+          inches(hs.clear) + " of steel between them where we want at least " + inches(hs.need) +
+          " (one hole diameter). That web tends to tear out rather than cut clean. We'll flag it before " +
+          "anything goes on the table, but it's easier to fix in your file than in ours."]);
+      }
+
+      var thk = parseFloat(uThk.value);
+      var fakePart = { w: w, h: h, notes: [] };
+      materialChecks(fakePart, uMat.value, thk).forEach(function (c) {
+        if (c[0] !== "ok") { checks.push(c); }
+      });
+      if (!checks.length) {
+        checks.push(["ok", "Clean file, nothing that'll slow us down. Send it over."]);
+      }
+      renderChecks(dxfCheck, sortChecks(checks));
+      dxfSendBtn.disabled = false;
+      drawDXF();
+      void name;
+    }
+
+    function readFile(file) {
+      if (!file) { return; }
+      if (file.size > 12 * 1024 * 1024) {
+        renderChecks(dxfCheck, [["stop", "That file is over 12 MB, which is too big to read in the browser. Attach it to the quote form below and we'll open it here."]]);
+        return;
+      }
+      dxfFileRef = file;
+      document.getElementById("dxfName").textContent = file.name;
+      var fr = new FileReader();
+      fr.onload = function () {
+        var st;
+        try { st = parseDXF(String(fr.result)); }
+        catch (err) {
+          renderChecks(dxfCheck, [["warn", "We couldn't read that one. Attach it to the quote form and we'll open it in CAD."]]);
+          dxfSendBtn.disabled = false;
+          return;
+        }
+        showDXF(st, file.name);
+      };
+      fr.readAsText(file);
+    }
+
+    document.getElementById("dxfFile").addEventListener("change", function (e) {
+      readFile(e.target.files[0]);
+    });
+    ["dragenter", "dragover"].forEach(function (ev) {
+      dxfFrame.addEventListener(ev, function (e) { e.preventDefault(); dxfFrame.classList.add("drag"); });
+      document.getElementById("dxfDrop").addEventListener(ev, function (e) { e.preventDefault(); });
+    });
+    ["dragleave", "drop"].forEach(function (ev) {
+      dxfFrame.addEventListener(ev, function (e) { e.preventDefault(); dxfFrame.classList.remove("drag"); });
+    });
+    [dxfFrame, document.getElementById("dxfDrop")].forEach(function (el) {
+      el.addEventListener("drop", function (e) {
+        e.preventDefault();
+        dxfFrame.classList.remove("drag");
+        if (e.dataTransfer && e.dataTransfer.files.length) { readFile(e.dataTransfer.files[0]); }
+      });
+    });
+    [uMat, uThk, uQty, uUnits].forEach(function (el) {
+      el.addEventListener("change", function () { if (dxfState) { showDXF(dxfState, ""); } });
+    });
+    if (window.ResizeObserver) { new ResizeObserver(drawDXF).observe(dxfCanvas); }
+    else { window.addEventListener("resize", drawDXF); }
+
+    dxfSendBtn.addEventListener("click", function () {
+      if (!dxfFileRef) { return; }
+      var lines = ["UPLOADED DXF — " + dxfFileRef.name];
+      if (dxfState && dxfState.bbox) {
+        lines.push("  Overall: " + inches(dxfState.inW) + " x " + inches(dxfState.inH) + " (read as " + dxfState.unitName + ")");
+        lines.push("  Cut length: ~" + (dxfState.inLen / 12).toFixed(2) + " ft per part");
+        lines.push("  Contours: " + dxfState.polys.length + " (" + dxfState.closed + " closed, " + dxfState.open + " open)");
+      }
+      setDesign({
+        kind: "dxf",
+        label: "Uploaded DXF",
+        spec: lines.join("\n"),
+        w: dxfState && dxfState.inW, h: dxfState && dxfState.inH,
+        mat: uMat.value,
+        thkLabel: thkLabel(uThk),
+        qty: Math.max(1, parseInt(uQty.value, 10) || 1),
+        file: dxfFileRef,
+        fileNote: "your DXF"
+      });
+    });
+
+    /* ---------------- tabs ---------------- */
+
+    var tabTpl = document.getElementById("tabTpl"), tabDxf = document.getElementById("tabDxf");
+    var panTpl = document.getElementById("dzTemplate"), panDxf = document.getElementById("dzUpload");
+    function selectTab(which) {
+      var t = which === "tpl";
+      tabTpl.setAttribute("aria-selected", t ? "true" : "false");
+      tabDxf.setAttribute("aria-selected", t ? "false" : "true");
+      panTpl.hidden = !t; panDxf.hidden = t;
+      if (t) { draw(); } else { drawDXF(); }
+    }
+    tabTpl.addEventListener("click", function () { selectTab("tpl"); });
+    tabDxf.addEventListener("click", function () { selectTab("dxf"); });
+  })();
+
+  /* ---------------- design → quote bridge ---------------- */
+
+  function setDesign(d) {
+    DESIGN = d;
+    var box = document.getElementById("attachedBox");
+    var txt = document.getElementById("attachedTxt");
+    if (box && txt) {
+      txt.innerHTML = "<b>Design attached</b>" +
+        d.label + " — " + d.spec.split("\n").filter(function (l) { return l.indexOf("Overall") > -1; })[0]
+          .replace(/^\s*Overall:\s*/, "") +
+        ", " + d.thkLabel + " " + d.mat.split(" (")[0].toLowerCase() +
+        ", qty " + d.qty;
+      box.hidden = false;
+    }
+    /* prefill what we already know */
+    var mat = document.getElementById("q-material");
+    var thk = document.getElementById("q-thickness");
+    var qty = document.getElementById("q-qty");
+    var size = document.getElementById("q-size");
+    var job = document.querySelector('input[name="jobtype"][value="' +
+      (d.qty > 20 ? "Production run" : (d.kind === "dxf" ? "One-off part" : "Custom / decorative")) + '"]');
+    var i;
+    if (mat) { for (i = 0; i < mat.options.length; i++) { if (mat.options[i].text === d.mat) { mat.selectedIndex = i; } } }
+    if (thk) { for (i = 0; i < thk.options.length; i++) { if (thk.options[i].text === d.thkLabel) { thk.selectedIndex = i; } } }
+    if (qty) { qty.value = d.qty; }
+    if (size && d.w) {
+      size.value = d.spec.split("\n").filter(function (l) { return l.indexOf("Overall") > -1; })[0]
+        .replace(/^\s*Overall:\s*/, "").replace(/\s*\(read as.*\)$/, "");
+    }
+    if (job) { job.checked = true; }
+
+    var target = document.getElementById("quote");
+    if (target) { target.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    var name = document.getElementById("q-name");
+    if (name) { setTimeout(function () { name.focus({ preventScroll: true }); }, 700); }
+  }
+
+  (function attachedClear() {
+    var btn = document.getElementById("attachedClear");
+    if (!btn) { return; }
+    btn.addEventListener("click", function () {
+      DESIGN = null;
+      document.getElementById("attachedBox").hidden = true;
+    });
+  })();
+
+  /* ==================================================================
+     QUOTE FORM
+     ================================================================== */
+  (function quoteForm() {
+    var form = document.getElementById("quoteForm");
+    if (!form) { return; }
+    var errEl = document.getElementById("formErr");
+    var panel = document.getElementById("sentPanel");
+    var msgEl = document.getElementById("sentMsg");
+    var sumEl = document.getElementById("sentSummary");
+    var copyBtn = document.getElementById("copyBtn");
+    var copiedNote = document.getElementById("copiedNote");
+
+    function fieldOf(el) { return el.closest(".field"); }
+
+    function validate() {
+      ["q-name", "q-phone", "q-email"].forEach(function (id) {
+        var el = document.getElementById(id);
+        var wrap = fieldOf(el);
+        var bad = !el.value.trim();
+        if (!bad && id === "q-email") {
+          bad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
+        }
+        wrap.classList.toggle("invalid", bad);
+      });
+      return form.querySelectorAll(".field.invalid").length === 0;
+    }
+
+    function summary() {
+      var g = function (id) { return (document.getElementById(id).value || "").trim(); };
+      var r = function (n) {
+        var el = form.querySelector('input[name="' + n + '"]:checked');
+        return el ? el.value : "";
+      };
+      var files = document.getElementById("q-file").files;
+      var names = [];
+      var i;
+      for (i = 0; i < files.length; i++) { names.push(files[i].name); }
+
+      var lines = [
+        "QUOTE REQUEST — Mid South Plasma",
+        "",
+        "Name        " + g("q-name"),
+        "Company     " + (g("q-company") || "—"),
+        "Phone       " + g("q-phone"),
+        "Email       " + g("q-email"),
+        "",
+        "Job type    " + r("jobtype"),
+        "Material    " + g("q-material"),
+        "Thickness   " + g("q-thickness"),
+        "Quantity    " + (g("q-qty") || "—"),
+        "Part size   " + (g("q-size") || "—"),
+        "Needed by   " + (g("q-needed") || "—"),
+        "Fulfilment  " + r("fulfil"),
+        "File(s)     " + (names.length ? names.join(", ") : "none attached"),
+        "",
+        "Notes",
+        g("q-notes") || "—"
+      ];
+      if (DESIGN) {
+        lines.push("", "— — —", DESIGN.spec);
+      }
+      return lines.join("\n");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!validate()) {
+        errEl.hidden = false;
+        errEl.textContent = "Fill in your name, phone and a valid email so we can get back to you.";
+        form.querySelector(".field.invalid input").focus();
+        return;
+      }
+      errEl.hidden = true;
+
+      if (QUOTE_ENDPOINT) {
+        var data = new FormData(form);
+        if (DESIGN) {
+          data.append("design_spec", DESIGN.spec);
+          data.append("design_kind", DESIGN.kind);
+          if (DESIGN.file) { data.append("design_file", DESIGN.file, DESIGN.file.name); }
+        }
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        fetch(QUOTE_ENDPOINT, { method: "POST", body: data })
+          .then(function (res) {
+            if (!res.ok) { throw new Error("bad response"); }
+            form.hidden = true;
+            panel.hidden = false;
+            msgEl.textContent = "We've got it. Someone from the shop will be back to you with a price within one business day — sooner if you called it in.";
+            sumEl.hidden = true;
+            panel.scrollIntoView({ behavior: "smooth", block: "center" });
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = "Send Quote Request";
+            errEl.hidden = false;
+            errEl.textContent = "That didn't go through. Call the shop or email sales@rebarandsteel.com and we'll take it from there.";
+          });
+        return;
+      }
+
+      /* No endpoint wired yet — hand the customer their details to send. */
+      form.hidden = true;
+      panel.hidden = false;
+      sumEl.hidden = false;
+      msgEl.textContent = "This preview site isn't wired to the shop inbox yet. Copy the details below and email or text them to us — or just call and read them off." +
+        (DESIGN && DESIGN.kind === "dxf" ? " Attach your DXF to the email and we'll have everything." : "") +
+        " Either way you'll have a price within one business day.";
+      sumEl.textContent = summary();
+      panel.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    form.addEventListener("input", function (e) {
+      var wrap = e.target.closest && e.target.closest(".field.invalid");
+      if (wrap && e.target.value.trim()) { wrap.classList.remove("invalid"); }
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        var text = sumEl.textContent;
+        var done = function () {
+          copiedNote.hidden = false;
+          setTimeout(function () { copiedNote.hidden = true; }, 2400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+        } else {
+          fallbackCopy(text, done);
+        }
+      });
+    }
+
+    function fallbackCopy(text, done) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch (err) { /* selection is left for manual copy */ }
+      document.body.removeChild(ta);
+    }
+  })();
+})();
+</script>
+</body>
+</html>

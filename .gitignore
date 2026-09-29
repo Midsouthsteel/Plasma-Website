@@ -1,0 +1,18 @@
+# Anything in this repository is PUBLIC once GitHub Pages is switched on.
+# Keep internal material out of it.
+
+# Internal notes and reference docs — not for customers
+_notes/
+
+# Working files
+*.bak
+*.tmp
+*~
+draft-*
+scratch/
+
+# Windows / OneDrive housekeeping
+Thumbs.db
+desktop.ini
+ehthumbs.db
+.DS_Store
