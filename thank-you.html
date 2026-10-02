@@ -4,128 +4,208 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Request received — Mid South Plasma</title>
+<meta name="theme-color" content="#15171B">
+<title>Request received — Mid South Steel &amp; Rebar</title>
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Saira+Semi+Condensed:wght@600;700;800&display=swap">
 <style>
 :root{
-  --ink:#15181B; --steel:#5A6570; --steel-2:#8D959D;
-  --paper:#F1F0EC; --line-d:#363C42; --ember:#DD5F16;
-  --f-display:"Archivo Black","Arial Black",Impact,sans-serif;
+  --bg:#E8E3DA; --surface:#F7F4EE; --line:#CDC4B5;
+  --ink:#17191D; --muted:#59564E;
+  --amber:#E59200; --amber-ink:#8A5300; --on-amber:#141414;
+  --navy:#1F3A5C; --navy-hover:#29496F; --pale:#D6DEE8; --pale-ink:#1F3A5C;
+  --head:#15171B; --head-ink:#F3EFE7;
+  --band:linear-gradient(135deg,#132235 0%,#1D3350 100%);
+  --band-ink:#F2F0EB; --band-muted:#B4C0CE; --band-faint:#8396AC;
+  --band-line:rgba(255,255,255,.14);
+  --f-display:"Saira Semi Condensed","Arial Narrow","Roboto Condensed",sans-serif;
   --f-body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121314; --surface:#1B1C1F; --line:#34332F;
+    --ink:#EEEAE3; --muted:#A8A193;
+    --amber:#F0A11C; --amber-ink:#F3B048;
+    --navy:#1F3A5C; --navy-hover:#2A4C75; --pale:#1C2836; --pale-ink:#D6DEE8;
+    --head:#0E0F11;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121314; --surface:#1B1C1F; --line:#34332F;
+  --ink:#EEEAE3; --muted:#A8A193;
+  --amber:#F0A11C; --amber-ink:#F3B048;
+  --navy:#1F3A5C; --navy-hover:#2A4C75; --pale:#1C2836; --pale-ink:#D6DEE8;
+  --head:#0E0F11;
+  color-scheme:dark;
 }
 *,*::before,*::after{ box-sizing:border-box; }
 body{
-  margin:0; min-height:100vh;
-  background:var(--ink); color:var(--paper);
+  margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
   font-family:var(--f-body); font-size:17px; line-height:1.65;
-  display:flex; flex-direction:column;
-  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; -webkit-font-smoothing:antialiased;
 }
-.wrap{ width:100%; max-width:720px; margin:0 auto; padding:0 26px; }
+.wrap{ width:100%; max-width:760px; margin:0 auto; padding:0 20px; }
+a{ color:inherit; }
 
-header{ border-bottom:1px solid var(--line-d); padding:20px 0; }
-.brand{ display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--paper); }
-.brand-txt{ font-family:var(--f-display); font-size:17px; text-transform:uppercase; line-height:1; }
-.brand-sub{
-  display:block; font-family:var(--f-mono); font-size:9.5px;
-  letter-spacing:.17em; color:var(--steel-2); margin-top:4px; font-weight:400;
+header{ background:var(--head); border-bottom:3px solid var(--amber); }
+header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:76px; }
+.logo{ display:inline-flex; background:#FFF; border-radius:8px; padding:6px 10px; line-height:0; }
+.logo img{ display:block; height:50px; width:auto; }
+header nav a{
+  font-family:var(--f-display); font-weight:700; font-size:15px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--head-ink); text-decoration:none;
 }
+header nav a::after{ content:" \2197"; color:var(--amber); }
+header nav a:hover{ color:var(--amber); }
 
-main{ flex:1; display:flex; align-items:center; padding:64px 0; }
+.hero{ background:var(--band); color:var(--band-ink); border-bottom:3px solid var(--amber); padding:56px 0 52px; }
 .eyebrow{
-  font-family:var(--f-mono); font-size:12px; font-weight:500;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--ember); margin:0 0 18px;
+  font-family:var(--f-mono); font-size:12px; font-weight:600; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--amber); margin:0 0 14px;
 }
 h1{
-  font-family:var(--f-display); font-weight:400; margin:0;
-  font-size:clamp(32px,5.5vw,54px); line-height:1.03;
-  text-transform:uppercase; letter-spacing:-.015em; text-wrap:balance;
+  font-family:var(--f-display); font-weight:800; margin:0; text-transform:uppercase;
+  font-size:clamp(34px,6vw,56px); line-height:1.02; letter-spacing:.005em; text-wrap:balance;
 }
-.rule{ width:88px; height:4px; margin:20px 0 22px;
-  background:linear-gradient(90deg,var(--ember),#F0A45C 60%,transparent); }
-p.lede{ font-size:18px; color:#B9C0C6; margin:0 0 30px; max-width:54ch; }
+.lede{ font-size:18px; color:var(--band-muted); margin:18px 0 0; max-width:56ch; }
 
-.next{ border-top:1px solid var(--line-d); padding-top:26px; margin-top:8px; }
-.next h2{
-  font-family:var(--f-mono); font-size:11px; font-weight:600;
-  letter-spacing:.15em; text-transform:uppercase; color:var(--ember); margin:0 0 16px;
+main{ flex:1; padding:44px 0 56px; }
+.card{ background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:26px 26px 22px; }
+h2{
+  font-family:var(--f-display); font-weight:700; font-size:20px; letter-spacing:.04em;
+  text-transform:uppercase; margin:0 0 14px; color:var(--ink);
 }
-ol{ margin:0; padding-left:20px; color:#AEB6BD; font-size:16px; }
+ol{ margin:0; padding-left:22px; color:var(--muted); font-size:16px; }
 ol li{ margin-bottom:10px; }
-ol li::marker{ font-family:var(--f-mono); font-size:13px; color:var(--steel); }
+ol li::marker{ font-family:var(--f-mono); font-size:13px; font-weight:600; color:var(--amber-ink); }
 
-.cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; align-items:center; }
+.xsell{
+  margin:22px 0 0; padding:14px 18px; background:var(--pale); color:var(--pale-ink);
+  border-left:4px solid var(--navy); border-radius:0 6px 6px 0; font-size:16px;
+}
+.xsell a{ font-weight:600; color:var(--pale-ink); }
+
+.cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
 .btn{
-  display:inline-flex; align-items:center; font-family:var(--f-mono);
-  font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-  padding:15px 26px; border:2px solid transparent; text-decoration:none;
-  transition:background .15s ease, border-color .15s ease;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--f-display); font-weight:700; font-size:16px; letter-spacing:.06em;
+  text-transform:uppercase; padding:13px 24px; border-radius:6px; border:2px solid transparent;
+  text-decoration:none; transition:background .15s ease, border-color .15s ease;
 }
-.btn--primary{ background:var(--ember); color:#fff; border-color:var(--ember); }
-.btn--primary:hover{ background:#c25012; border-color:#c25012; }
-.btn--ghost{ color:var(--paper); border-color:#4A535B; }
-.btn--ghost:hover{ border-color:var(--paper); }
+.btn--primary{ background:var(--amber); color:var(--on-amber); border-color:var(--amber); }
+.btn--primary:hover{ filter:brightness(1.07); }
+.btn--navy{ background:var(--navy); color:#FFF; border-color:var(--navy); }
+.btn--navy:hover{ background:var(--navy-hover); border-color:var(--navy-hover); }
 
-footer{
-  border-top:1px solid var(--line-d); padding:22px 0 28px;
-  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.08em;
-  text-transform:uppercase; color:#7C858D;
+footer{ background:var(--band); color:var(--band-muted); border-top:3px solid var(--amber); padding:34px 0 26px; font-size:15px; }
+.fgrid{ display:grid; grid-template-columns:1.1fr 1fr; gap:30px; }
+footer h3{
+  font-family:var(--f-display); font-weight:700; font-size:15px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--amber); margin:0 0 10px;
 }
-footer a{ color:#DDE1E4; text-decoration:none; }
-@media (max-width:620px){ main{ padding:44px 0; } }
+footer p{ margin:0; line-height:1.75; }
+footer strong{ color:var(--band-ink); font-weight:600; }
+footer a{ color:var(--band-ink); text-decoration:none; }
+footer a:hover{ color:var(--amber); text-decoration:underline; }
+footer .fine{ font-size:13px; color:var(--band-faint); margin-top:8px; }
+footer .go{
+  display:inline-block; margin-top:10px; font-family:var(--f-mono); font-size:12.5px; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--amber); border-bottom:1px solid var(--amber);
+}
+.fbar{
+  margin-top:28px; padding-top:16px; border-top:1px solid var(--band-line);
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--band-faint);
+}
+@media (max-width:620px){
+  header .wrap{ min-height:62px; }
+  .logo img{ height:38px; }
+  .hero{ padding:40px 0 38px; }
+  main{ padding:32px 0 44px; }
+  .card{ padding:22px 18px 18px; }
+  .fgrid{ grid-template-columns:1fr; gap:26px; }
+  .btn{ flex:1 1 100%; }
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="brand" href="./">
-      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
-        <rect x="1" y="1" width="28" height="28" fill="none" stroke="#5A6570" stroke-width="1.5"/>
-        <path d="M15 4 L15 17" stroke="#DD5F16" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="15" cy="19.5" r="3.2" fill="#DD5F16"/>
-        <path d="M6 25.5 L24 25.5" stroke="#F1F0EC" stroke-width="1.5"/>
-      </svg>
-      <span class="brand-txt">Mid South Plasma
-        <span class="brand-sub">Hot Springs, Arkansas</span>
-      </span>
+    <a class="logo" href="./" aria-label="Mid South Steel &amp; Rebar — plasma cutting home">
+      <img src="logo.png" width="720" height="317" alt="Mid South Steel and Rebar">
     </a>
+    <nav><a data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Fasteners</a></nav>
   </div>
 </header>
 
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Plasma quote request received</p>
+    <h1>Got it. We&rsquo;ll get you a number.</h1>
+    <p class="lede">Your request is in front of us, files and all. Someone from the shop will be back to you with a price within one business day &mdash; usually the same day.</p>
+  </div>
+</section>
+
 <main>
   <div class="wrap">
-    <p class="eyebrow">Request received</p>
-    <h1>Got it. We&rsquo;ll get you a number.</h1>
-    <div class="rule"></div>
-    <p class="lede">Your request is in front of us, files and all. Someone from the shop will be back to you with a price within one business day &mdash; usually the same day.</p>
-
-    <div class="next">
+    <div class="card">
       <h2>What happens now</h2>
       <ol>
         <li>We read the drawing and check it against the table &mdash; size, thickness, hole spacing, anything that might need a word with you first.</li>
-        <li>We price it off cut time, pierce count, programming and material. One real number, not a range.</li>
+        <li>We price it off cut time, pierce count, setup and material. One real number, not a range.</li>
         <li>You get it by phone or email, whichever you gave us. If anything about the part needs sorting out, we&rsquo;ll call rather than guess.</li>
       </ol>
     </div>
 
+    <p class="xsell">Need bolts, anchors or hardware for this job? <a data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Order from our fastener counter.</a></p>
+
     <div class="cta">
-      <a class="btn btn--primary" href="tel:+18885736201">Call the shop</a>
-      <a class="btn btn--ghost" href="./">Back to the site</a>
+      <a class="btn btn--primary" href="tel:+18885736201">Call 888-573-6201</a>
+      <a class="btn btn--navy" href="./">Back to plasma cutting</a>
     </div>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
-    Mid South Plasma &mdash; a division of Mid South Steel &amp; Rebar, LLC &nbsp;&middot;&nbsp;
-    172 Stanage Drive, Hot Springs, AR 71901 &nbsp;&middot;&nbsp;
-    <a href="tel:+18885736201">888-573-6201</a>
+    <div class="fgrid">
+      <div>
+        <h3>Contact</h3>
+        <p>
+          <strong>Mid South Steel &amp; Rebar, LLC</strong><br>
+          <a href="https://www.google.com/maps/search/?api=1&query=172+Stanage+Drive+Hot+Springs+AR+71901" target="_blank" rel="noopener">172 Stanage Drive<br>Hot Springs, AR 71901</a><br>
+          <a href="tel:+18885736201">888-573-6201</a><br>
+          <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a>
+        </p>
+        <p class="fine">Business hours Monday&ndash;Friday 7am&ndash;5pm<br>Requests can be sent any time; we reply during business hours.</p>
+      </div>
+      <div>
+        <h3>Fasteners</h3>
+        <p>Structural bolts, anchor bolts, concrete anchors, nuts and washers on the shelf in Hot Springs, plus the full standard line by special order.</p>
+        <a class="go" data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Shop fasteners &rarr;</a>
+      </div>
+    </div>
+    <div class="fbar">&copy; <span id="yr">2026</span> Mid South Steel &amp; Rebar, LLC &middot; CNC plasma cutting</div>
   </div>
 </footer>
 
+<script>
+(function () {
+  var url = window.MSSR && window.MSSR.FASTENER_URL;
+  if (url) {
+    var links = document.querySelectorAll('[data-site="fasteners"]');
+    for (var i = 0; i < links.length; i++) { links[i].setAttribute("href", url); }
+  }
+  var yr = document.getElementById("yr");
+  if (yr) { yr.textContent = new Date().getFullYear(); }
+})();
+</script>
 </body>
 </html>

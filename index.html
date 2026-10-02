@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="High-definition CNC plasma cutting in Hot Springs, Arkansas. Design your own sign or bracket online, or upload a DXF. Custom cut art, production contract cutting, plate parts on demand.">
-<title>Mid South Plasma</title>
-<meta name="theme-color" content="#15181B">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="CNC plasma cutting from Mid South Steel &amp; Rebar in Hot Springs, Arkansas. Design your own sign or bracket online, or upload a DXF. Custom cut art, production contract cutting, plate parts on demand.">
+<title>CNC Plasma Cutting | Mid South Steel &amp; Rebar, Hot Springs AR</title>
+<meta name="theme-color" content="#15171B">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="config.js"></script>
 
 <!-- Social sharing: what Facebook, Instagram, iMessage and Google show when the link is posted.
-     Crawlers need ABSOLUTE image URLs. When the site moves to midsouthplasma.com,
-     change the two og-image.png lines and og:url below to the new domain. -->
+     Crawlers need ABSOLUTE image URLs. If the site moves to a custom domain
+     (for example plasma.rebarandsteel.com), change og:url and the two og-image.png lines below. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://midsouthsteel.github.io/Plasma-Website/">
-<meta property="og:site_name" content="Mid South Plasma">
-<meta property="og:title" content="Mid South Plasma — CNC Plasma Cutting in Hot Springs, AR">
+<meta property="og:site_name" content="Mid South Steel &amp; Rebar">
+<meta property="og:title" content="CNC Plasma Cutting — Mid South Steel &amp; Rebar, Hot Springs, AR">
 <meta property="og:description" content="Send us a file, pick up your parts. Steel, stainless and aluminum up to 1-1/2 in. on a 9 ft × 16 ft table. Design your own sign or bracket online. Quotes in one business day.">
 <meta property="og:image" content="https://midsouthsteel.github.io/Plasma-Website/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Mid South Plasma — Send us a file, pick up your parts.">
+<meta property="og:image:alt" content="Mid South Steel &amp; Rebar — CNC plasma cutting. Send us a file, pick up your parts.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mid South Plasma — CNC Plasma Cutting in Hot Springs, AR">
+<meta name="twitter:title" content="CNC Plasma Cutting — Mid South Steel &amp; Rebar, Hot Springs, AR">
 <meta name="twitter:description" content="Send us a file, pick up your parts. 9 ft × 16 ft table, quotes in one business day.">
 <meta name="twitter:image" content="https://midsouthsteel.github.io/Plasma-Website/og-image.png">
 
@@ -33,13 +33,8 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://midsouthsteel.github.io/Plasma-Website/#business",
-  "name": "Mid South Plasma",
-  "alternateName": "Mid South Steel & Rebar — Plasma Cutting",
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "Mid South Steel & Rebar, LLC",
-    "url": "https://midsouthsteelandrebar.com"
-  },
+  "name": "Mid South Steel & Rebar, LLC",
+  "alternateName": "Mid South Steel & Rebar — CNC Plasma Cutting",
   "description": "CNC plasma cutting in Hot Springs, Arkansas. Custom signs and decorative cut art, production contract cutting, and plate parts on demand. 9 ft × 16 ft Messer table, Hypertherm HPR260XD.",
   "url": "https://midsouthsteel.github.io/Plasma-Website/",
   "telephone": "+1-888-573-6201",
@@ -55,55 +50,118 @@
   },
   "areaServed": ["Hot Springs", "Hot Springs Village", "Malvern", "Benton", "Bryant", "Little Rock", "Arkadelphia", "Mount Ida", "Glenwood", "Sheridan", "Russellville", "Central Arkansas"],
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "16:30" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "17:00" }
   ],
   "priceRange": "$$",
-  "knowsAbout": ["CNC plasma cutting", "custom metal signs", "steel plate fabrication", "rebar", "structural steel"]
+  "knowsAbout": ["CNC plasma cutting", "custom metal signs", "steel plate fabrication", "rebar", "structural steel", "structural bolts", "anchor bolts", "concrete anchors"]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Saira+Semi+Condensed:wght@600;700;800&family=Yellowtail&display=swap">
 
 <style>
 /* ============================================================
-   MID SOUTH PLASMA — single-file marketing site
-   Palette: mill scale, raw plate, machine blue, cut-edge ember
+   MID SOUTH STEEL & REBAR — CNC plasma cutting
+   Shares the fastener site's system: near-black logo bar with an
+   amber rule, navy steel bands, warm concrete page, amber accent,
+   steel navy for secondary actions. Light and dark.
    ============================================================ */
 
 :root{
-  --ink:      #15181B;   /* mill scale — heavy bands, body text */
-  --ink-2:    #22272C;   /* raised dark surface */
-  --steel:    #5A6570;   /* cool grey-blue mid — secondary text */
-  --steel-2:  #8D959D;   /* muted */
-  --paper:    #F1F0EC;   /* bone — page ground */
-  --plate:    #DEDFDA;   /* raw plate — alternate band */
-  --line:     #C6C8C3;   /* hairline on light */
-  --line-d:   #363C42;   /* hairline on dark */
-  --arc:      #0E5C93;   /* machine blue — primary accent */
-  --arc-lt:   #2C86C6;
-  --ember:    #DD5F16;   /* cut edge — used sparingly */
-  --ember-lt: #F0A45C;
-  --ok:       #2E7D4F;
+  /* page */
+  --bg:#E8E3DA;          /* warm concrete */
+  --surface:#F7F4EE;     /* cards, panels, inputs */
+  --line:#CDC4B5;
+  --line-strong:#B3A996; /* input borders */
+  --ink:#17191D;
+  --muted:#59564E;
 
-  --wrap: 1180px;
-  --f-display: "Archivo Black", "Arial Black", Impact, sans-serif;
-  --f-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* accent */
+  --amber:#E59200;
+  --amber-ink:#8A5300;   /* amber text on light */
+  --on-amber:#141414;
+
+  /* secondary */
+  --navy:#1F3A5C;        /* buttons, table heads, selected states */
+  --navy-hover:#29496F;
+  --on-navy:#FFFFFF;
+  --pale:#D6DEE8;        /* tinted rows and boxes */
+  --pale-ink:#1F3A5C;
+
+  /* logo bar */
+  --head:#15171B;
+  --head-ink:#F3EFE7;
+  --head-muted:#B9B3A8;
+  --logo-plate:#FFFFFF;
+
+  /* navy steel bands (hero, design tool, footer) */
+  --band-a:#132235;
+  --band-b:#1D3350;
+  --band:linear-gradient(135deg,var(--band-a) 0%,var(--band-b) 100%);
+  --band-ink:#F2F0EB;
+  --band-muted:#B4C0CE;
+  --band-faint:#8396AC;
+  --band-line:rgba(214,222,232,.18);
+  --band-line-strong:rgba(214,222,232,.34);
+  --band-field:rgba(255,255,255,.06);
+  --band-panel:#172B43;
+  --band-deep:#0D1826;
+
+  --ok:#2E7A4C;
+  --warn:#A8520A;
+  --stop:#B3350D;
+  --stop-on-band:#F2876C;
+
+  /* context: accent-coloured TEXT. Light ground uses the dark amber;
+     bands override this to the bright amber below. */
+  --accent-text:var(--amber-ink);
+
+  --wrap:1180px;
+  --f-display:"Saira Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121314; --surface:#1B1C1F; --line:#34332F; --line-strong:#4A4740;
+    --ink:#EEEAE3; --muted:#A8A193;
+    --amber:#F0A11C; --amber-ink:#F3B048; --on-amber:#141414;
+    --navy:#1F3A5C; --navy-hover:#2A4C75; --on-navy:#FFFFFF;
+    --pale:#1C2836; --pale-ink:#D6DEE8;
+    --head:#0E0F11;
+    --ok:#5DBB83; --warn:#E8913F; --stop:#F07A5C;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121314; --surface:#1B1C1F; --line:#34332F; --line-strong:#4A4740;
+  --ink:#EEEAE3; --muted:#A8A193;
+  --amber:#F0A11C; --amber-ink:#F3B048; --on-amber:#141414;
+  --navy:#1F3A5C; --navy-hover:#2A4C75; --on-navy:#FFFFFF;
+  --pale:#1C2836; --pale-ink:#D6DEE8;
+  --head:#0E0F11;
+  --ok:#5DBB83; --warn:#E8913F; --stop:#F07A5C;
+  color-scheme:dark;
+}
+
+/* every dark ground reads amber as bright amber */
+.site-head,.hero,.band--dark,.foot,.mbar{ --accent-text:var(--amber); }
+.band--dark,.foot{ color-scheme:dark; }
 
 *,*::before,*::after{ box-sizing:border-box; }
 
 [hidden]{ display:none !important; }
 
 html{ scroll-behavior:smooth; }
-section[id], footer[id]{ scroll-margin-top:84px; }
+section[id], footer[id]{ scroll-margin-top:90px; }
 @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
 
 body{
   margin:0;
-  background:var(--paper);
+  background:var(--bg);
   color:var(--ink);
   font-family:var(--f-body);
   font-size:17px;
@@ -113,12 +171,16 @@ body{
 
 img{ max-width:100%; }
 
-a{ color:var(--arc); }
+a{ color:var(--navy); }
+:root[data-theme="dark"] a{ color:var(--pale-ink); }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) a{ color:var(--pale-ink); } }
 
 :focus-visible{
-  outline:2px solid var(--ember);
+  outline:2px solid var(--amber);
   outline-offset:3px;
 }
+
+.mono{ font-family:var(--f-mono); font-variant-numeric:tabular-nums; }
 
 /* ---------- layout primitives ---------- */
 
@@ -129,9 +191,9 @@ a{ color:var(--arc); }
   padding:0 28px;
 }
 
-.band{ padding:88px 0; }
-.band--dark{ background:var(--ink); color:var(--paper); }
-.band--plate{ background:var(--plate); }
+.band,.foot{ padding:88px 0; }
+.band--dark{ background:var(--band); color:var(--band-ink); }
+.band--plate{ background:var(--pale); }
 .band--tight{ padding:56px 0; }
 
 /* ---------- type ---------- */
@@ -142,57 +204,51 @@ a{ color:var(--arc); }
   font-weight:500;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--steel);
+  color:var(--muted);
   margin:0;
 }
-.band--dark .eyebrow{ color:var(--steel-2); }
+.hero .eyebrow,.band--dark .eyebrow{ color:var(--accent-text); }
 
 h1,h2,h3{ text-wrap:balance; margin:0; }
 
 .h-display{
   font-family:var(--f-display);
-  font-weight:400;
-  font-size:clamp(38px,6.2vw,68px);
-  line-height:1.02;
-  letter-spacing:-0.015em;
+  font-weight:800;
+  font-size:clamp(40px,6.6vw,74px);
+  line-height:.98;
+  letter-spacing:-0.005em;
   text-transform:uppercase;
 }
 
 .h-sec{
   font-family:var(--f-display);
-  font-weight:400;
-  font-size:clamp(27px,3.6vw,40px);
-  line-height:1.08;
-  letter-spacing:-0.01em;
+  font-weight:700;
+  font-size:clamp(28px,3.8vw,42px);
+  line-height:1.04;
+  letter-spacing:0;
   text-transform:uppercase;
 }
 
 .h-card{
   font-family:var(--f-display);
-  font-weight:400;
-  font-size:20px;
-  line-height:1.2;
+  font-weight:700;
+  font-size:22px;
+  line-height:1.15;
   text-transform:uppercase;
-  letter-spacing:.005em;
+  letter-spacing:.01em;
 }
 
 .lede{
   font-size:clamp(17px,1.6vw,20px);
   line-height:1.6;
-  color:var(--steel);
+  color:var(--muted);
   max-width:56ch;
 }
-.band--dark .lede{ color:#B9C0C6; }
+.hero .lede,.band--dark .lede{ color:var(--band-muted); }
 
 .prose{ max-width:64ch; }
 
-/* placeholder markers — details for the owner to fill in */
-.fill{
-  border-bottom:1px dotted var(--ember);
-  padding-bottom:1px;
-}
-
-/* ---------- section headers (drawing-callout treatment) ---------- */
+/* ---------- section headers ---------- */
 
 .sec-head{
   display:flex;
@@ -203,14 +259,14 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   position:relative;
   margin-bottom:28px;
 }
-.band--dark .sec-head{ border-top-color:var(--paper); }
+.band--dark .sec-head,.foot .sec-head{ border-top-color:var(--band-line-strong); }
 
 .sec-head::before{
   content:"";
   position:absolute;
   top:-2px; left:0;
-  width:2px; height:13px;
-  background:var(--ember);
+  width:44px; height:4px;
+  background:var(--amber);
 }
 
 .sec-num{
@@ -218,7 +274,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:12px;
   font-weight:600;
   letter-spacing:.14em;
-  color:var(--ember);
+  color:var(--accent-text);
   flex:none;
   padding-top:6px;
 }
@@ -228,12 +284,12 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:12px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  color:var(--steel);
+  color:var(--muted);
   margin-left:auto;
   padding-top:8px;
   flex:none;
 }
-.band--dark .sec-note{ color:var(--steel-2); }
+.band--dark .sec-note,.foot .sec-note{ color:var(--band-muted); }
 
 /* ---------- buttons ---------- */
 
@@ -248,62 +304,48 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   text-transform:uppercase;
   padding:15px 26px;
   border:2px solid transparent;
+  border-radius:3px;
   text-decoration:none;
   cursor:pointer;
-  transition:background .15s ease, color .15s ease, border-color .15s ease;
+  transition:background .15s ease, color .15s ease, border-color .15s ease, filter .15s ease;
 }
-.btn--primary{ background:var(--ember); color:#fff; border-color:var(--ember); }
-.btn--primary:hover{ background:#c25012; border-color:#c25012; }
-.btn--ghost{ background:transparent; color:var(--paper); border-color:#4A535B; }
-.btn--ghost:hover{ border-color:var(--paper); }
-.btn--dark{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
-.btn--dark:hover{ background:var(--arc); border-color:var(--arc); }
+.btn--primary{ background:var(--amber); color:var(--on-amber); border-color:var(--amber); }
+.btn--primary:hover{ filter:brightness(1.07); }
+.btn--ghost{ background:transparent; color:var(--band-ink); border-color:var(--band-line-strong); }
+.btn--ghost:hover{ border-color:var(--band-ink); }
+.btn--dark{ background:var(--navy); color:var(--on-navy); border-color:var(--navy); }
+.btn--dark:hover{ background:var(--navy-hover); border-color:var(--navy-hover); }
 
-/* ---------- header ---------- */
+/* ---------- header (logo bar) ---------- */
 
 .site-head{
   position:sticky;
   top:0;
   z-index:60;
-  background:var(--ink);
-  border-bottom:1px solid var(--line-d);
+  background:var(--head);
+  border-bottom:3px solid var(--amber);
 }
 .head-in{
   display:flex;
   align-items:center;
-  gap:28px;
-  height:66px;
+  gap:26px;
+  height:76px;
 }
-.brand{
+.logo{
   display:flex;
   align-items:center;
-  gap:11px;
-  text-decoration:none;
-  color:var(--paper);
   flex:none;
+  background:var(--logo-plate);
+  border-radius:6px;
+  padding:4px 8px;
+  text-decoration:none;
 }
-.brand-mark{ display:block; flex:none; }
-.brand-txt{
-  font-family:var(--f-display);
-  font-size:17px;
-  letter-spacing:.01em;
-  text-transform:uppercase;
-  line-height:1;
-}
-.brand-sub{
-  display:block;
-  font-family:var(--f-mono);
-  font-size:9.5px;
-  letter-spacing:.17em;
-  color:var(--steel-2);
-  margin-top:4px;
-  font-weight:400;
-}
+.logo img{ display:block; height:54px; width:auto; }
 
 .nav{
   display:flex;
   align-items:center;
-  gap:26px;
+  gap:24px;
   margin-left:auto;
 }
 .nav a{
@@ -312,21 +354,24 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-weight:500;
   letter-spacing:.1em;
   text-transform:uppercase;
-  color:#B9C0C6;
+  color:var(--head-muted);
   text-decoration:none;
   padding:6px 0;
   border-bottom:2px solid transparent;
 }
-.nav a:hover{ color:var(--paper); border-bottom-color:var(--ember); }
-.nav .btn{ padding:11px 18px; border-bottom-width:2px; }
-.nav .btn:hover{ color:#fff; border-bottom-color:#c25012; }
+.nav a:hover{ color:var(--head-ink); border-bottom-color:var(--amber); }
+.nav a.nav-x{ color:var(--head-ink); }
+.nav a.nav-x::after{ content:" \2197"; color:var(--amber); }
+.nav .btn{ padding:11px 18px; color:var(--on-amber); }
+.nav .btn:hover{ color:var(--on-amber); border-bottom-color:var(--amber); }
 
 .nav-toggle{
   display:none;
   margin-left:auto;
   background:none;
-  border:1px solid var(--line-d);
-  color:var(--paper);
+  border:1px solid rgba(243,239,231,.25);
+  border-radius:3px;
+  color:var(--head-ink);
   font-family:var(--f-mono);
   font-size:12px;
   letter-spacing:.1em;
@@ -338,10 +383,11 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 /* ---------- hero ---------- */
 
 .hero{
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--band);
+  color:var(--band-ink);
   padding:76px 0 0;
   overflow:hidden;
+  border-bottom:3px solid var(--amber);
 }
 .hero-grid{
   display:grid;
@@ -349,10 +395,10 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   gap:56px;
   align-items:center;
 }
-.hero h1{ margin:20px 0 22px; }
+.hero h1{ margin:18px 0 22px; }
 .hero .arc-rule{
   width:96px; height:4px;
-  background:linear-gradient(90deg,var(--ember),#F0A45C 60%,transparent);
+  background:var(--amber);
   margin:0 0 20px;
 }
 .hero-cta{
@@ -365,16 +411,16 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-family:var(--f-mono);
   font-size:13px;
   letter-spacing:.06em;
-  color:#8D959D;
+  color:var(--band-muted);
   margin:18px 0 0;
 }
-.hero-call a{ color:var(--paper); text-decoration:none; font-weight:500; }
-.hero-call a:hover{ color:var(--ember-lt); }
+.hero-call a{ color:var(--band-ink); text-decoration:none; font-weight:500; }
+.hero-call a:hover{ color:var(--amber); }
 
 .hero-canvas-frame{
   position:relative;
-  background:#0D1013;
-  border:1px solid var(--line-d);
+  background:var(--band-deep);
+  border:1px solid var(--band-line);
   aspect-ratio:4/3.1;
 }
 .hero-canvas-frame canvas{ display:block; width:100%; height:100%; }
@@ -385,19 +431,19 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:10.5px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6F7A84;
+  color:var(--band-faint);
 }
 
 /* trust strip */
 .strip{
   margin-top:70px;
-  border-top:1px solid var(--line-d);
+  border-top:1px solid var(--band-line);
   display:grid;
   grid-template-columns:repeat(4,1fr);
 }
 .strip-item{
   padding:22px 22px 24px 0;
-  border-right:1px solid var(--line-d);
+  border-right:1px solid var(--band-line);
 }
 .strip-item:last-child{ border-right:0; }
 .strip-item:not(:first-child){ padding-left:22px; }
@@ -406,7 +452,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:10.5px;
   letter-spacing:.15em;
   text-transform:uppercase;
-  color:var(--ember);
+  color:var(--accent-text);
   display:block;
   margin-bottom:7px;
 }
@@ -415,12 +461,12 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:15px;
   font-weight:500;
   line-height:1.35;
-  color:#DDE1E4;
+  color:var(--band-ink);
 }
 
 /* ---------- spec table ---------- */
 
-.spec-wrap{ overflow-x:auto; }
+.spec-wrap{ overflow-x:auto; border:1px solid var(--line); background:var(--surface); }
 .spec{
   width:100%;
   min-width:600px;
@@ -429,7 +475,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 }
 .spec th,.spec td{
   text-align:left;
-  padding:15px 18px 15px 0;
+  padding:15px 18px;
   border-bottom:1px solid var(--line);
 }
 .spec thead th{
@@ -438,10 +484,14 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-weight:600;
   letter-spacing:.13em;
   text-transform:uppercase;
-  color:var(--steel);
-  border-bottom:2px solid var(--ink);
-  padding-bottom:11px;
+  color:var(--on-navy);
+  background:var(--navy);
+  border-bottom:0;
+  padding-top:12px;
+  padding-bottom:12px;
 }
+.spec tbody tr:nth-child(even) th,.spec tbody tr:nth-child(even) td{ background:var(--pale); }
+.spec tbody tr:last-child th,.spec tbody tr:last-child td{ border-bottom:0; }
 .spec tbody th{
   font-family:var(--f-body);
   font-weight:600;
@@ -451,17 +501,17 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   display:block;
   font-weight:400;
   font-size:13px;
-  color:var(--steel);
+  color:var(--muted);
   font-family:var(--f-mono);
   letter-spacing:.04em;
 }
 .spec td{ font-family:var(--f-mono); font-size:15px; }
-.spec .hi{ color:var(--ember); font-weight:600; }
+.spec .hi{ color:var(--accent-text); font-weight:600; }
 .spec-foot{
   font-family:var(--f-mono);
   font-size:12.5px;
   line-height:1.7;
-  color:var(--steel);
+  color:var(--muted);
   margin-top:20px;
 }
 
@@ -474,27 +524,23 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   background:var(--line);
   border:1px solid var(--line);
 }
-.band--dark .cards{ background:var(--line-d); border-color:var(--line-d); }
 
 .card{
-  background:var(--paper);
+  background:var(--surface);
   padding:32px 28px 34px;
   display:flex;
   flex-direction:column;
   gap:14px;
 }
-.band--plate .card{ background:var(--plate); }
-.band--dark .card{ background:var(--ink); }
 
 .card-k{
   font-family:var(--f-mono);
   font-size:11px;
   letter-spacing:.15em;
   text-transform:uppercase;
-  color:var(--ember);
+  color:var(--accent-text);
 }
-.card p{ margin:0; color:var(--steel); font-size:15.5px; line-height:1.62; }
-.band--dark .card p{ color:#AEB6BD; }
+.card p{ margin:0; color:var(--muted); font-size:15.5px; line-height:1.62; }
 .card ul{
   margin:2px 0 0;
   padding:0;
@@ -507,11 +553,11 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-family:var(--f-mono);
   font-size:11.5px;
   letter-spacing:.04em;
-  color:var(--ink);
-  border:1px solid var(--line);
+  color:var(--pale-ink);
+  background:var(--pale);
   padding:4px 9px;
+  border-radius:2px;
 }
-.band--plate .card li{ border-color:#C3C5BF; }
 
 /* ---------- process steps ---------- */
 
@@ -519,25 +565,26 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:34px;
-  counter-reset:step;
 }
-.step{ border-top:2px solid var(--ink); padding-top:18px; }
+.step{ border-top:2px solid var(--ink); padding-top:18px; position:relative; }
+.step::before{ content:""; position:absolute; top:-2px; left:0; width:28px; height:4px; background:var(--amber); }
 .step-n{
   font-family:var(--f-mono);
   font-size:12px;
   font-weight:600;
   letter-spacing:.14em;
-  color:var(--ember);
+  color:var(--accent-text);
   display:block;
   margin-bottom:10px;
 }
 .step h3{
   font-family:var(--f-display);
-  font-size:17px;
+  font-weight:700;
+  font-size:20px;
   text-transform:uppercase;
   margin-bottom:9px;
 }
-.step p{ margin:0; font-size:15px; color:var(--steel); line-height:1.6; }
+.step p{ margin:0; font-size:15px; color:var(--muted); line-height:1.6; }
 
 /* ---------- work gallery ---------- */
 
@@ -548,12 +595,12 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 }
 .work-item{
   border:1px solid var(--line);
-  background:var(--paper);
+  background:var(--surface);
   display:flex;
   flex-direction:column;
 }
 .work-art{
-  background:var(--ink-2);
+  background:var(--band-a);
   aspect-ratio:4/3;
   display:block;
   width:100%;
@@ -570,7 +617,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-family:var(--f-mono);
   font-size:12px;
   letter-spacing:.05em;
-  color:var(--steel);
+  color:var(--muted);
 }
 
 /* ---------- design tool ---------- */
@@ -579,7 +626,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   display:flex;
   gap:0;
   margin-bottom:34px;
-  border-bottom:1px solid var(--line-d);
+  border-bottom:1px solid var(--band-line);
 }
 .dz-tab{
   font-family:var(--f-mono);
@@ -590,14 +637,14 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   background:none;
   border:0;
   border-bottom:3px solid transparent;
-  color:#8D959D;
+  color:var(--band-muted);
   padding:13px 24px 12px;
   margin-bottom:-1px;
   cursor:pointer;
   transition:color .14s ease, border-color .14s ease;
 }
-.dz-tab:hover{ color:#DDE1E4; }
-.dz-tab[aria-selected="true"]{ color:var(--paper); border-bottom-color:var(--ember); }
+.dz-tab:hover{ color:var(--band-ink); }
+.dz-tab[aria-selected="true"]{ color:var(--band-ink); border-bottom-color:var(--amber); }
 
 .dz-grid{
   display:grid;
@@ -614,7 +661,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-weight:600;
   letter-spacing:.15em;
   text-transform:uppercase;
-  color:var(--ember);
+  color:var(--accent-text);
   display:block;
   margin-bottom:12px;
 }
@@ -626,8 +673,9 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   margin-bottom:30px;
 }
 .dz-pick{
-  background:#1C2126;
-  border:1px solid var(--line-d);
+  background:var(--band-field);
+  border:1px solid var(--band-line);
+  border-radius:3px;
   padding:11px 6px 9px;
   cursor:pointer;
   display:flex;
@@ -636,19 +684,19 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   gap:7px;
   transition:border-color .14s ease, background .14s ease;
 }
-.dz-pick:hover{ border-color:#5A6570; }
-.dz-pick[aria-pressed="true"]{ border-color:var(--ember); background:#241C16; }
+.dz-pick:hover{ border-color:var(--band-line-strong); }
+.dz-pick[aria-pressed="true"]{ border-color:var(--amber); background:rgba(229,146,0,.14); }
 .dz-pick svg{ display:block; }
 .dz-pick span{
   font-family:var(--f-mono);
   font-size:9.5px;
   letter-spacing:.07em;
   text-transform:uppercase;
-  color:#AEB6BD;
+  color:var(--band-muted);
   text-align:center;
   line-height:1.3;
 }
-.dz-pick[aria-pressed="true"] span{ color:var(--paper); }
+.dz-pick[aria-pressed="true"] span{ color:var(--band-ink); }
 
 .dz-fields{ display:flex; flex-direction:column; gap:15px; }
 .dz-f{ display:flex; flex-direction:column; gap:6px; }
@@ -658,24 +706,25 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-weight:500;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:#8D959D;
+  color:var(--band-muted);
 }
 .dz-f input,.dz-f select{
   font-family:var(--f-body);
   font-size:15px;
-  color:var(--paper);
-  background:#1C2126;
-  border:1px solid var(--line-d);
+  color:var(--band-ink);
+  background:var(--band-field);
+  border:1px solid var(--band-line-strong);
+  border-radius:3px;
   padding:10px 11px;
   width:100%;
-  border-radius:0;
 }
-.dz-f input:focus,.dz-f select:focus{ border-color:var(--arc-lt); outline:none; }
+.dz-f select option{ background:var(--band-panel); color:var(--band-ink); }
+.dz-f input:focus,.dz-f select:focus{ border-color:var(--amber); outline:none; }
 .dz-f2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
 .dz-sep{
   border:0;
-  border-top:1px solid var(--line-d);
+  border-top:1px solid var(--band-line);
   margin:24px 0 20px;
 }
 
@@ -685,8 +734,8 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 
 .dz-frame{
   position:relative;
-  background:#0D1013;
-  border:1px solid var(--line-d);
+  background:var(--band-deep);
+  border:1px solid var(--band-line);
   aspect-ratio:16/10;
   overflow:hidden;
 }
@@ -705,19 +754,19 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-family:var(--f-mono);
   font-size:12.5px;
   letter-spacing:.06em;
-  color:#6F7A84;
+  color:var(--band-faint);
   line-height:1.8;
 }
-.dz-frame.drag{ border-color:var(--ember); }
+.dz-frame.drag{ border-color:var(--amber); }
 
 .dz-readout{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:1px;
-  background:var(--line-d);
-  border:1px solid var(--line-d);
+  background:var(--band-line);
+  border:1px solid var(--band-line);
 }
-.dz-stat{ background:var(--ink); padding:15px 16px 16px; }
+.dz-stat{ background:var(--band-panel); padding:15px 16px 16px; }
 .dz-stat b{
   display:block;
   font-family:var(--f-mono);
@@ -725,14 +774,14 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-weight:500;
   letter-spacing:.15em;
   text-transform:uppercase;
-  color:#7C858D;
+  color:var(--band-faint);
   margin-bottom:6px;
 }
 .dz-stat span{
   font-family:var(--f-mono);
   font-size:19px;
   font-weight:600;
-  color:var(--paper);
+  color:var(--band-ink);
   font-variant-numeric:tabular-nums;
   line-height:1.15;
   display:block;
@@ -741,7 +790,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-style:normal;
   font-family:var(--f-mono);
   font-size:10.5px;
-  color:#7C858D;
+  color:var(--band-faint);
   display:block;
   margin-top:3px;
 }
@@ -752,41 +801,41 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   grid-template-columns:1fr auto;
   gap:6px 24px;
   align-items:end;
-  border:1px solid var(--line-d);
-  border-left:3px solid var(--ember);
-  background:#1C2126;
+  border:1px solid var(--band-line);
+  border-left:4px solid var(--amber);
+  background:var(--band-panel);
   padding:16px 20px 15px;
 }
 .dz-price[hidden]{ display:none; }
 .dz-price b{
   font-family:var(--f-mono); font-size:10.5px; font-weight:600;
-  letter-spacing:.15em; text-transform:uppercase; color:var(--ember);
+  letter-spacing:.15em; text-transform:uppercase; color:var(--accent-text);
   display:block; margin-bottom:5px;
 }
 .dz-price .amt{
-  font-family:var(--f-display); font-size:34px; line-height:1;
-  color:var(--paper); font-variant-numeric:tabular-nums;
+  font-family:var(--f-display); font-weight:800; font-size:40px; line-height:1;
+  color:var(--band-ink); font-variant-numeric:tabular-nums;
 }
 .dz-price .sub{
   font-family:var(--f-mono); font-size:11.5px; letter-spacing:.04em;
-  color:#8D959D; margin-top:7px; line-height:1.6;
+  color:var(--band-muted); margin-top:7px; line-height:1.6;
 }
 .dz-price details{ grid-column:1 / -1; margin-top:6px; }
 .dz-price summary{
   cursor:pointer; list-style:none; font-family:var(--f-mono);
-  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#AEB6BD;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--band-muted);
   padding:4px 0;
 }
 .dz-price summary::-webkit-details-marker{ display:none; }
-.dz-price summary::before{ content:"+ "; color:var(--ember); }
+.dz-price summary::before{ content:"+ "; color:var(--amber); }
 .dz-price details[open] summary::before{ content:"\2013  "; }
 .dz-price table{ border-collapse:collapse; margin-top:6px; font-family:var(--f-mono); font-size:12.5px; }
-.dz-price td{ padding:4px 22px 4px 0; color:#AEB6BD; border:0; }
-.dz-price td:last-child{ text-align:right; color:var(--paper); padding-right:0; font-variant-numeric:tabular-nums; }
-.dz-price tr.tot td{ border-top:1px solid var(--line-d); padding-top:8px; color:var(--paper); }
+.dz-price td{ padding:4px 22px 4px 0; color:var(--band-muted); border:0; }
+.dz-price td:last-child{ text-align:right; color:var(--band-ink); padding-right:0; font-variant-numeric:tabular-nums; }
+.dz-price tr.tot td{ border-top:1px solid var(--band-line); padding-top:8px; color:var(--band-ink); }
 .dz-price .fine{
   grid-column:1 / -1; font-family:var(--f-mono); font-size:11px;
-  letter-spacing:.03em; color:#7C858D; line-height:1.6; margin-top:4px;
+  letter-spacing:.03em; color:var(--band-faint); line-height:1.6; margin-top:4px;
 }
 
 .dz-checks{ display:flex; flex-direction:column; gap:9px; }
@@ -796,39 +845,39 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   align-items:flex-start;
   font-size:14px;
   line-height:1.55;
-  color:#AEB6BD;
-  border-left:3px solid #4A535B;
+  color:var(--band-muted);
+  border-left:3px solid var(--band-line-strong);
   padding:2px 0 2px 13px;
 }
-.dz-check.warn{ border-left-color:var(--ember); color:#DDE1E4; }
-.dz-check.stop{ border-left-color:#E1442A; color:#F3D5CE; }
+.dz-check.warn{ border-left-color:var(--amber); color:var(--band-ink); }
+.dz-check.stop{ border-left-color:var(--stop-on-band); color:#FBDDD4; }
 .dz-check b{
   font-family:var(--f-mono);
   font-size:10px;
   font-weight:600;
   letter-spacing:.13em;
   text-transform:uppercase;
-  color:#7C858D;
+  color:var(--band-faint);
   flex:none;
   width:56px;
   padding-top:3px;
 }
-.dz-check.warn b{ color:var(--ember); }
-.dz-check.stop b{ color:#E1442A; }
+.dz-check.warn b{ color:var(--amber); }
+.dz-check.stop b{ color:var(--stop-on-band); }
 
 .dz-actions{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
 .dz-note{
   font-family:var(--f-mono);
   font-size:11.5px;
   letter-spacing:.03em;
-  color:#7C858D;
+  color:var(--band-faint);
   max-width:40ch;
   line-height:1.6;
 }
 
 .dz-drop{
-  border:1px dashed #4A535B;
-  background:#12161A;
+  border:1px dashed var(--band-line-strong);
+  background:var(--band-deep);
   padding:34px 26px;
   text-align:center;
   display:flex;
@@ -839,26 +888,26 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 .dz-drop p{
   margin:0;
   font-size:15px;
-  color:#AEB6BD;
+  color:var(--band-muted);
   max-width:44ch;
   line-height:1.6;
 }
 .dz-drop input[type="file"]{
   font-family:var(--f-mono);
   font-size:12.5px;
-  color:#AEB6BD;
+  color:var(--band-muted);
 }
 .dz-filename{
   font-family:var(--f-mono);
   font-size:12px;
   letter-spacing:.06em;
-  color:var(--ember);
+  color:var(--amber);
 }
 
 /* banner shown in the quote form when a design is attached */
 .attached{
-  border:1px solid var(--ember);
-  background:#FBEDE4;
+  border-left:4px solid var(--navy);
+  background:var(--pale);
   padding:15px 18px;
   display:flex;
   gap:14px;
@@ -873,7 +922,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   color:var(--ink);
   letter-spacing:.02em;
 }
-.attached-txt b{ color:var(--ember); letter-spacing:.1em; text-transform:uppercase; font-size:10.5px; display:block; margin-bottom:3px; }
+.attached-txt b{ color:var(--pale-ink); letter-spacing:.1em; text-transform:uppercase; font-size:10.5px; display:block; margin-bottom:3px; }
 .attached button{
   background:none;
   border:0;
@@ -881,7 +930,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   font-size:11px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  color:var(--steel);
+  color:var(--muted);
   cursor:pointer;
   text-decoration:underline;
   padding:2px;
@@ -900,7 +949,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   .dz-frame{
     order:-1;
     position:sticky;
-    top:66px;
+    top:62px;
     z-index:40;
     aspect-ratio:16/9;
     box-shadow:0 14px 28px -12px rgba(0,0,0,.75);
@@ -910,8 +959,8 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 }
 @media (max-width:720px){
   .dz-tabs{ flex-direction:column; border-bottom:0; }
-  .dz-tab{ border:1px solid var(--line-d); border-bottom-width:1px; margin-bottom:-1px; text-align:left; }
-  .dz-tab[aria-selected="true"]{ border-color:var(--ember); }
+  .dz-tab{ border:1px solid var(--band-line); border-bottom-width:1px; margin-bottom:-1px; text-align:left; }
+  .dz-tab[aria-selected="true"]{ border-color:var(--amber); }
   .dz-picker{ grid-template-columns:repeat(2,1fr); }
   .dz-readout{ grid-template-columns:1fr 1fr; }
 }
@@ -924,7 +973,7 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   gap:60px;
   align-items:start;
 }
-.quote-aside p{ color:var(--steel); font-size:16px; }
+.quote-aside p{ color:var(--muted); font-size:16px; }
 .quote-aside .contact-line{
   font-family:var(--f-mono);
   font-size:14px;
@@ -933,9 +982,21 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   color:var(--ink);
   margin-top:22px;
   padding-top:20px;
-  border-top:1px solid #C3C5BF;
+  border-top:1px solid var(--line);
 }
-.quote-aside .contact-line a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ember); }
+.quote-aside .contact-line a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--amber); }
+
+/* cross-sell box: fastener counter */
+.xsell{
+  margin-top:22px;
+  background:var(--pale);
+  border-left:4px solid var(--navy);
+  padding:14px 16px;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--ink);
+}
+.xsell a{ color:var(--pale-ink); font-weight:600; }
 
 form.quote{ display:flex; flex-direction:column; gap:22px; }
 
@@ -952,30 +1013,30 @@ form.quote{ display:flex; flex-direction:column; gap:22px; }
   text-transform:uppercase;
   color:var(--ink);
 }
-.field label .req{ color:var(--ember); }
+.field label .req{ color:var(--accent-text); }
 
 .field input,.field select,.field textarea{
   font-family:var(--f-body);
   font-size:16px;
   color:var(--ink);
-  background:var(--paper);
-  border:1px solid #B9BCB6;
+  background:var(--surface);
+  border:1px solid var(--line-strong);
+  border-radius:3px;
   padding:12px 13px;
   width:100%;
-  border-radius:0;
   transition:border-color .15s ease;
 }
 .field textarea{ min-height:120px; resize:vertical; line-height:1.55; }
 .field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--arc);
-  outline:2px solid rgba(14,92,147,.22);
+  border-color:var(--navy);
+  outline:2px solid rgba(229,146,0,.35);
   outline-offset:0;
 }
 .field input[type="file"]{ padding:10px; font-family:var(--f-mono); font-size:13px; }
 .hint{
   font-family:var(--f-mono);
   font-size:11.5px;
-  color:var(--steel);
+  color:var(--muted);
   letter-spacing:.03em;
 }
 
@@ -996,51 +1057,29 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   font-size:12.5px;
   letter-spacing:.04em;
   padding:10px 15px;
-  border:1px solid #B9BCB6;
-  background:var(--paper);
+  border:1px solid var(--line-strong);
+  border-radius:3px;
+  background:var(--surface);
   cursor:pointer;
   transition:background .13s ease,border-color .13s ease,color .13s ease;
 }
 .chip input:checked + span{
-  background:var(--ink);
-  border-color:var(--ink);
-  color:var(--paper);
+  background:var(--navy);
+  border-color:var(--navy);
+  color:var(--on-navy);
 }
-.chip input:focus-visible + span{ outline:2px solid var(--ember); outline-offset:2px; }
+.chip input:focus-visible + span{ outline:2px solid var(--amber); outline-offset:2px; }
 
 .form-err{
   font-family:var(--f-mono);
   font-size:12.5px;
-  color:#B3350D;
+  color:var(--stop);
   letter-spacing:.02em;
 }
-.field.invalid input,.field.invalid select,.field.invalid textarea{ border-color:#B3350D; }
+.field.invalid input,.field.invalid select,.field.invalid textarea{ border-color:var(--stop); }
 
 .form-actions{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
-.form-actions .hint{ max-width:34ch; }
-
-/* confirmation panel */
-.sent{
-  border:2px solid var(--ink);
-  background:var(--paper);
-  padding:30px 30px 32px;
-}
-.sent h3{ font-family:var(--f-display); font-size:23px; text-transform:uppercase; margin-bottom:12px; }
-.sent p{ color:var(--steel); font-size:15.5px; margin:0 0 18px; max-width:58ch; }
-.sent pre{
-  font-family:var(--f-mono);
-  font-size:12.5px;
-  line-height:1.75;
-  background:var(--plate);
-  border:1px solid #C3C5BF;
-  padding:16px 18px;
-  overflow-x:auto;
-  margin:0 0 18px;
-  white-space:pre-wrap;
-  color:var(--ink);
-}
-.sent-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-.copied{ font-family:var(--f-mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ok); }
+.form-actions .hint{ max-width:36ch; }
 
 /* ---------- FAQ ---------- */
 
@@ -1062,41 +1101,51 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   right:6px; top:18px;
   font-family:var(--f-mono);
   font-size:20px;
-  color:var(--ember);
+  color:var(--accent-text);
   line-height:1;
 }
 .faq details[open] summary::after{ content:"–"; }
 .faq details p{
   margin:0 0 22px;
   max-width:70ch;
-  color:var(--steel);
+  color:var(--muted);
   font-size:16px;
 }
 
 /* ---------- footer ---------- */
 
+.foot{
+  background:var(--band);
+  color:var(--band-ink);
+  border-top:3px solid var(--amber);
+  padding-bottom:36px;
+}
 .foot-grid{
   display:grid;
-  grid-template-columns:1.3fr 1fr 1fr;
-  gap:44px;
+  grid-template-columns:1.25fr 1fr 1fr 1fr;
+  gap:40px;
 }
 .foot h4{
-  font-family:var(--f-mono);
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.15em;
+  font-family:var(--f-display);
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.06em;
   text-transform:uppercase;
-  color:var(--ember);
-  margin:0 0 14px;
+  color:var(--accent-text);
+  margin:0 0 12px;
 }
-.foot p,.foot ul{ margin:0; font-size:15px; color:#AEB6BD; line-height:1.75; }
+.foot p,.foot ul{ margin:0; font-size:15px; color:var(--band-muted); line-height:1.75; }
 .foot ul{ padding:0; list-style:none; }
-.foot a{ color:#DDE1E4; text-decoration:none; }
-.foot a:hover{ color:#fff; text-decoration:underline; }
+.foot strong{ color:var(--band-ink); font-weight:600; }
+.foot a{ color:var(--band-ink); text-decoration:none; }
+.foot a:hover{ color:var(--amber); text-decoration:underline; }
+.foot .go{ display:inline-block; margin-top:10px; font-family:var(--f-mono); font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--amber); border-bottom:1px solid var(--amber); }
+.foot .go:hover{ text-decoration:none; filter:brightness(1.1); }
+.foot .fine{ font-size:13px; color:var(--band-faint); margin-top:8px; }
 .foot-bar{
   margin-top:52px;
   padding-top:22px;
-  border-top:1px solid var(--line-d);
+  border-top:1px solid var(--band-line);
   display:flex;
   justify-content:space-between;
   gap:20px;
@@ -1104,17 +1153,22 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   font-family:var(--f-mono);
   font-size:11.5px;
   letter-spacing:.08em;
-  color:#7C858D;
+  color:var(--band-faint);
   text-transform:uppercase;
 }
 
 /* ---------- responsive ---------- */
 
+@media (max-width:1100px){
+  .nav{ gap:18px; }
+  .nav a{ font-size:11px; letter-spacing:.08em; }
+}
+
 @media (max-width:1000px){
   .hero-grid{ grid-template-columns:1fr; gap:40px; }
   .strip{ grid-template-columns:1fr 1fr; }
   .strip-item:nth-child(2n){ border-right:0; }
-  .strip-item:nth-child(n+3){ border-top:1px solid var(--line-d); }
+  .strip-item:nth-child(n+3){ border-top:1px solid var(--band-line); }
   .cards{ grid-template-columns:1fr; }
   .steps{ grid-template-columns:1fr 1fr; gap:28px; }
   .work{ grid-template-columns:1fr 1fr; }
@@ -1122,30 +1176,35 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   .foot-grid{ grid-template-columns:1fr 1fr; }
 }
 
-@media (max-width:720px){
-  body{ font-size:16px; }
-  .band{ padding:60px 0; }
-  .wrap{ padding:0 20px; }
+@media (max-width:920px){
+  .head-in{ height:62px; }
+  .logo img{ height:42px; }
   .nav{
     display:none;
     position:absolute;
-    top:66px; left:0; right:0;
-    background:var(--ink);
-    border-bottom:1px solid var(--line-d);
+    top:65px; left:0; right:0;
+    background:var(--head);
+    border-bottom:3px solid var(--amber);
     flex-direction:column;
     align-items:stretch;
     gap:0;
     padding:8px 20px 20px;
   }
   .nav.open{ display:flex; }
-  .nav a{ padding:13px 0; border-bottom:1px solid var(--line-d); }
+  .nav a{ padding:13px 0; border-bottom:1px solid rgba(243,239,231,.12); font-size:12px; }
   .nav .btn{ margin-top:12px; justify-content:center; }
   .nav-toggle{ display:block; }
+}
+
+@media (max-width:720px){
+  body{ font-size:16px; }
+  .band,.foot{ padding:60px 0; }
+  .wrap{ padding:0 20px; }
+  .logo img{ height:38px; }
   .sec-head{ flex-wrap:wrap; gap:10px; }
   .sec-note{ margin-left:0; width:100%; padding-top:0; }
   .frow,.frow--3{ grid-template-columns:1fr; }
   .steps{ grid-template-columns:1fr; }
-  .work{ grid-template-columns:1fr; }
   .foot-grid{ grid-template-columns:1fr; gap:32px; }
   .hero{ padding-top:52px; }
   .strip{ margin-top:48px; }
@@ -1158,23 +1217,23 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   position:fixed;
   left:0; right:0; bottom:0;
   z-index:70;
-  background:var(--ink);
-  border-top:1px solid var(--line-d);
+  background:var(--head);
+  border-top:3px solid var(--amber);
   padding:10px 12px calc(10px + env(safe-area-inset-bottom));
   grid-template-columns:1fr 1fr;
   gap:10px;
   transform:translateY(0);
   transition:transform .22s ease;
 }
-.mbar.away{ transform:translateY(110%); }
+.mbar.away{ transform:translateY(115%); }
 .mbar a{
   display:flex; align-items:center; justify-content:center; gap:8px;
   font-family:var(--f-mono); font-size:12.5px; font-weight:600;
   letter-spacing:.1em; text-transform:uppercase; text-decoration:none;
-  padding:14px 10px; border:2px solid transparent;
+  padding:14px 10px; border:2px solid transparent; border-radius:3px;
 }
-.mbar .call{ color:var(--paper); border-color:#4A535B; }
-.mbar .quote{ background:var(--ember); color:#fff; border-color:var(--ember); }
+.mbar .call{ color:var(--head-ink); border-color:rgba(243,239,231,.3); }
+.mbar .quote{ background:var(--amber); color:var(--on-amber); border-color:var(--amber); }
 
 @media (max-width:720px){
   .mbar{ display:grid; }
@@ -1194,16 +1253,8 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 <!-- ===================== HEADER ===================== -->
 <header class="site-head">
   <div class="wrap head-in">
-    <a class="brand" href="#top">
-      <svg class="brand-mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
-        <rect x="1" y="1" width="28" height="28" fill="none" stroke="#5A6570" stroke-width="1.5"/>
-        <path d="M15 4 L15 17" stroke="#DD5F16" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="15" cy="19.5" r="3.2" fill="#DD5F16"/>
-        <path d="M6 25.5 L24 25.5" stroke="#F1F0EC" stroke-width="1.5"/>
-      </svg>
-      <span class="brand-txt">Mid South Plasma
-        <span class="brand-sub">Hot Springs, Arkansas</span>
-      </span>
+    <a class="logo" href="#top" aria-label="Mid South Steel &amp; Rebar — home">
+      <img src="logo.png" width="720" height="317" alt="Mid South Steel and Rebar">
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav">
@@ -1212,6 +1263,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       <a href="#process">How It Works</a>
       <a href="#design">Design Tool</a>
       <a href="#faq">FAQ</a>
+      <a class="nav-x" data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Fasteners</a>
       <a class="btn btn--primary" href="#quote">Get a Quote</a>
     </nav>
   </div>
@@ -1222,7 +1274,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">CNC Plasma Cutting &nbsp;/&nbsp; Hot Springs, AR</p>
+        <p class="eyebrow">Mid South Steel &amp; Rebar &nbsp;/&nbsp; CNC Plasma Cutting</p>
         <h1 class="h-display">Send us a file.<br>Pick up your parts.</h1>
         <div class="arc-rule"></div>
         <p class="lede">High-definition plasma cutting on a 9&nbsp;ft &times; 16&nbsp;ft Messer table, right here in Hot Springs. Mild steel, stainless and aluminum &mdash; one bracket or a thousand. Most quotes go back the same day.</p>
@@ -1395,11 +1447,11 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     <div class="work">
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <g fill="#DD5F16" fill-opacity=".9">
+          <rect width="200" height="150" fill="#132235"/>
+          <g fill="#E59200" fill-opacity=".9">
             <path d="M45 38 h110 a6 6 0 0 1 6 6 v62 a6 6 0 0 1 -6 6 h-110 a6 6 0 0 1 -6 -6 v-62 a6 6 0 0 1 6 -6 z"/>
           </g>
-          <g fill="#22272C">
+          <g fill="#132235">
             <circle cx="58" cy="55" r="7"/><circle cx="142" cy="55" r="7"/>
             <circle cx="58" cy="95" r="7"/><circle cx="142" cy="95" r="7"/>
             <rect x="88" y="63" width="24" height="24" rx="3"/>
@@ -1413,10 +1465,10 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <circle cx="100" cy="75" r="52" fill="#DD5F16" fill-opacity=".9"/>
-          <circle cx="100" cy="75" r="24" fill="#22272C"/>
-          <g fill="#22272C">
+          <rect width="200" height="150" fill="#132235"/>
+          <circle cx="100" cy="75" r="52" fill="#E59200" fill-opacity=".9"/>
+          <circle cx="100" cy="75" r="24" fill="#132235"/>
+          <g fill="#132235">
             <circle cx="100" cy="35" r="5.5"/><circle cx="128" cy="47" r="5.5"/>
             <circle cx="140" cy="75" r="5.5"/><circle cx="128" cy="103" r="5.5"/>
             <circle cx="100" cy="115" r="5.5"/><circle cx="72" cy="103" r="5.5"/>
@@ -1431,9 +1483,9 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <path d="M42 120 L42 30 A18 18 0 0 1 60 12 L60 12 L158 118 A6 6 0 0 1 152 124 L48 124 A6 6 0 0 1 42 118 Z" fill="#DD5F16" fill-opacity=".9"/>
-          <circle cx="62" cy="105" r="7" fill="#22272C"/>
+          <rect width="200" height="150" fill="#132235"/>
+          <path d="M42 120 L42 30 A18 18 0 0 1 60 12 L60 12 L158 118 A6 6 0 0 1 152 124 L48 124 A6 6 0 0 1 42 118 Z" fill="#E59200" fill-opacity=".9"/>
+          <circle cx="62" cy="105" r="7" fill="#132235"/>
         </svg>
         <div class="work-cap">
           <h3>Gussets &amp; brackets</h3>
@@ -1443,9 +1495,9 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <rect x="26" y="46" width="148" height="58" rx="4" fill="#DD5F16" fill-opacity=".9"/>
-          <text x="100" y="86" text-anchor="middle" fill="#22272C"
+          <rect width="200" height="150" fill="#132235"/>
+          <rect x="26" y="46" width="148" height="58" rx="4" fill="#E59200" fill-opacity=".9"/>
+          <text x="100" y="86" text-anchor="middle" fill="#132235"
                 font-family="Archivo Black, Arial Black, sans-serif" font-size="34">1420</text>
         </svg>
         <div class="work-cap">
@@ -1456,10 +1508,10 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <circle cx="100" cy="75" r="54" fill="#DD5F16" fill-opacity=".9"/>
-          <circle cx="100" cy="75" r="46" fill="none" stroke="#22272C" stroke-width="3"/>
-          <text x="100" y="94" text-anchor="middle" fill="#22272C"
+          <rect width="200" height="150" fill="#132235"/>
+          <circle cx="100" cy="75" r="54" fill="#E59200" fill-opacity=".9"/>
+          <circle cx="100" cy="75" r="46" fill="none" stroke="#132235" stroke-width="3"/>
+          <text x="100" y="94" text-anchor="middle" fill="#132235"
                 font-family="Archivo Black, Arial Black, sans-serif" font-size="52">M</text>
         </svg>
         <div class="work-cap">
@@ -1470,9 +1522,9 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
       <article class="work-item">
         <svg class="work-art" viewBox="0 0 200 150" aria-hidden="true">
-          <rect width="200" height="150" fill="#22272C"/>
-          <rect x="20" y="24" width="160" height="102" rx="3" fill="#DD5F16" fill-opacity=".9"/>
-          <g fill="#22272C">
+          <rect width="200" height="150" fill="#132235"/>
+          <rect x="20" y="24" width="160" height="102" rx="3" fill="#E59200" fill-opacity=".9"/>
+          <g fill="#132235">
             <circle cx="58" cy="49" r="12"/>
             <path d="M20 126 L20 100 L58 66 L92 100 L112 84 L142 112 L180 84 L180 126 Z"/>
             <path d="M146 126 h7 v-18 h-7 z"/>
@@ -1672,14 +1724,15 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         <div class="contact-line">
           <a href="tel:+18885736201">888-573-6201</a><br>
           <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a><br>
-          <span>Mon&ndash;Fri 7:00&ndash;4:30 &middot; Sat by appt.</span>
+          <span>Monday&ndash;Friday 7am&ndash;5pm</span>
         </div>
+        <p class="xsell">Need bolts, anchors or hardware for this job? <a data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Order from our fastener counter.</a></p>
       </aside>
 
       <div>
         <form class="quote" id="quoteForm" method="POST" enctype="multipart/form-data" novalidate>
           <!-- FormSubmit control fields -->
-          <input type="hidden" name="_subject" id="fsSubject" value="Quote request">
+          <input type="hidden" name="_subject" id="fsSubject" value="Plasma quote request">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" id="fsNext" value="">
@@ -1788,17 +1841,6 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           </div>
         </form>
 
-        <div class="sent" id="sentPanel" hidden>
-          <h3>Your request is ready</h3>
-          <p id="sentMsg"></p>
-          <pre id="sentSummary"></pre>
-          <div class="sent-actions" id="sentActions">
-            <a class="btn btn--primary" id="mailBtn" href="mailto:sales@rebarandsteel.com">Open email with my details</a>
-            <button class="btn btn--dark" type="button" id="copyBtn">Copy instead</button>
-            <span class="copied" id="copiedNote" hidden>Copied</span>
-          </div>
-          <p class="hint" id="sentHint" style="margin:16px 0 0;">Attach your DXF to that email and send it. Or call the shop &mdash; <a href="tel:+18885736201" style="color:var(--ink);">888-573-6201</a>.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -1827,7 +1869,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       </details>
       <details>
         <summary>Do you supply the steel, or do I bring it?</summary>
-        <p>Either. We&rsquo;re part of Mid South Steel &amp; Rebar on Stanage Drive, so plate, sheet, structural, tubing, bar and rebar all come off our own yard &mdash; usually cheaper than sourcing it yourself and hauling it here, and there&rsquo;s no waiting on a mill order. If you have your own material, bring it and we&rsquo;ll cut it.</p>
+        <p>Either. We&rsquo;re Mid South Steel &amp; Rebar on Stanage Drive, so plate, sheet, structural, tubing, bar and rebar all come off our own yard &mdash; usually cheaper than sourcing it yourself and hauling it here, and there&rsquo;s no waiting on a mill order. If you have your own material, bring it and we&rsquo;ll cut it.</p>
       </details>
       <details>
         <summary>How close together can I put holes?</summary>
@@ -1850,7 +1892,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 </section>
 
 <!-- ===================== CONTACT / FOOTER ===================== -->
-<footer class="band band--dark foot" id="contact">
+<footer class="foot" id="contact">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">08</span>
@@ -1860,24 +1902,23 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
     <div class="foot-grid">
       <div>
-        <h4>The shop</h4>
+        <h4>Contact</h4>
         <p>
-          <strong style="color:#F1F0EC;">Mid South Plasma</strong><br>
-          A division of Mid South Steel &amp; Rebar, LLC<br><br>
+          <strong>Mid South Steel &amp; Rebar, LLC</strong><br>
           <a href="https://www.google.com/maps/search/?api=1&query=172+Stanage+Drive+Hot+Springs+AR+71901" target="_blank" rel="noopener">172 Stanage Drive<br>
-          Hot Springs, AR 71901</a><br><br>
+          Hot Springs, AR 71901</a><br>
           <a href="tel:+18885736201">888-573-6201</a><br>
           <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a>
         </p>
+        <p class="fine">Business hours Monday&ndash;Friday 7am&ndash;5pm<br>Requests can be sent any time; we reply during business hours.</p>
       </div>
       <div>
-        <h4>Hours</h4>
-        <p style="display:inline-block;">
-          Monday&ndash;Friday &nbsp;7:00&ndash;4:30<br>
-          Saturday &nbsp;by appointment<br>
-          Sunday &nbsp;closed
-        </p>
-        <h4 style="margin-top:26px;">Also from the yard</h4>
+        <h4>Fasteners</h4>
+        <p>Structural bolts, anchor bolts, concrete anchors, nuts and washers on the shelf in Hot Springs, plus the full standard line by special order.</p>
+        <a class="go" data-site="fasteners" href="https://midsouthsteel.github.io/Fastener-Website/" target="_blank" rel="noopener">Shop fasteners &rarr;</a>
+      </div>
+      <div>
+        <h4>Also from the yard</h4>
         <ul>
           <li>Rebar &mdash; straight, cut, bent, fabricated</li>
           <li>Structural steel, beams &amp; channel</li>
@@ -1901,7 +1942,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     </div>
 
     <div class="foot-bar">
-      <span>&copy; <span id="yr">2026</span> Mid South Plasma &mdash; Mid South Steel &amp; Rebar</span>
+      <span>&copy; <span id="yr">2026</span> Mid South Steel &amp; Rebar, LLC &middot; CNC plasma cutting</span>
       <span><a href="#quote">Get a quote</a> &nbsp;&middot;&nbsp; <a href="#top">Back to top</a></span>
     </div>
   </div>
@@ -1921,12 +1962,21 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
   /* ------------------------------------------------------------------
      QUOTE ENDPOINT
-     Leave empty and the form falls back to a copy-and-send summary.
-     Once the site is on a real domain, paste a form endpoint here
-     (Web3Forms, Formspree, Basin, or your own handler) and the form
-     will POST the fields and the uploaded file straight to your inbox.
+     The quote form POSTs every field and uploaded file straight to this
+     address through FormSubmit (formsubmit.co). It emails
+     sales@rebarandsteel.com directly; there is no copy-and-paste fallback.
+     First submission: FormSubmit sends a one-time activation email to
+     sales@ — click it once and every request after that is delivered.
      ------------------------------------------------------------------ */
   var QUOTE_ENDPOINT = "https://formsubmit.co/sales@rebarandsteel.com";
+
+  /* ---------- links to the sister site (URL lives in config.js) ---------- */
+  (function () {
+    var url = window.MSSR && window.MSSR.FASTENER_URL;
+    if (!url) { return; }
+    var links = document.querySelectorAll('[data-site="fasteners"]');
+    for (var i = 0; i < links.length; i++) { links[i].setAttribute("href", url); }
+  })();
 
   /* ---------- mobile bar: step aside while the form itself is on screen ---------- */
   (function () {
@@ -2051,7 +2101,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         else if (age < 9)  { col = "#FFB35C"; }
         else if (age < 20) { col = "#E06A1C"; }
         else if (age < 38) { col = "#8A3F14"; }
-        else               { col = "#4B4F54"; }
+        else               { col = "#3A4A5E"; }
         ctx.strokeStyle = col;
         ctx.lineWidth = age < 9 ? 2.4 : 1.7;
         ctx.beginPath();
@@ -2062,14 +2112,14 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     }
 
     function drawPlate() {
-      ctx.fillStyle = "#0D1013";
+      ctx.fillStyle = "#0D1826";
       ctx.fillRect(0, 0, W, H);
       /* plate edge */
-      ctx.strokeStyle = "#252B31";
+      ctx.strokeStyle = "#22344B";
       ctx.lineWidth = 1;
       ctx.strokeRect(X(28) + .5, Y(24) + .5, 344 * S, 282 * S);
       /* slat grid, like the table below the plate */
-      ctx.strokeStyle = "#171C21";
+      ctx.strokeStyle = "#172B43";
       var g;
       for (g = 1; g < 12; g++) {
         ctx.beginPath();
@@ -2560,7 +2610,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fSel("holes", "Mounting holes", "4", [["0", "None"], ["2", "2 — top"], ["4", "4 — corners"]]),
           fNum("hd", "Hole diameter (in)", 0.375, 0.125, 1.5, 0.0625)
         ],
-        '<rect x="2" y="9" width="32" height="18" rx="3" fill="#DD5F16"/><text x="18" y="23" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="11" fill="#1C2126">12</text>',
+        '<rect x="2" y="9" width="32" height="18" rx="3" fill="#E59200"/><text x="18" y="23" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="11" fill="#132235">12</text>',
         function (p) {
           var w = p.w, h = p.h, r = p.r, body = [], cuts = [], texts = [], holes = [];
           var per = pRoundRect(0, 0, w, h, r);
@@ -2611,7 +2661,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fSel("ring", "Ring", "thin", [["none", "None"], ["thin", "Thin"], ["wide", "Wide"]]),
           fSel("hang", "Hanging hole", "1", [["0", "None"], ["1", "One, top"]])
         ],
-        '<circle cx="18" cy="18" r="14" fill="#DD5F16"/><circle cx="18" cy="18" r="11.5" fill="none" stroke="#1C2126" stroke-width="1.2"/><text x="18" y="24" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="15" fill="#1C2126">M</text>',
+        '<circle cx="18" cy="18" r="14" fill="#E59200"/><circle cx="18" cy="18" r="11.5" fill="none" stroke="#132235" stroke-width="1.2"/><text x="18" y="24" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="15" fill="#132235">M</text>',
         function (p) {
           var d = p.dia, R = d / 2, body = [], cuts = [], texts = [], notes = [], holes = [];
           body.push({ c: [R, R, R], fill: true });
@@ -2652,7 +2702,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fSel("holes", "Mounting holes", "2", [["0", "None"], ["2", "2 — top"], ["4", "4 — corners"]]),
           fNum("hd", "Hole diameter (in)", 0.375, 0.125, 1.5, 0.0625)
         ],
-        '<path d="M3 27 L3 16 A15 9 0 0 1 33 16 L33 27 Z" fill="#DD5F16"/><text x="18" y="24" text-anchor="middle" font-family="Yellowtail,cursive" font-size="11" fill="#1C2126">Rr</text>',
+        '<path d="M3 27 L3 16 A15 9 0 0 1 33 16 L33 27 Z" fill="#E59200"/><text x="18" y="24" text-anchor="middle" font-family="Yellowtail,cursive" font-size="11" fill="#132235">Rr</text>',
         function (p) {
           var w = p.w, h = p.h, body = [], cuts = [], texts = [], notes = [], holes = [];
           var cut, pierces = 1, topPad;
@@ -2716,7 +2766,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fNum("edge", "Hole from edge (in)", 1, 0.25, 12, 0.125),
           fNum("center", "Centre hole dia (in)", 0, 0, 24, 0.125)
         ],
-        '<rect x="4" y="7" width="28" height="22" rx="2.5" fill="#DD5F16"/><g fill="#1C2126"><circle cx="9" cy="12" r="2"/><circle cx="27" cy="12" r="2"/><circle cx="9" cy="24" r="2"/><circle cx="27" cy="24" r="2"/></g>',
+        '<rect x="4" y="7" width="28" height="22" rx="2.5" fill="#E59200"/><g fill="#132235"><circle cx="9" cy="12" r="2"/><circle cx="27" cy="12" r="2"/><circle cx="9" cy="24" r="2"/><circle cx="27" cy="24" r="2"/></g>',
         function (p) {
           var w = p.w, h = p.h, body = [], cuts = [], notes = [], holes = [];
           var pr = pRoundRect(0, 0, w, h, p.r);
@@ -2753,7 +2803,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fNum("r", "Corner radius (in)", 0.75, 0, 6, 0.125),
           fNum("hd", "Hole dia (in) — 0 for none", 0.5625, 0, 3, 0.0625)
         ],
-        '<path d="M6 5 L6 29 L31 29 Z" fill="#DD5F16"/><circle cx="11" cy="24" r="2" fill="#1C2126"/>',
+        '<path d="M6 5 L6 29 L31 29 Z" fill="#E59200"/><circle cx="11" cy="24" r="2" fill="#132235"/>',
         function (p) {
           var a = p.a, b = p.b, notes = [];
           var pts = [[0, 0], [0, a], [b, a]];
@@ -2779,7 +2829,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           fNum("n", "Bolt holes", 8, 0, 48, 1),
           fNum("bd", "Bolt hole dia (in)", 0.5625, 0.125, 3, 0.0625)
         ],
-        '<circle cx="18" cy="18" r="14" fill="#DD5F16"/><g fill="#1C2126"><circle cx="18" cy="18" r="5.5"/><circle cx="18" cy="8" r="1.9"/><circle cx="25" cy="11" r="1.9"/><circle cx="28" cy="18" r="1.9"/><circle cx="25" cy="25" r="1.9"/><circle cx="18" cy="28" r="1.9"/><circle cx="11" cy="25" r="1.9"/><circle cx="8" cy="18" r="1.9"/><circle cx="11" cy="11" r="1.9"/></g>',
+        '<circle cx="18" cy="18" r="14" fill="#E59200"/><g fill="#132235"><circle cx="18" cy="18" r="5.5"/><circle cx="18" cy="8" r="1.9"/><circle cx="25" cy="11" r="1.9"/><circle cx="28" cy="18" r="1.9"/><circle cx="25" cy="25" r="1.9"/><circle cx="18" cy="28" r="1.9"/><circle cx="11" cy="25" r="1.9"/><circle cx="8" cy="18" r="1.9"/><circle cx="11" cy="11" r="1.9"/></g>',
         function (p) {
           var R = p.od / 2, notes = [], holes = [];
           var body = [{ c: [R, R, R], fill: true }], cuts = [];
@@ -2861,7 +2911,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     /* ---------------- preview ---------------- */
 
     var svgEl = document.getElementById("tplPreview");
-    var PART = "#DD5F16", VOID = "#0D1013", DIM = "#6F7A84";
+    var PART = "#E59200", VOID = "#0D1826", DIM = "#8295AB";
 
     function buildSVG(part, forExport) {
       var w = part.w, h = part.h;
@@ -2918,7 +2968,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       return '<?xml version="1.0" encoding="UTF-8"?>\n' +
         '<svg xmlns="http://www.w3.org/2000/svg" width="' + part.w + 'in" height="' + part.h + 'in" ' +
         'viewBox="' + b.vb + '">\n' +
-        '<!-- Mid South Plasma — customer design. Units: inches. -->\n' +
+        '<!-- Mid South Steel & Rebar — customer plasma design. Units: inches. -->\n' +
         b.inner + '\n</svg>\n';
     }
 
@@ -3345,7 +3395,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       dxfCanvas.width = Math.round(rect.width * dpr);
       dxfCanvas.height = Math.round(rect.height * dpr);
       dxfCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      dxfCtx.fillStyle = "#0D1013";
+      dxfCtx.fillStyle = "#0D1826";
       dxfCtx.fillRect(0, 0, rect.width, rect.height);
 
       var bb = dxfState.bbox;
@@ -3355,7 +3405,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       var ox = (rect.width - bw * s) / 2 - bb[0] * s;
       var oy = (rect.height + bh * s) / 2 + bb[1] * s;
 
-      dxfCtx.strokeStyle = "#DD5F16";
+      dxfCtx.strokeStyle = "#E59200";
       dxfCtx.lineWidth = 1.4;
       dxfCtx.lineJoin = "round";
       var i, j, drawn = 0;
@@ -3371,7 +3421,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       }
 
       /* extents box */
-      dxfCtx.strokeStyle = "#232A31";
+      dxfCtx.strokeStyle = "#1D3350";
       dxfCtx.lineWidth = 1;
       dxfCtx.setLineDash([5, 5]);
       dxfCtx.strokeRect(ox + bb[0] * s - 11, oy - bb[3] * s - 11, bw * s + 22, bh * s + 22);
@@ -3595,11 +3645,6 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     var form = document.getElementById("quoteForm");
     if (!form) { return; }
     var errEl = document.getElementById("formErr");
-    var panel = document.getElementById("sentPanel");
-    var msgEl = document.getElementById("sentMsg");
-    var sumEl = document.getElementById("sentSummary");
-    var copyBtn = document.getElementById("copyBtn");
-    var copiedNote = document.getElementById("copiedNote");
 
     function fieldOf(el) { return el.closest(".field"); }
 
@@ -3613,43 +3658,6 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       var v = em.value.trim();
       fieldOf(em).classList.toggle("invalid", !!v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
       return form.querySelectorAll(".field.invalid").length === 0;
-    }
-
-    function summary() {
-      var g = function (id) { return (document.getElementById(id).value || "").trim(); };
-      var r = function (n) {
-        var el = form.querySelector('input[name="' + n + '"]:checked');
-        return el ? el.value : "";
-      };
-      var files = document.getElementById("q-file").files;
-      var names = [];
-      var i;
-      for (i = 0; i < files.length; i++) { names.push(files[i].name); }
-
-      var lines = [
-        "QUOTE REQUEST — Mid South Plasma",
-        "",
-        "Name        " + g("q-name"),
-        "Company     " + (g("q-company") || "—"),
-        "Phone       " + g("q-phone"),
-        "Email       " + g("q-email"),
-        "",
-        "Job type    " + r("jobtype"),
-        "Material    " + g("q-material"),
-        "Thickness   " + g("q-thickness"),
-        "Quantity    " + (g("q-qty") || "—"),
-        "Part size   " + (g("q-size") || "—"),
-        "Needed by   " + (g("q-needed") || "—"),
-        "Fulfilment  " + r("fulfil"),
-        "File(s)     " + (names.length ? names.join(", ") : "none attached"),
-        "",
-        "Notes",
-        g("q-notes") || "—"
-      ];
-      if (DESIGN) {
-        lines.push("", "— — —", DESIGN.spec);
-      }
-      return lines.join("\n");
     }
 
     /* Total attachment budget. FormSubmit caps a submission at 10 MB. */
@@ -3684,51 +3692,42 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       }
       errEl.hidden = true;
 
-      if (QUOTE_ENDPOINT) {
-        if (attachedBytes() > MAX_UPLOAD) {
-          e.preventDefault();
-          errEl.hidden = false;
-          errEl.textContent = "Those files add up to more than 9 MB, which is more than the form will carry. " +
-            "Send the request without them and email the files to sales@rebarandsteel.com, or zip them smaller.";
-          return;
-        }
-
-        /* fill the FormSubmit control fields, then let the browser post */
-        var name = (document.getElementById("q-name").value || "").trim();
-        var subj = document.getElementById("fsSubject");
-        if (subj) { subj.value = "Quote request" + (name ? " \u2014 " + name : ""); }
-
-        var next = document.getElementById("fsNext");
-        if (next) {
-          /* built from the current address so it survives the move to a custom domain */
-          next.value = location.href.split("#")[0].replace(/\/?(index\.html)?$/, "/") + "thank-you.html";
-        }
-
-        var dz = document.getElementById("fsDesign");
-        if (dz) { dz.value = DESIGN ? DESIGN.spec : ""; }
-        attachDesignFile();
-
-        form.action = QUOTE_ENDPOINT;
-        var btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = "Sending\u2026";
-        /* no preventDefault — the browser submits and lands on thank-you.html */
+      if (!QUOTE_ENDPOINT) {
+        /* Should never happen on the live site: the form always emails the shop directly. */
+        e.preventDefault();
+        errEl.hidden = false;
+        errEl.textContent = "The quote form is offline right now. Please call 888-573-6201 or email sales@rebarandsteel.com.";
         return;
       }
 
-      /* No endpoint configured — hand the customer their details to send. */
-      e.preventDefault();
-      form.hidden = true;
-      panel.hidden = false;
-      sumEl.hidden = false;
-      msgEl.textContent = "One more click and it's on its way. Hit the button below and your email app opens with all of this already filled in \u2014 " +
-        (DESIGN && DESIGN.kind === "dxf"
-          ? "attach your DXF and send it."
-          : "attach a drawing or photo if you have one, and send it.") +
-        " We'll have a price back to you within one business day.";
-      sumEl.textContent = summary();
-      buildMailto();
-      panel.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (attachedBytes() > MAX_UPLOAD) {
+        e.preventDefault();
+        errEl.hidden = false;
+        errEl.textContent = "Those files add up to more than 9 MB, which is more than the form will carry. " +
+          "Send the request without them and email the files to sales@rebarandsteel.com, or zip them smaller.";
+        return;
+      }
+
+      /* fill the FormSubmit control fields, then let the browser post */
+      var name = (document.getElementById("q-name").value || "").trim();
+      var subj = document.getElementById("fsSubject");
+      if (subj) { subj.value = "Plasma quote request" + (name ? " \u2014 " + name : ""); }
+
+      var next = document.getElementById("fsNext");
+      if (next) {
+        /* built from the current address so it survives the move to a custom domain */
+        next.value = location.href.split("#")[0].replace(/\/?(index\.html)?$/, "/") + "thank-you.html";
+      }
+
+      var dz = document.getElementById("fsDesign");
+      if (dz) { dz.value = DESIGN ? DESIGN.spec : ""; }
+      attachDesignFile();
+
+      form.action = QUOTE_ENDPOINT;
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = "Sending\u2026";
+      /* no preventDefault — the browser submits and lands on thank-you.html */
     });
 
     form.addEventListener("input", function (e) {
@@ -3736,44 +3735,6 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       if (wrap && e.target.value.trim()) { wrap.classList.remove("invalid"); }
     });
 
-    function buildMailto() {
-      var a = document.getElementById("mailBtn");
-      if (!a) { return; }
-      var who = (document.getElementById("q-name").value || "").trim();
-      var subject = "Quote request" + (who ? " \u2014 " + who : "");
-      var body = sumEl.textContent +
-        "\n\n(Attach your drawing or DXF to this email before sending.)";
-      a.setAttribute("href", "mailto:sales@rebarandsteel.com" +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body));
-    }
-
-    if (copyBtn) {
-      copyBtn.addEventListener("click", function () {
-        var text = sumEl.textContent;
-        var done = function () {
-          copiedNote.hidden = false;
-          setTimeout(function () { copiedNote.hidden = true; }, 2400);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
-        } else {
-          fallbackCopy(text, done);
-        }
-      });
-    }
-
-    function fallbackCopy(text, done) {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); done(); } catch (err) { /* selection is left for manual copy */ }
-      document.body.removeChild(ta);
-    }
   })();
 })();
 </script>
