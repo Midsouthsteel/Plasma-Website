@@ -5,6 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="High-definition CNC plasma cutting in Hot Springs, Arkansas. Design your own sign or bracket online, or upload a DXF. Custom cut art, production contract cutting, plate parts on demand.">
 <title>Mid South Plasma</title>
+<meta name="theme-color" content="#15181B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Social sharing: what Facebook, Instagram, iMessage and Google show when the link is posted.
+     Crawlers need ABSOLUTE image URLs. When the site moves to midsouthplasma.com,
+     change the two og-image.png lines and og:url below to the new domain. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://midsouthsteel.github.io/Plasma-Website/">
+<meta property="og:site_name" content="Mid South Plasma">
+<meta property="og:title" content="Mid South Plasma — CNC Plasma Cutting in Hot Springs, AR">
+<meta property="og:description" content="Send us a file, pick up your parts. Steel, stainless and aluminum up to 1-1/2 in. on a 9 ft × 16 ft table. Design your own sign or bracket online. Quotes in one business day.">
+<meta property="og:image" content="https://midsouthsteel.github.io/Plasma-Website/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mid South Plasma — Send us a file, pick up your parts.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mid South Plasma — CNC Plasma Cutting in Hot Springs, AR">
+<meta name="twitter:description" content="Send us a file, pick up your parts. 9 ft × 16 ft table, quotes in one business day.">
+<meta name="twitter:image" content="https://midsouthsteel.github.io/Plasma-Website/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://midsouthsteel.github.io/Plasma-Website/#business",
+  "name": "Mid South Plasma",
+  "alternateName": "Mid South Steel & Rebar — Plasma Cutting",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Mid South Steel & Rebar, LLC",
+    "url": "https://midsouthsteelandrebar.com"
+  },
+  "description": "CNC plasma cutting in Hot Springs, Arkansas. Custom signs and decorative cut art, production contract cutting, and plate parts on demand. 9 ft × 16 ft Messer table, Hypertherm HPR260XD.",
+  "url": "https://midsouthsteel.github.io/Plasma-Website/",
+  "telephone": "+1-888-573-6201",
+  "email": "sales@rebarandsteel.com",
+  "image": "https://midsouthsteel.github.io/Plasma-Website/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "172 Stanage Drive",
+    "addressLocality": "Hot Springs",
+    "addressRegion": "AR",
+    "postalCode": "71901",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Hot Springs", "Hot Springs Village", "Malvern", "Benton", "Bryant", "Little Rock", "Arkadelphia", "Mount Ida", "Glenwood", "Sheridan", "Russellville", "Central Arkansas"],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "16:30" }
+  ],
+  "priceRange": "$$",
+  "knowsAbout": ["CNC plasma cutting", "custom metal signs", "steel plate fabrication", "rebar", "structural steel"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Yellowtail&display=swap">
@@ -689,6 +746,49 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
   margin-top:3px;
 }
 
+/* estimated price panel */
+.dz-price{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:6px 24px;
+  align-items:end;
+  border:1px solid var(--line-d);
+  border-left:3px solid var(--ember);
+  background:#1C2126;
+  padding:16px 20px 15px;
+}
+.dz-price[hidden]{ display:none; }
+.dz-price b{
+  font-family:var(--f-mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--ember);
+  display:block; margin-bottom:5px;
+}
+.dz-price .amt{
+  font-family:var(--f-display); font-size:34px; line-height:1;
+  color:var(--paper); font-variant-numeric:tabular-nums;
+}
+.dz-price .sub{
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.04em;
+  color:#8D959D; margin-top:7px; line-height:1.6;
+}
+.dz-price details{ grid-column:1 / -1; margin-top:6px; }
+.dz-price summary{
+  cursor:pointer; list-style:none; font-family:var(--f-mono);
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#AEB6BD;
+  padding:4px 0;
+}
+.dz-price summary::-webkit-details-marker{ display:none; }
+.dz-price summary::before{ content:"+ "; color:var(--ember); }
+.dz-price details[open] summary::before{ content:"\2013  "; }
+.dz-price table{ border-collapse:collapse; margin-top:6px; font-family:var(--f-mono); font-size:12.5px; }
+.dz-price td{ padding:4px 22px 4px 0; color:#AEB6BD; border:0; }
+.dz-price td:last-child{ text-align:right; color:var(--paper); padding-right:0; font-variant-numeric:tabular-nums; }
+.dz-price tr.tot td{ border-top:1px solid var(--line-d); padding-top:8px; color:var(--paper); }
+.dz-price .fine{
+  grid-column:1 / -1; font-family:var(--f-mono); font-size:11px;
+  letter-spacing:.03em; color:#7C858D; line-height:1.6; margin-top:4px;
+}
+
 .dz-checks{ display:flex; flex-direction:column; gap:9px; }
 .dz-check{
   display:flex;
@@ -790,8 +890,23 @@ h1,h2,h3{ text-wrap:balance; margin:0; }
 .attached button:hover{ color:var(--ink); }
 
 @media (max-width:1000px){
-  .dz-grid{ grid-template-columns:1fr; gap:30px; }
+  .dz-grid{ grid-template-columns:1fr; gap:26px; }
   .dz-readout{ grid-template-columns:1fr 1fr; }
+
+  /* On a phone the controls would push the drawing off-screen. Flatten
+     the stage so the preview becomes the first grid item and pins under
+     the header while the customer works through the fields below it. */
+  .dz-stage{ display:contents; }
+  .dz-frame{
+    order:-1;
+    position:sticky;
+    top:66px;
+    z-index:40;
+    aspect-ratio:16/9;
+    box-shadow:0 14px 28px -12px rgba(0,0,0,.75);
+  }
+  .dz-controls{ order:0; }
+  .dz-readout,.dz-price,.dz-checks,.dz-actions{ order:1; }
 }
 @media (max-width:720px){
   .dz-tabs{ flex-direction:column; border-bottom:0; }
@@ -1036,6 +1151,40 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   .strip{ margin-top:48px; }
 }
 
+/* ---------- mobile call / quote bar ---------- */
+
+.mbar{
+  display:none;
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:70;
+  background:var(--ink);
+  border-top:1px solid var(--line-d);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  transform:translateY(0);
+  transition:transform .22s ease;
+}
+.mbar.away{ transform:translateY(110%); }
+.mbar a{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  font-family:var(--f-mono); font-size:12.5px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; text-decoration:none;
+  padding:14px 10px; border:2px solid transparent;
+}
+.mbar .call{ color:var(--paper); border-color:#4A535B; }
+.mbar .quote{ background:var(--ember); color:#fff; border-color:var(--ember); }
+
+@media (max-width:720px){
+  .mbar{ display:grid; }
+  body{ padding-bottom:78px; }
+  .work{ grid-template-columns:1fr 1fr; gap:12px; }
+  .work-cap{ padding:12px 12px 14px; }
+  .work-cap h3{ font-size:14px; line-height:1.3; }
+  .work-cap p{ font-size:11px; }
+}
+
 @media (prefers-reduced-motion:reduce){
   *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
 }
@@ -1073,7 +1222,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">CNC Plasma Cutting &nbsp;/&nbsp; Garland County, AR</p>
+        <p class="eyebrow">CNC Plasma Cutting &nbsp;/&nbsp; Hot Springs, AR</p>
         <h1 class="h-display">Send us a file.<br>Pick up your parts.</h1>
         <div class="arc-rule"></div>
         <p class="lede">High-definition plasma cutting on a 9&nbsp;ft &times; 16&nbsp;ft Messer table, right here in Hot Springs. Mild steel, stainless and aluminum &mdash; one bracket or a thousand. Most quotes go back the same day.</p>
@@ -1413,6 +1562,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           </div>
 
           <div class="dz-readout" id="tplReadout"></div>
+          <div class="dz-price" id="tplPrice" hidden></div>
           <div class="dz-checks" id="tplChecks"></div>
 
           <div class="dz-actions">
@@ -1493,6 +1643,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           </div>
 
           <div class="dz-readout" id="dxfReadout"></div>
+          <div class="dz-price" id="dxfPrice" hidden></div>
           <div class="dz-checks" id="dxfChecks"></div>
 
           <div class="dz-actions">
@@ -1521,12 +1672,20 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         <div class="contact-line">
           <a href="tel:+18885736201">888-573-6201</a><br>
           <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a><br>
-          <span class="fill">Mon&ndash;Fri 7:00&ndash;4:30 &middot; Sat by appt.</span>
+          <span>Mon&ndash;Fri 7:00&ndash;4:30 &middot; Sat by appt.</span>
         </div>
       </aside>
 
       <div>
-        <form class="quote" id="quoteForm" novalidate>
+        <form class="quote" id="quoteForm" method="POST" enctype="multipart/form-data" novalidate>
+          <!-- FormSubmit control fields -->
+          <input type="hidden" name="_subject" id="fsSubject" value="Quote request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" id="fsNext" value="">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+          <textarea name="Design details" id="fsDesign" style="display:none"></textarea>
+          <input type="file" name="Design drawing" id="fsDesignFile" style="display:none">
           <div class="attached" id="attachedBox" hidden>
             <span class="attached-txt" id="attachedTxt"><b>Design attached</b></span>
             <button type="button" id="attachedClear">Remove</button>
@@ -1549,8 +1708,8 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
               <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
             </div>
             <div class="field">
-              <label for="q-email">Email <span class="req">*</span></label>
-              <input id="q-email" name="email" type="email" autocomplete="email" required>
+              <label for="q-email">Email</label>
+              <input id="q-email" name="email" type="email" autocomplete="email">
             </div>
           </div>
 
@@ -1603,7 +1762,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
 
           <div class="field">
             <label for="q-file">Drawing or photo</label>
-            <input id="q-file" name="file" type="file" accept=".dxf,.dwg,.pdf,.svg,.ai,.eps,.png,.jpg,.jpeg,.heic" multiple>
+            <input id="q-file" name="Your file" type="file" accept=".dxf,.dwg,.pdf,.svg,.ai,.eps,.png,.jpg,.jpeg,.heic" multiple>
             <span class="hint">DXF or DWG cuts fastest. PDF, photo or sketch is fine &mdash; up to 25&nbsp;MB.</span>
           </div>
 
@@ -1633,11 +1792,12 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           <h3>Your request is ready</h3>
           <p id="sentMsg"></p>
           <pre id="sentSummary"></pre>
-          <div class="sent-actions">
-            <button class="btn btn--dark" type="button" id="copyBtn">Copy details</button>
-            <a class="btn btn--primary" href="mailto:sales@rebarandsteel.com">Email the shop</a>
+          <div class="sent-actions" id="sentActions">
+            <a class="btn btn--primary" id="mailBtn" href="mailto:sales@rebarandsteel.com">Open email with my details</a>
+            <button class="btn btn--dark" type="button" id="copyBtn">Copy instead</button>
             <span class="copied" id="copiedNote" hidden>Copied</span>
           </div>
+          <p class="hint" id="sentHint" style="margin:16px 0 0;">Attach your DXF to that email and send it. Or call the shop &mdash; <a href="tel:+18885736201" style="color:var(--ink);">888-573-6201</a>.</p>
         </div>
       </div>
     </div>
@@ -1704,15 +1864,15 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         <p>
           <strong style="color:#F1F0EC;">Mid South Plasma</strong><br>
           A division of Mid South Steel &amp; Rebar, LLC<br><br>
-          172 Stanage Drive<br>
-          Hot Springs, AR 71901<br><br>
+          <a href="https://www.google.com/maps/search/?api=1&query=172+Stanage+Drive+Hot+Springs+AR+71901" target="_blank" rel="noopener">172 Stanage Drive<br>
+          Hot Springs, AR 71901</a><br><br>
           <a href="tel:+18885736201">888-573-6201</a><br>
           <a href="mailto:sales@rebarandsteel.com">sales@rebarandsteel.com</a>
         </p>
       </div>
       <div>
         <h4>Hours</h4>
-        <p class="fill" style="display:inline-block;">
+        <p style="display:inline-block;">
           Monday&ndash;Friday &nbsp;7:00&ndash;4:30<br>
           Saturday &nbsp;by appointment<br>
           Sunday &nbsp;closed
@@ -1747,6 +1907,14 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   </div>
 </footer>
 
+<div class="mbar" id="mbar" aria-label="Quick actions">
+  <a class="call" href="tel:+18885736201">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></svg>
+    Call
+  </a>
+  <a class="quote" href="#quote">Get a Quote</a>
+</div>
+
 <script>
 (function () {
   "use strict";
@@ -1758,7 +1926,17 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
      (Web3Forms, Formspree, Basin, or your own handler) and the form
      will POST the fields and the uploaded file straight to your inbox.
      ------------------------------------------------------------------ */
-  var QUOTE_ENDPOINT = "";
+  var QUOTE_ENDPOINT = "https://formsubmit.co/sales@rebarandsteel.com";
+
+  /* ---------- mobile bar: step aside while the form itself is on screen ---------- */
+  (function () {
+    var bar = document.getElementById("mbar");
+    var quote = document.getElementById("quote");
+    if (!bar || !quote || !("IntersectionObserver" in window)) { return; }
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle("away", entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(quote);
+  })();
 
   /* ---------- year ---------- */
   var yr = document.getElementById("yr");
@@ -1978,8 +2156,14 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         if (pi >= paths.length) { holdFrames = 150; }
       }
       draw();
-      requestAnimationFrame(step);
+      if (running) { requestAnimationFrame(step); }
     }
+
+    /* Only burn frames while the hero is actually on screen. On a phone
+       this is the difference between a warm pocket and a normal one. */
+    var running = false;
+    function start() { if (!running) { running = true; requestAnimationFrame(step); } }
+    function stop()  { running = false; }
 
     if (window.ResizeObserver) {
       new ResizeObserver(resize).observe(canvas);
@@ -1987,8 +2171,19 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       window.addEventListener("resize", resize);
     }
     resize();
-    if (reduce) { pi = paths.length; draw(); }
-    else { requestAnimationFrame(step); }
+    if (reduce) {
+      pi = paths.length; draw();
+    } else if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { start(); } else { stop(); }
+      }, { threshold: 0.05 }).observe(canvas);
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) { stop(); }
+        else if (canvas.getBoundingClientRect().bottom > 0) { start(); }
+      });
+    } else {
+      start();
+    }
   })();
 
   /* ==================================================================
@@ -2010,6 +2205,129 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
   };
 
   var DESIGN = null;
+
+  /* ==================================================================
+     PRICING — the rate card.
+
+     Burn time is charged by the hour. Time comes from the HPR260XD cut
+     charts (speed and pierce delay by thickness) with real-world factors
+     for corners, holes and torch cycling. Material is the plate the part
+     consumes — its bounding rectangle × thickness — at replacement cost
+     marked up to the target margin:  price = cost ÷ (1 − margin).
+
+       per part = (burn $ + material $) × buffer
+       job      = per part × quantity + setup, never below the minimum
+
+     Sources are noted beside each table. Push to publish any change.
+     ================================================================== */
+  var PRICING = {
+
+    public: true,                  /* customers see the estimate */
+    priceStainlessAluminum: false, /* false = those two say "priced by hand".
+                                      Flip on once the costs in `other` are confirmed. */
+
+    burnRate: 85,                  /* $ per hour of machine time          (Brian) */
+    minimum:  175,                 /* $ per job                           (Brian) */
+    setup:    100,                 /* $ per job: programming + loading    (Brian) */
+    buffer:   1.20,                /* learning-period multiplier          (Brian) */
+    margin:   0.27,                /* target gross margin on material     (Brian) */
+    round:    5,                   /* customer-facing number rounds UP to this */
+
+    handlingPerPart: 0,            /* $ per part for deslag, cleanup, handling. 0 = none.
+                                      This is the lever if small decorative work prices too low. */
+    plateYield:     1.10,          /* charge 10% over the bounding box: kerf + skeleton */
+    cutFactor:      1.30,          /* chart speed → real program speed: corners, holes, lead-ins */
+    cutFactorText:  1.50,          /* same, for lettering — lots of small curves */
+    pierceCycleSec: 3.5,           /* torch raise / move / lower per pierce, on top of pierce delay */
+
+    /* Mild steel by thickness: [cut speed ipm, pierce delay s, amps].
+       Hypertherm HPR260XD O2/air cut charts. Gauges under 3/16" are
+       extrapolated from the 80 A chart — estimates. */
+    process: {
+      "0.0598": [240, 0.1, 80],  "0.0747": [220, 0.1, 80],
+      "0.1196": [200, 0.15, 80], "0.1345": [190, 0.2, 80],
+      "0.1875": [190, 0.2, 130], "0.25":   [150, 0.3, 130],
+      "0.3125": [171, 0.3, 200], "0.375":  [140, 0.3, 200],
+      "0.5":    [145, 0.4, 260], "0.625":  [115, 0.5, 260],
+      "0.75":   [90,  0.6, 260], "1":      [65,  0.8, 260],
+      "1.25":   [45,  1.0, 260], "1.5":    [35,  2.0, 260]
+    },
+
+    /* A36 replacement cost, $/lb delivered.
+       3/8, 5/8, 1, 1-1/4 and 1-1/2 are the SOL'S quote of 2026-09-01.
+       The rest are interpolated — thinner plate and sheet run a few
+       percent higher per cwt. Replace with real quotes as they come in. */
+    materialCost: {
+      "0.0598": 1.00,   "0.0747": 1.00,  "0.1196": 0.96,  "0.1345": 0.96,
+      "0.1875": 0.93,   "0.25":   0.90,  "0.3125": 0.88,  "0.375":  0.8721,
+      "0.5":    0.92,   "0.625":  0.982, "0.75":   0.982, "1":      0.982,
+      "1.25":   1.0054, "1.5":    0.982
+    },
+
+    /* Stainless and aluminum — market reference, NOT a supplier quote.
+       fabcostestimator.com finished-stock reference, 2026-10-01:
+       304 $3.33/lb, 5052 $3.80/lb. Cut speeds ~70% of mild steel.
+       Only used when priceStainlessAluminum is true. */
+    other: {
+      "Stainless (304 / 316)":  { costPerLb: 3.33, speedFactor: 0.70, pierceFactor: 1.3 },
+      "Aluminum (5052 / 6061)": { costPerLb: 3.80, speedFactor: 0.70, pierceFactor: 1.0 }
+    },
+
+    /* lb per cubic inch — physics */
+    density: {
+      "Mild steel (A36)": 0.2836,
+      "Stainless (304 / 316)": 0.2890,
+      "Aluminum (5052 / 6061)": 0.0975
+    }
+  };
+
+  var MILD = "Mild steel (A36)";
+
+  function pricingVisible() {
+    if (PRICING.public) { return true; }
+    try {
+      if (/[?&]pricing=1/.test(location.search)) { localStorage.setItem("msp_pricing", "1"); }
+      return localStorage.getItem("msp_pricing") === "1";
+    } catch (e) { return /[?&]pricing=1/.test(location.search); }
+  }
+
+  /* part: { w, h, cut (inches), pierces, hasText }   thk: inches as a number.
+     Returns null when it can't price, { handQuote: true } for a material
+     the shop prices manually, otherwise the priced result. */
+  function priceJob(part, mat, thk, qty) {
+    var key = String(thk), proc = PRICING.process[key];
+    if (!proc) { return null; }
+    var isMild = (mat === MILD), oth = PRICING.other[mat];
+    if (!isMild && (!PRICING.priceStainlessAluminum || !oth)) { return { handQuote: true }; }
+
+    var ipm = proc[0] * (isMild ? 1 : oth.speedFactor);
+    var pierceDelay = proc[1] * (isMild ? 1 : oth.pierceFactor);
+    var factor = part.hasText ? PRICING.cutFactorText : PRICING.cutFactor;
+
+    var cutMin    = (part.cut / ipm) * factor;
+    var pierceMin = part.pierces * (PRICING.pierceCycleSec + pierceDelay) / 60;
+    var burnMin   = cutMin + pierceMin;
+    var burn      = burnMin / 60 * PRICING.burnRate;
+
+    var lbs  = Math.max(0, part.w * part.h * thk * (PRICING.density[mat] || 0.2836)) * PRICING.plateYield;
+    var cost = isMild ? PRICING.materialCost[key] : oth.costPerLb;
+    if (!(cost > 0)) { return null; }
+    var material = lbs * cost / (1 - PRICING.margin);
+
+    var perPart = (burn + material) * PRICING.buffer + (PRICING.handlingPerPart || 0);
+    qty = Math.max(1, qty | 0);
+    var raw = perPart * qty + PRICING.setup;
+    var floored = Math.max(raw, PRICING.minimum);
+    var r = PRICING.round || 1;
+    return {
+      total: Math.ceil(floored / r) * r, perPart: perPart, qty: qty,
+      burnMin: burnMin, burn: burn * PRICING.buffer,
+      lbs: lbs, material: material * PRICING.buffer,
+      setup: PRICING.setup, atMinimum: raw < PRICING.minimum
+    };
+  }
+
+  function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
 
   (function designTool() {
     var picker = document.getElementById("tplPicker");
@@ -2138,19 +2456,64 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       return { w: m.width, asc: asc, desc: desc, h: asc + desc };
     }
 
+    /* Real outline length of rendered text, measured off a raster of the
+       glyphs (marching squares over the alpha mask). Exact on straight
+       edges, ~5% high on curves, so a small correction is applied.
+       Returns the outline in the same units as `px`. */
+    var rcan = document.createElement("canvas");
+    var rctx = rcan.getContext("2d", { willReadFrequently: true });
+    var SEG = [0, .7071, .7071, 1, .7071, 1.4142, 1, .7071, .7071, 1, 1.4142, .7071, 1, .7071, .7071, 0];
+
+    function textOutline(str, px, fam) {
+      if (!str.trim()) { return 0; }
+      var probe = ink(str, px, fam);
+      var scale = Math.min(2200 / Math.max(probe.w, 1), 520 / Math.max(probe.h, 1), 40);
+      var rpx = px * scale;
+      var w = Math.ceil(probe.w * scale) + 16, h = Math.ceil(probe.h * scale) + 16;
+      if (w < 4 || h < 4) { return 0; }
+      rcan.width = w; rcan.height = h;
+      rctx.clearRect(0, 0, w, h);
+      rctx.font = rpx + "px " + fam;
+      rctx.textBaseline = "alphabetic";
+      rctx.fillStyle = "#000";
+      rctx.fillText(str, 8, 8 + probe.asc * scale);
+      var d = rctx.getImageData(0, 0, w, h).data;
+      var W = w + 2, H = h + 2, mask = new Uint8Array(W * H), x, y;
+      for (y = 0; y < h; y++) {
+        for (x = 0; x < w; x++) {
+          if (d[(y * w + x) * 4 + 3] > 127) { mask[(y + 1) * W + (x + 1)] = 1; }
+        }
+      }
+      var total = 0;
+      for (y = 0; y < H - 1; y++) {
+        for (x = 0; x < W - 1; x++) {
+          var i = y * W + x;
+          total += SEG[(mask[i] << 3) | (mask[i + 1] << 2) | (mask[i + W + 1] << 1) | mask[i + W]];
+        }
+      }
+      return (total / scale) * 0.97;
+    }
+
     function textMetrics(str, px, styleKey) {
       var st = STYLES[styleKey] || STYLES.block;
-      var chars = str.split(""), perim = 0, counters = 0, outlines = 0, i;
+      var chars = str.split(""), counters = 0, outlines = 0, i;
       for (i = 0; i < chars.length; i++) {
         var c = chars[i];
         if (c === " ") { continue; }
-        var g = ink(c, px, st.fam);
-        perim += 2 * (g.w + g.h) * st.k;
         counters += COUNTERS[c] || 0;
         outlines += 1;
       }
       if (st.connected) { outlines = str.trim() ? 1 : 0; }
       var full = ink(str, px, st.fam);
+      var perim = textOutline(str, px, st.fam);
+      if (!(perim > 0)) {
+        /* raster unavailable — fall back to the rough per-character estimate */
+        for (i = 0; i < chars.length; i++) {
+          if (chars[i] === " ") { continue; }
+          var g = ink(chars[i], px, st.fam);
+          perim += 2 * (g.w + g.h) * st.k;
+        }
+      }
       return {
         w: full.w, h: full.h, asc: full.asc, desc: full.desc,
         perim: perim, counters: counters, outlines: outlines,
@@ -2236,7 +2599,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
             notes.push(["note", "The middles of characters like 0, 4, 8 and 6 drop out as separate slugs. We tie them in when we program it if you want them held."]);
           }
           return { w: w, h: h, body: body, cuts: cuts, texts: texts, holes: holes,
-                   cut: cut, pierces: pierces, notes: notes, minHole: hd,
+                   cut: cut, pierces: pierces, notes: notes, minHole: hd, hasText: true,
                    strokeIn: ft.px * ft.m.strokeRatio };
         }),
 
@@ -2274,7 +2637,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
           if (p.ring === "none" && ft.m.counters > 0) {
             notes.push(["warn", "With no ring, the middle of a letter like O or A is a loose slug. Add a ring, or we'll put tie bars in when we program it."]);
           }
-          return { w: d, h: d, body: body, cuts: cuts, texts: texts,
+          return { w: d, h: d, body: body, cuts: cuts, texts: texts, hasText: true,
                    cut: cut, pierces: pierces, notes: notes,
                    strokeIn: ft.px * ft.m.strokeRatio };
         }),
@@ -2340,7 +2703,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
             notes.push(["note", "Enclosed letters (A, O, R, e) leave a loose slug in the middle. We tie those in unless you want them open."]);
           }
           return { w: w, h: h, body: body, cuts: cuts, texts: texts, holes: holes,
-                   cut: cut, pierces: pierces, notes: notes, minHole: nh > 0 ? hd : 0,
+                   cut: cut, pierces: pierces, notes: notes, minHole: nh > 0 ? hd : 0, hasText: true,
                    strokeIn: ft.px * ft.m.strokeRatio };
         }),
 
@@ -2630,6 +2993,50 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       }).join("");
     }
 
+    /* Fill a .dz-price panel. Returns the priced result (or null). */
+    function renderPrice(el, part, mat, thk, qty) {
+      if (!el) { return null; }
+      if (!pricingVisible() || !part || !(part.cut > 0)) { el.hidden = true; el.innerHTML = ""; return null; }
+      var pr = priceJob(part, mat, thk, qty);
+      if (!pr) { el.hidden = true; el.innerHTML = ""; return null; }
+
+      if (pr.handQuote) {
+        el.innerHTML =
+          '<div><b>Price</b><span class="amt" style="font-size:22px;line-height:1.25;">' +
+          mat.split(" (")[0] + ' is priced by hand</span>' +
+          '<div class="sub">Send it through and you’ll have a number within one business day.</div></div>';
+        el.hidden = false;
+        return null;
+      }
+
+      var sub = pr.qty > 1
+        ? money(pr.perPart) + " each \u00b7 " + pr.qty + " pcs \u00b7 before tax"
+        : (pr.atMinimum ? "shop minimum \u00b7 before tax" : "one part \u00b7 before tax");
+      var work = (pr.burn + (PRICING.handlingPerPart || 0)) * pr.qty + pr.setup;
+      var rows = pr.atMinimum
+        ? '<tr><td>Shop minimum \u2014 covers programming, setup and a job this size</td><td>' + money(PRICING.minimum) + '</td></tr>'
+        : '<tr><td>Cutting, programming &amp; setup</td><td>' + money(work) + '</td></tr>' +
+          '<tr><td>Steel \u00b7 ' + Math.round(pr.lbs * pr.qty) + ' lb of ' + thkLabelFromValue(thk) + ' plate</td><td>' + money(pr.material * pr.qty) + '</td></tr>';
+      el.innerHTML =
+        '<div><b>Estimated price</b><span class="amt">' + money(pr.total) + '</span>' +
+        '<div class="sub">' + sub + '</div></div>' +
+        '<details><summary>What\u2019s in this</summary><table>' + rows +
+        '<tr class="tot"><td>Estimate</td><td>' + money(pr.total) + '</td></tr>' +
+        '</table></details>' +
+        '<div class="fine">Worked out from your layout and the plate it takes. We confirm the number when we look at the job \u2014 nothing gets cut until you say go.</div>';
+      el.hidden = false;
+      return pr;
+    }
+
+    function thkLabelFromValue(v) {
+      var sel = document.getElementById("d-thk"), i;
+      if (!sel) { return v + '"'; }
+      for (i = 0; i < sel.options.length; i++) {
+        if (parseFloat(sel.options[i].value) === v) { return sel.options[i].textContent; }
+      }
+      return v + '"';
+    }
+
     function stat(label, value, sub) {
       return '<div class="dz-stat"><b>' + label + '</b><span>' + value + '</span>' +
              (sub ? '<em>' + sub + '</em>' : '') + '</div>';
@@ -2642,7 +3049,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     var qtyEl = document.getElementById("d-qty");
     var readEl = document.getElementById("tplReadout");
     var checkEl = document.getElementById("tplChecks");
-    var lastPart = null;
+    var lastPart = null, lastPrice = null;
 
     function thkLabel(sel) { return sel.options[sel.selectedIndex].textContent; }
 
@@ -2681,6 +3088,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         stat("Quantity", String(qty), thkLabel(thkEl) + " " + matEl.value.split(" (")[0].toLowerCase());
 
       renderChecks(checkEl, materialChecks(part, matEl.value, thk));
+      lastPrice = renderPrice(document.getElementById("tplPrice"), part, matEl.value, thk, qty);
     }
 
     /* ---------------- events ---------------- */
@@ -2734,6 +3142,13 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       lines.push("  Overall: " + inches(lastPart.w) + " x " + inches(lastPart.h));
       lines.push("  Cut length: ~" + (lastPart.cut / 12).toFixed(2) + " ft per part");
       lines.push("  Pierces: " + lastPart.pierces + " per part");
+      if (lastPrice) {
+        lines.push("  ESTIMATE SHOWN TO CUSTOMER: " + money(lastPrice.total) +
+          (lastPrice.qty > 1 ? " (" + money(lastPrice.perPart) + " each x " + lastPrice.qty + ")" : "") +
+          " — burn " + Math.round(lastPrice.burnMin * lastPrice.qty) + " min " + money(lastPrice.burn * lastPrice.qty) +
+          ", steel " + Math.round(lastPrice.lbs * lastPrice.qty) + " lb " + money(lastPrice.material * lastPrice.qty) +
+          ", setup " + money(lastPrice.setup) + (lastPrice.atMinimum ? ", at minimum" : ""));
+      }
       void i;
 
       var blob = new Blob([svgDoc(lastPart)], { type: "image/svg+xml" });
@@ -2973,6 +3388,7 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         dxfEmpty.innerHTML = "Nothing cuttable in that file.<br>Send it to us anyway and we&rsquo;ll have a look.";
         dxfRead.innerHTML = "";
         renderChecks(dxfCheck, [["warn", "We couldn't find any lines, arcs or polylines in that file. It may be saved in a format we need to open in CAD — attach it to the quote and we'll check it."]]);
+        renderPrice(document.getElementById("dxfPrice"), null);
         dxfSendBtn.disabled = false;
         return;
       }
@@ -3028,6 +3444,8 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         checks.push(["ok", "Clean file, nothing that'll slow us down. Send it over."]);
       }
       renderChecks(dxfCheck, sortChecks(checks));
+      st.price = renderPrice(document.getElementById("dxfPrice"),
+        { w: w, h: h, cut: len, pierces: st.closed + st.open }, uMat.value, thk, qty);
       dxfSendBtn.disabled = false;
       drawDXF();
       void name;
@@ -3073,7 +3491,9 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       });
     });
     [uMat, uThk, uQty, uUnits].forEach(function (el) {
-      el.addEventListener("change", function () { if (dxfState) { showDXF(dxfState, ""); } });
+      var rerun = function () { if (dxfState) { showDXF(dxfState, ""); } };
+      el.addEventListener("change", rerun);
+      el.addEventListener("input", rerun);
     });
     if (window.ResizeObserver) { new ResizeObserver(drawDXF).observe(dxfCanvas); }
     else { window.addEventListener("resize", drawDXF); }
@@ -3085,6 +3505,14 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
         lines.push("  Overall: " + inches(dxfState.inW) + " x " + inches(dxfState.inH) + " (read as " + dxfState.unitName + ")");
         lines.push("  Cut length: ~" + (dxfState.inLen / 12).toFixed(2) + " ft per part");
         lines.push("  Contours: " + dxfState.polys.length + " (" + dxfState.closed + " closed, " + dxfState.open + " open)");
+        if (dxfState.price) {
+          var dp = dxfState.price;
+          lines.push("  ESTIMATE SHOWN TO CUSTOMER: " + money(dp.total) +
+            (dp.qty > 1 ? " (" + money(dp.perPart) + " each x " + dp.qty + ")" : "") +
+            " — burn " + Math.round(dp.burnMin * dp.qty) + " min " + money(dp.burn * dp.qty) +
+            ", steel " + Math.round(dp.lbs * dp.qty) + " lb " + money(dp.material * dp.qty) +
+            ", setup " + money(dp.setup) + (dp.atMinimum ? ", at minimum" : ""));
+        }
       }
       setDesign({
         kind: "dxf",
@@ -3176,15 +3604,14 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
     function fieldOf(el) { return el.closest(".field"); }
 
     function validate() {
-      ["q-name", "q-phone", "q-email"].forEach(function (id) {
+      ["q-name", "q-phone"].forEach(function (id) {
         var el = document.getElementById(id);
-        var wrap = fieldOf(el);
-        var bad = !el.value.trim();
-        if (!bad && id === "q-email") {
-          bad = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
-        }
-        wrap.classList.toggle("invalid", bad);
+        fieldOf(el).classList.toggle("invalid", !el.value.trim());
       });
+      /* email is optional, but if they typed one it has to look like one */
+      var em = document.getElementById("q-email");
+      var v = em.value.trim();
+      fieldOf(em).classList.toggle("invalid", !!v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
       return form.querySelectorAll(".field.invalid").length === 0;
     }
 
@@ -3225,52 +3652,82 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       return lines.join("\n");
     }
 
+    /* Total attachment budget. FormSubmit caps a submission at 10 MB. */
+    var MAX_UPLOAD = 9 * 1024 * 1024;
+
+    function attachedBytes() {
+      var files = document.getElementById("q-file").files, n = 0, i;
+      for (i = 0; i < files.length; i++) { n += files[i].size; }
+      if (DESIGN && DESIGN.file) { n += DESIGN.file.size; }
+      return n;
+    }
+
+    /* Put the generated drawing into a real file input so a normal
+       multipart POST carries it. AJAX cannot send files to FormSubmit. */
+    function attachDesignFile() {
+      var input = document.getElementById("fsDesignFile");
+      if (!input || !DESIGN || !DESIGN.file || typeof DataTransfer === "undefined") { return; }
+      try {
+        var dt = new DataTransfer();
+        dt.items.add(DESIGN.file);
+        input.files = dt.files;
+      } catch (err) { /* older browser — the spec text still goes */ }
+    }
+
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
       if (!validate()) {
+        e.preventDefault();
         errEl.hidden = false;
-        errEl.textContent = "Fill in your name, phone and a valid email so we can get back to you.";
+        errEl.textContent = "We need a name and a phone number to get back to you. If you added an email, check the spelling.";
         form.querySelector(".field.invalid input").focus();
         return;
       }
       errEl.hidden = true;
 
       if (QUOTE_ENDPOINT) {
-        var data = new FormData(form);
-        if (DESIGN) {
-          data.append("design_spec", DESIGN.spec);
-          data.append("design_kind", DESIGN.kind);
-          if (DESIGN.file) { data.append("design_file", DESIGN.file, DESIGN.file.name); }
+        if (attachedBytes() > MAX_UPLOAD) {
+          e.preventDefault();
+          errEl.hidden = false;
+          errEl.textContent = "Those files add up to more than 9 MB, which is more than the form will carry. " +
+            "Send the request without them and email the files to sales@rebarandsteel.com, or zip them smaller.";
+          return;
         }
+
+        /* fill the FormSubmit control fields, then let the browser post */
+        var name = (document.getElementById("q-name").value || "").trim();
+        var subj = document.getElementById("fsSubject");
+        if (subj) { subj.value = "Quote request" + (name ? " \u2014 " + name : ""); }
+
+        var next = document.getElementById("fsNext");
+        if (next) {
+          /* built from the current address so it survives the move to a custom domain */
+          next.value = location.href.split("#")[0].replace(/\/?(index\.html)?$/, "/") + "thank-you.html";
+        }
+
+        var dz = document.getElementById("fsDesign");
+        if (dz) { dz.value = DESIGN ? DESIGN.spec : ""; }
+        attachDesignFile();
+
+        form.action = QUOTE_ENDPOINT;
         var btn = form.querySelector('button[type="submit"]');
         btn.disabled = true;
-        btn.textContent = "Sending…";
-        fetch(QUOTE_ENDPOINT, { method: "POST", body: data })
-          .then(function (res) {
-            if (!res.ok) { throw new Error("bad response"); }
-            form.hidden = true;
-            panel.hidden = false;
-            msgEl.textContent = "We've got it. Someone from the shop will be back to you with a price within one business day — sooner if you called it in.";
-            sumEl.hidden = true;
-            panel.scrollIntoView({ behavior: "smooth", block: "center" });
-          })
-          .catch(function () {
-            btn.disabled = false;
-            btn.textContent = "Send Quote Request";
-            errEl.hidden = false;
-            errEl.textContent = "That didn't go through. Call the shop or email sales@rebarandsteel.com and we'll take it from there.";
-          });
+        btn.textContent = "Sending\u2026";
+        /* no preventDefault — the browser submits and lands on thank-you.html */
         return;
       }
 
-      /* No endpoint wired yet — hand the customer their details to send. */
+      /* No endpoint configured — hand the customer their details to send. */
+      e.preventDefault();
       form.hidden = true;
       panel.hidden = false;
       sumEl.hidden = false;
-      msgEl.textContent = "This preview site isn't wired to the shop inbox yet. Copy the details below and email or text them to us — or just call and read them off." +
-        (DESIGN && DESIGN.kind === "dxf" ? " Attach your DXF to the email and we'll have everything." : "") +
-        " Either way you'll have a price within one business day.";
+      msgEl.textContent = "One more click and it's on its way. Hit the button below and your email app opens with all of this already filled in \u2014 " +
+        (DESIGN && DESIGN.kind === "dxf"
+          ? "attach your DXF and send it."
+          : "attach a drawing or photo if you have one, and send it.") +
+        " We'll have a price back to you within one business day.";
       sumEl.textContent = summary();
+      buildMailto();
       panel.scrollIntoView({ behavior: "smooth", block: "center" });
     });
 
@@ -3278,6 +3735,18 @@ fieldset{ border:0; margin:0; padding:0; display:flex; flex-direction:column; ga
       var wrap = e.target.closest && e.target.closest(".field.invalid");
       if (wrap && e.target.value.trim()) { wrap.classList.remove("invalid"); }
     });
+
+    function buildMailto() {
+      var a = document.getElementById("mailBtn");
+      if (!a) { return; }
+      var who = (document.getElementById("q-name").value || "").trim();
+      var subject = "Quote request" + (who ? " \u2014 " + who : "");
+      var body = sumEl.textContent +
+        "\n\n(Attach your drawing or DXF to this email before sending.)";
+      a.setAttribute("href", "mailto:sales@rebarandsteel.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body));
+    }
 
     if (copyBtn) {
       copyBtn.addEventListener("click", function () {
